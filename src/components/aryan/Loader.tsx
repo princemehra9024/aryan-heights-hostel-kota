@@ -6,12 +6,22 @@ export const Loader = () => {
   const container = useRef<HTMLDivElement>(null);
   const content = useRef<HTMLDivElement>(null);
   const logoRef = useRef<HTMLImageElement>(null);
-  const textRef = useRef<HTMLHeadingElement>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
   const barRefs = useRef<HTMLDivElement[]>([]);
   const [done, setDone] = useState(false);
 
   useEffect(() => {
+    // Split title into letters for staggered animation
+    const title = titleRef.current;
+    if (title) {
+      const text = title.textContent || "";
+      title.innerHTML = text
+        .split("")
+        .map((char) => `<span class="inline-block translate-y-[110%] opacity-0">${char === " " ? "&nbsp;" : char}</span>`)
+        .join("");
+    }
+
     const tl = gsap.timeline({
       onComplete: () => {
         // Exit animation
@@ -21,63 +31,67 @@ export const Loader = () => {
 
         exitTl.to(content.current, {
           opacity: 0,
-          y: -20,
-          duration: 0.8,
-          ease: "power4.inOut"
+          y: -40,
+          scale: 0.98,
+          filter: "blur(10px)",
+          duration: 1,
+          ease: "expo.inOut"
         });
 
         exitTl.to(barRefs.current, {
           scaleY: 0,
-          duration: 1.2,
+          duration: 1.5,
           stagger: {
-            each: 0.1,
-            from: "start"
+            amount: 0.4,
+            from: "center"
           },
           ease: "expo.inOut"
-        }, "-=0.4");
+        }, "-=0.6");
       },
     });
 
     // Initial state
     gsap.set(barRefs.current, { scaleY: 1 });
-    gsap.set([logoRef.current, textRef.current, counterRef.current], { 
-      opacity: 0, 
-      y: 40 
-    });
+    gsap.set(logoRef.current, { opacity: 0, scale: 0.8, y: 20 });
+    gsap.set(counterRef.current, { opacity: 0, y: 10 });
 
-    // Intro animation
+    // Intro sequence
     tl.to(logoRef.current, {
-      opacity: 1,
+      opacity: 0.8,
+      scale: 1,
       y: 0,
-      duration: 1.2,
-      ease: "power4.out"
+      duration: 1.5,
+      ease: "expo.out"
     });
 
-    tl.to(textRef.current, {
-      opacity: 1,
-      y: 0,
-      duration: 1.2,
-      ease: "power4.out"
-    }, "-=0.8");
+    if (title) {
+      tl.to(title.querySelectorAll("span"), {
+        y: "0%",
+        opacity: 1,
+        duration: 1.2,
+        stagger: 0.03,
+        ease: "expo.out"
+      }, "-=1");
+    }
 
-    // Counter animation
+    // Counter logic
     const obj = { v: 0 };
     tl.to(obj, {
       v: 100,
-      duration: 2.5,
-      ease: "none",
+      duration: 3,
+      ease: "power2.inOut",
       onUpdate: () => {
         if (counterRef.current) {
           counterRef.current.textContent = Math.round(obj.v).toString().padStart(3, "0");
         }
       }
-    }, "-=1");
+    }, "-=1.5");
 
     tl.to(counterRef.current, {
       opacity: 1,
       y: 0,
-      duration: 0.8
-    }, "-=2.5");
+      duration: 1
+    }, "-=3");
 
     return () => {
       tl.kill();
@@ -87,67 +101,88 @@ export const Loader = () => {
   if (done) return null;
 
   return (
-    <div ref={container} className="fixed inset-0 z-[100] flex flex-col overflow-hidden">
+    <div ref={container} className="fixed inset-0 z-[100] flex flex-col overflow-hidden bg-black">
+      {/* Editorial Grain */}
+      <div className="absolute inset-0 pointer-events-none z-50 opacity-[0.03] mix-blend-overlay">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+          <filter id="noiseFilter">
+            <feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch" />
+          </filter>
+          <rect width="100%" height="100%" filter="url(#noiseFilter)" />
+        </svg>
+      </div>
+
       {/* Background Bars */}
       <div className="absolute inset-0 flex">
-        {[...Array(5)].map((_, i) => (
+        {[...Array(6)].map((_, i) => (
           <div
             key={i}
             ref={(el) => (el ? (barRefs.current[i] = el) : null)}
-            className="flex-1 bg-background origin-top border-r border-white/5 last:border-r-0"
+            className="flex-1 bg-background origin-top border-r border-white/[0.03] last:border-r-0"
           />
         ))}
       </div>
 
       {/* Content */}
       <div ref={content} className="relative z-10 flex-1 flex flex-col items-center justify-center">
-        <div className="flex flex-col items-center gap-12 max-w-4xl px-8">
-          <div className="overflow-hidden">
+        <div className="flex flex-col items-center gap-16 max-w-5xl px-8 w-full">
+          <div className="relative">
             <img 
               ref={logoRef}
               src={logo} 
               alt="Aryan Heights" 
-              className="w-24 h-24 md:w-32 md:h-32 object-contain brightness-0 invert opacity-80" 
+              className="w-20 h-20 md:w-28 md:h-28 object-contain brightness-0 invert opacity-60" 
             />
+            {/* Subtle glow behind logo */}
+            <div className="absolute inset-0 bg-white/5 blur-3xl rounded-full scale-150" />
           </div>
           
-          <div className="overflow-hidden text-center">
+          <div className="text-center">
             <h1 
-              ref={textRef}
-              className="font-display text-5xl md:text-8xl tracking-[0.2em] uppercase leading-none"
+              ref={titleRef}
+              className="font-display text-4xl md:text-7xl lg:text-9xl tracking-[0.25em] uppercase leading-none text-foreground/90 whitespace-nowrap"
             >
-              Aryan <br className="md:hidden" /> Heights
+              Aryan Heights
             </h1>
           </div>
 
-          <div className="overflow-hidden mt-8">
+          <div className="mt-4 flex flex-col items-center gap-4">
             <div 
               ref={counterRef}
-              className="font-mono-tag text-3xl md:text-5xl text-foreground/40"
+              className="font-mono-tag text-2xl md:text-4xl text-foreground/30 tabular-nums"
             >
               000
             </div>
+            <div className="h-px w-12 bg-white/10" />
           </div>
         </div>
 
-        {/* Floating Details */}
-        <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end overflow-hidden">
-          <div className="flex flex-col gap-2">
-            <span className="eyebrow text-foreground/30">Established</span>
-            <span className="font-display text-xl">2010</span>
+        {/* Floating Metadata */}
+        <div className="absolute bottom-12 left-12 right-12 flex justify-between items-end">
+          <div className="flex flex-col gap-1">
+            <span className="eyebrow text-foreground/20 text-[0.6rem]">Curated Residence</span>
+            <span className="font-display text-lg opacity-60">Est. 2010</span>
           </div>
-          <div className="flex flex-col items-end gap-2 text-right">
-            <span className="eyebrow text-foreground/30">Location</span>
-            <span className="font-display text-xl text-right">Kota, Rajasthan</span>
+          
+          <div className="hidden md:flex flex-col items-center">
+             <span className="eyebrow text-foreground/20 text-[0.6rem]">Series</span>
+             <span className="font-display text-lg opacity-60">Vol. 26</span>
+          </div>
+
+          <div className="flex flex-col items-end gap-1 text-right">
+            <span className="eyebrow text-foreground/20 text-[0.6rem]">Region</span>
+            <span className="font-display text-lg opacity-60">Kota · RJ</span>
           </div>
         </div>
       </div>
       
-      {/* Decorative lines */}
-      <div className="absolute inset-0 pointer-events-none opacity-20">
-        <div className="v-hairline absolute left-1/4" />
-        <div className="v-hairline absolute left-2/4" />
-        <div className="v-hairline absolute left-3/4" />
+      {/* Structural Accents */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.05]">
+        <div className="v-hairline absolute left-1/6" />
+        <div className="v-hairline absolute left-2/6" />
+        <div className="v-hairline absolute left-3/6" />
+        <div className="v-hairline absolute left-4/6" />
+        <div className="v-hairline absolute left-5/6" />
       </div>
     </div>
   );

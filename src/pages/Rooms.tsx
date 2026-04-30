@@ -5,6 +5,9 @@ import { Link } from "react-router-dom";
 import { Nav } from "@/components/aryan/Nav";
 import { Cursor } from "@/components/aryan/Cursor";
 import { SmoothScroll } from "@/components/aryan/SmoothScroll";
+import { SEO } from "@/components/aryan/SEO";
+import { Footer } from "@/components/aryan/Footer";
+import { Coffee, ShieldCheck, Wifi, Sparkles } from "lucide-react";
 import roomSingleImg from "@/assets/room-single.jpg";
 import studyRoomImg from "@/assets/study-room.jpg";
 import hallwayImg from "@/assets/hallway.jpg";
@@ -182,6 +185,11 @@ const RoomsPage = () => {
       <SmoothScroll />
       <Cursor />
       <Nav />
+      <SEO 
+        title="Rooms & Pricing" 
+        description="Explore our curated room tiers: Twin Sharing, Single AC, and Premium Suites. All-inclusive rates starting from ₹9,500." 
+        keywords="kota hostel prices, single ac room kota, luxury student suites, aryan heights room rates"
+      />
 
       {/* ═══════════════════════════════════════════════════
           SECTION 1 — HERO: dark split + full-bleed image
@@ -436,20 +444,29 @@ const RoomsPage = () => {
             </div>
           </div>
 
-          {/* Perks grid */}
-          <div className="perks-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          {/* Perks grid — Awwwards Structural Layout */}
+          <div className="perks-row grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-l border-hairline mt-12">
             {[
-              { label: "3 Meals Daily",       sub: "Breakfast, lunch & dinner served fresh every day.", icon: "🍽️" },
-              { label: "24/7 Security",        sub: "CCTV coverage and on-site warden staff round the clock.", icon: "🔒" },
-              { label: "High-Speed Wi-Fi",     sub: "Dedicated connection per floor. No throttling.", icon: "📡" },
-              { label: "Daily Housekeeping",   sub: "Professional cleaning service every single day.", icon: "✨" },
+              { id: "01", label: "3 Meals Daily",       sub: "Breakfast, lunch & dinner served fresh every day.", Icon: Coffee },
+              { id: "02", label: "24/7 Security",        sub: "CCTV coverage and on-site warden staff round the clock.", Icon: ShieldCheck },
+              { id: "03", label: "High-Speed Wi-Fi",     sub: "Dedicated connection per floor. No throttling.", Icon: Wifi },
+              { id: "04", label: "Housekeeping",   sub: "Professional cleaning service every single day.", Icon: Sparkles },
             ].map((p) => (
-              <div key={p.label} className="perk-item group p-8 rounded-[1.5rem] border border-hairline bg-surface hover:border-maroon/40 transition-colors duration-500">
-                <span className="text-4xl mb-6 block">{p.icon}</span>
-                {/* Perk title — word clip reveal per card */}
-                <h4 className="scroll-word-reveal font-display text-xl tracking-tight mb-3">{p.label}</h4>
-                {/* Perk body — word-by-word */}
-                <p className="scroll-words-body text-foreground/50 text-sm leading-relaxed">{p.sub}</p>
+              <div key={p.id} className="perk-item relative group p-10 border-r border-b border-hairline overflow-hidden transition-colors duration-700 hover:bg-surface">
+                {/* Structural highlight overlay */}
+                <div className="absolute inset-0 bg-maroon/5 translate-y-[101%] group-hover:translate-y-0 transition-transform duration-[800ms] ease-[cubic-bezier(0.16,1,0.3,1)]" />
+                
+                <div className="relative z-10 flex flex-col h-full justify-between min-h-[160px]">
+                  <div className="flex justify-between items-start mb-12">
+                    <span className="eyebrow text-foreground/30 text-[0.6rem]">{p.id}</span>
+                    <p.Icon className="w-5 h-5 text-foreground/40 group-hover:text-maroon transition-colors duration-500" strokeWidth={1.5} />
+                  </div>
+                  
+                  <div>
+                    <h4 className="scroll-word-reveal font-display text-xl tracking-tight mb-3 group-hover:text-maroon transition-colors duration-500">{p.label}</h4>
+                    <p className="text-foreground/50 text-xs leading-relaxed">{p.sub}</p>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
@@ -474,7 +491,8 @@ const RoomsPage = () => {
 
         </div>
       </section>
-
+      
+      <Footer />
     </div>
   );
 };

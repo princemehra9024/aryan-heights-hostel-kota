@@ -14,10 +14,17 @@ import { Wardens } from "@/components/aryan/Wardens";
 import { WhyChooseUs } from "@/components/aryan/WhyChooseUs";
 import { Location } from "@/components/aryan/Location";
 import { Contact } from "@/components/aryan/Contact";
+import { SEO } from "@/components/aryan/SEO";
+import { Footer } from "@/components/aryan/Footer";
 
 const Index = () => {
   return (
     <main className="bg-background text-foreground grain relative">
+      <SEO 
+        title="Premium Boys Hostel in Kota" 
+        description="Aryan Heights offers the finest student living experience in Kota. AC rooms, healthy meals, and walking distance to Allen coaching." 
+        keywords="best hostel kota, boys hostel landmark city, aryan heights kota, resonance kota hostel"
+      />
       <Loader />
       <SmoothScroll />
       <Cursor />
@@ -34,6 +41,7 @@ const Index = () => {
       <WhyChooseUs />
       <Location />
       <Contact />
+      <Footer />
     </main>
   );
 };

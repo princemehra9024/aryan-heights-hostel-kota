@@ -1,5 +1,6 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { gsap } from "gsap";
 import logo from "@/assets/logo.png";
 import { FullscreenMenu } from "./FullscreenMenu";
 import { useTheme } from "@/context/ThemeContext";
@@ -33,6 +34,7 @@ export const Nav = () => {
   const { theme, toggle } = useTheme();
   const location = useLocation();
   const isRoomsPage = location.pathname === "/rooms";
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -40,10 +42,25 @@ export const Nav = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    // Initial entrance animation synced with the splash screen (only on initial load)
+    // Wait for the splash screen to finish (~4.8s) then animate the nav down
+    if (headerRef.current) {
+      gsap.from(headerRef.current, {
+        yPercent: -100,
+        opacity: 0,
+        duration: 1.2,
+        ease: "expo.out",
+        delay: 4.8 // Just slightly before the hero text
+      });
+    }
+  }, []);
+
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-700 ${
+        ref={headerRef}
+        className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-700 ${
           scrolled
             ? "py-2 bg-background/80 backdrop-blur-xl border-b border-hairline shadow-sm"
             : "py-4"

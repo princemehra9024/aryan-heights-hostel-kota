@@ -12,12 +12,14 @@ export const Hero = () => {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ delay: 1.4, defaults: { ease: "expo.out" } });
-      tl.from("[data-hero-line] span", { yPercent: 110, duration: 1.2, stagger: 0.08 })
-        .from("[data-hero-tag]", { opacity: 0, y: 20, duration: 0.8 }, "-=0.8")
-        .from("[data-hero-meta]", { opacity: 0, y: 16, duration: 0.8, stagger: 0.08 }, "-=0.6")
-        .from(img.current, { scale: 1.25, duration: 1.6 }, 0)
-        .from("[data-hero-rotator]", { opacity: 0, y: 20, duration: 0.6 }, "-=0.4");
+      // Syncing with the Loader exit (Loader finishes intro at 4.5s, bars start sliding out at 4.9s)
+      const tl = gsap.timeline({ delay: 5.0, defaults: { ease: "expo.out" } });
+      
+      tl.from("[data-hero-line] span", { yPercent: 110, duration: 1.4, stagger: 0.1 })
+        .from("[data-hero-tag]", { opacity: 0, x: -20, duration: 1 }, "-=1")
+        .from(img.current, { scale: 1.15, filter: "blur(10px)", duration: 2, ease: "power4.out" }, "-=1.4")
+        .from("[data-hero-meta]", { opacity: 0, y: 20, duration: 1, stagger: 0.1 }, "-=1.2")
+        .from("[data-hero-rotator]", { opacity: 0, y: 20, duration: 1 }, "-=1.0");
 
       gsap.to(img.current, {
         yPercent: 18, ease: "none",
