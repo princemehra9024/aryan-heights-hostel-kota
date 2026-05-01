@@ -3,9 +3,9 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const items = [
-  { q: "Two years at Aryan Heights and I never once worried about my son. The wardens know him by name. The food is honest. Today, he's at IIT Bombay.", a: "Suresh Iyer · Parent · 2023" },
-  { q: "The study floors changed how I prepared. Quiet, lit just right, open at 3 AM when I needed it. AIR 412, NEET 2024.", a: "Aakash Verma · Resident · 2022–24" },
-  { q: "Cleanest mess I've eaten in across three Kota hostels. Real ghee. Real care. You can taste the difference.", a: "Manav Sharma · Resident · 2024" },
+  { q: "Two years at Aryan Heights and I never once worried about my son. Premium AC room, attached bathroom, home-style food — everything a parent hopes for. The discipline here is real.", a: "Ramesh Gupta · Parent · 2024" },
+  { q: "The dedicated study environment changed everything for me. Silent, distraction-free, always available. Indra Vihar location means coaching institutes are right there. Best decision I made in Kota.", a: "Priyank Sharma · Resident · 2023–24" },
+  { q: "AC room with balcony, in-house gym, clean mess, RO water, power backup — I never had to think about anything except my preparation. That peace of mind is priceless.", a: "Deepak Meena · Resident · 2024" },
 ];
 
 export const Testimonials = () => {

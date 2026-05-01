@@ -5,16 +5,16 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const stats = [
   ["15+", "Years of Service"],
   ["1200+", "Aspirants Housed"],
-  ["98%", "Re-enrollment"],
-  ["3 min", "Walk to Allen"],
-  ["24/7", "Warden On Duty"],
-  ["4", "Floors of Care"],
+  ["AC", "Rooms Only"],
+  ["Walk", "To Coaching Institutes"],
+  ["24×7", "Security & Warden"],
+  ["RO", "Purified Water"],
 ];
 
 const quotes = [
-  { q: "Two years at Aryan Heights and I never once worried about my son. Today, he's at IIT Bombay.", a: "Suresh Iyer · Parent · 2023" },
-  { q: "The study floors changed how I prepared. Quiet, lit just right, open at 3 AM. AIR 412, NEET 2024.", a: "Aakash Verma · Resident · 2022–24" },
-  { q: "Cleanest mess across three Kota hostels I tried. Real ghee. Real care. You can taste the difference.", a: "Manav Sharma · Resident · 2024" },
+  { q: "Two years at Aryan Heights and I never once worried about my son. The warden knows him by name. The food is honest. The environment is exactly what a serious student needs.", a: "Ramesh Gupta · Parent · 2024" },
+  { q: "The study environment here changed how I prepared. Quiet, distraction-free, open when I needed it most. Aryan Heights gave me the focus I came to Kota for.", a: "Priyank Sharma · Resident · 2023–24" },
+  { q: "AC room, attached bathroom, gym, mess — everything under one roof. No need to go anywhere. Indra Vihar location is perfect, coaching institutes are just a walk away.", a: "Deepak Meena · Resident · 2024" },
 ];
 
 export const WhyChooseUs = () => {

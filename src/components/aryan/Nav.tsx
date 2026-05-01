@@ -21,20 +21,30 @@ const MoonIcon = () => (
   </svg>
 );
 
+const EyeIcon = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+    <circle cx="12" cy="12" r="3"/>
+  </svg>
+);
+
 // Links that are anchors on home page
 const homeAnchors = [
   { label: "About", href: "/#about" },
   { label: "Facilities", href: "/#facilities" },
   { label: "Gallery", href: "/#gallery" },
+  { label: "Contact", href: "/contact" },
 ];
 
 export const Nav = () => {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+  const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const { theme, toggle } = useTheme();
   const location = useLocation();
   const isRoomsPage = location.pathname === "/rooms";
   const headerRef = useRef<HTMLElement>(null);
+  const indicatorRef = useRef<HTMLSpanElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -43,15 +53,15 @@ export const Nav = () => {
   }, []);
 
   useEffect(() => {
-    // Initial entrance animation synced with the splash screen (only on initial load)
-    // Wait for the splash screen to finish (~4.8s) then animate the nav down
     if (headerRef.current) {
-      gsap.from(headerRef.current, {
-        yPercent: -100,
-        opacity: 0,
-        duration: 1.2,
+      // Set initial state explicitly
+      gsap.set(headerRef.current, { yPercent: -100, opacity: 0 });
+      gsap.to(headerRef.current, {
+        yPercent: 0,
+        opacity: 1,
+        duration: 1.4,
         ease: "expo.out",
-        delay: 4.8 // Just slightly before the hero text
+        delay: 4.8,
       });
     }
   }, []);
@@ -60,89 +70,161 @@ export const Nav = () => {
     <>
       <header
         ref={headerRef}
-        className={`fixed top-0 left-0 right-0 z-40 transition-colors duration-700 ${
-          scrolled
-            ? "py-2 bg-background/80 backdrop-blur-xl border-b border-hairline shadow-sm"
-            : "py-4"
-        }`}
+        className="fixed top-0 left-0 right-0 z-[50]"
+        style={{ opacity: 0 }}
       >
-        <div className="max-w-[1700px] mx-auto px-5 md:px-8 flex items-center justify-between gap-6">
+        {/* ── Glass background — appears on scroll ── */}
+        <div
+          className="absolute inset-0 transition-all duration-700"
+          style={{
+            background: scrolled
+              ? `hsl(var(--bg) / 0.95)`
+              : "transparent",
+            backdropFilter: scrolled ? "blur(32px) saturate(1.8)" : "none",
+            WebkitBackdropFilter: scrolled ? "blur(32px) saturate(1.8)" : "none",
+            boxShadow: scrolled
+              ? "0 1px 0 hsl(var(--hairline) / 0.6), 0 8px 32px -8px hsl(var(--bg) / 0.6)"
+              : "none",
+          }}
+        />
 
-          {/* ── Logo ── */}
-          <Link to="/" className="flex items-center gap-3 group" data-cursor>
-            <div className="relative overflow-hidden rounded-full w-12 h-12 flex items-center justify-center">
+        {/* ── Maroon accent line — top edge ── */}
+        <div
+          className="absolute top-0 left-0 right-0 h-[3px] transition-all duration-700"
+          style={{
+            background: "linear-gradient(90deg, transparent 5%, hsl(var(--maroon)) 50%, transparent 95%)",
+            opacity: scrolled ? 0.9 : 0,
+            transform: scrolled ? "scaleX(1)" : "scaleX(0.3)",
+          }}
+        />
+
+        {/* ── Inner Container ── */}
+        <div
+          className={`relative z-10 max-w-[1700px] mx-auto px-5 md:px-10 flex items-center justify-between transition-all duration-700 ${
+            scrolled ? "h-[80px] md:h-[90px]" : "h-[96px] md:h-[110px]"
+          }`}
+        >
+          {/* ════ LEFT: Logo ════ */}
+          <Link to="/" className="flex items-center gap-4 md:gap-5 group relative" data-cursor>
+            {/* Subtle glow behind logo on hover */}
+            <div className="absolute -inset-4 rounded-full bg-maroon/0 group-hover:bg-maroon/5 transition-all duration-500" />
+            
+            <div className="relative flex items-center justify-center">
               <img
                 src={logo}
                 alt="Aryan Heights"
-                className="w-12 h-12 object-contain transition-transform duration-500 group-hover:scale-110"
+                className={`object-contain transition-all duration-500 group-hover:scale-110 drop-shadow-md ${
+                  scrolled ? "w-12 h-12 md:w-14 md:h-14" : "w-16 h-16 md:w-[84px] md:h-[84px]"
+                } ${theme === "dark" ? "brightness-0 invert opacity-100 drop-shadow-[0_0_15px_rgba(255,255,255,0.2)]" : ""}`}
               />
             </div>
-            <div className="hidden sm:flex flex-col leading-none">
-              <span className="font-display text-base tracking-wide text-foreground">Aryan Heights</span>
-              <span className="eyebrow text-foreground/50 text-[0.58rem] mt-0.5">Boys Hostel · Kota</span>
+
+            {/* Typography */}
+            <div className="hidden sm:flex flex-col leading-none relative">
+              <span
+                className={`font-display font-bold tracking-[0.03em] text-foreground transition-all duration-500 ${
+                  scrolled ? "text-[1.1rem] md:text-[1.25rem]" : "text-[1.4rem] md:text-[1.7rem]"
+                }`}
+              >
+                Aryan Heights
+              </span>
+              <span className={`eyebrow font-medium text-maroon transition-all duration-500 uppercase tracking-[0.25em] ${
+                scrolled ? "text-[0.55rem] md:text-[0.6rem] mt-1" : "text-[0.65rem] md:text-[0.75rem] mt-1.5"
+              }`}>
+                Boys Hostel · Kota
+              </span>
             </div>
           </Link>
 
-          {/* ── Desktop nav links ── */}
-          <nav className="hidden md:flex items-center gap-8">
-            {homeAnchors.map((l) => (
+          {/* ════ CENTER: Nav Links ════ */}
+          <nav className="hidden lg:flex items-center relative">
+            {/* Pill background container — upgraded glass effect */}
+            <div className="flex items-center gap-1 bg-surface/80 backdrop-blur-md rounded-full px-1.5 py-1 border border-hairline shadow-sm">
+              {homeAnchors.map((l) => (
+                <a
+                  key={l.href}
+                  href={l.href}
+                  onMouseEnter={() => setHoveredLink(l.label)}
+                  onMouseLeave={() => setHoveredLink(null)}
+                  className={`relative px-4 py-2 rounded-full text-[0.68rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 ${
+                    hoveredLink === l.label
+                      ? "text-foreground bg-foreground/[0.08]"
+                      : "text-foreground/60 hover:text-foreground/90"
+                  }`}
+                >
+                  {l.label}
+                </a>
+              ))}
+              {/* Divider */}
+              <div className="w-px h-4 bg-hairline mx-2" />
+              {/* Enquire */}
               <a
-                key={l.href}
-                href={l.href}
-                className="relative text-sm text-foreground/70 hover:text-foreground transition-colors duration-300 group"
+                href="https://wa.me/919829000000"
+                onMouseEnter={() => setHoveredLink("Enquire")}
+                onMouseLeave={() => setHoveredLink(null)}
+                className={`relative px-4 py-2 rounded-full text-[0.68rem] font-medium tracking-[0.12em] uppercase transition-all duration-300 ${
+                  hoveredLink === "Enquire"
+                    ? "text-maroon bg-maroon/10"
+                    : "text-foreground/50 hover:text-foreground/80"
+                }`}
               >
-                {l.label}
-                <span className="absolute -bottom-0.5 left-0 w-0 h-px bg-maroon transition-all duration-300 group-hover:w-full" />
+                Enquire
               </a>
-            ))}
-            {/* Rooms — dedicated page link */}
-            <Link
-              to="/rooms"
-              className={`relative text-sm transition-colors duration-300 group ${
-                isRoomsPage ? "text-maroon font-semibold" : "text-foreground/70 hover:text-foreground"
-              }`}
-            >
-              Rooms
-              <span className={`absolute -bottom-0.5 left-0 h-px bg-maroon transition-all duration-300 group-hover:w-full ${isRoomsPage ? "w-full" : "w-0"}`} />
-            </Link>
+            </div>
           </nav>
 
-          {/* ── Right controls ── */}
-          <div className="flex items-center gap-3">
+          {/* ════ RIGHT: Actions ════ */}
+          <div className="flex items-center gap-2 md:gap-2.5">
             {/* Theme toggle */}
             <button
               onClick={toggle}
               aria-label="Toggle theme"
               title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-              className="w-9 h-9 rounded-full border border-hairline flex items-center justify-center text-foreground/70 hover:text-foreground hover:border-maroon hover:bg-surface transition-all duration-300"
+              className="w-9 h-9 rounded-full border border-hairline flex items-center justify-center text-foreground/50 hover:text-foreground hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-300 shadow-sm"
             >
-              <span className="transition-all duration-300">
+              <span className="transition-transform duration-500 hover:rotate-180">
                 {theme === "dark" ? <SunIcon /> : <MoonIcon />}
               </span>
             </button>
 
-            <a
-              href="https://wa.me/919829000000"
-              className="hidden sm:inline-flex items-center gap-2 text-sm text-foreground/70 hover:text-maroon transition-colors duration-300"
+            {/* Book a Visit button — Unique interactive design */}
+            <Link
+              to="/rooms"
+              className="hidden md:inline-flex items-center justify-center relative overflow-hidden px-6 py-2.5 rounded-full border border-maroon/30 group transition-all duration-500 shadow-sm hover:border-maroon"
             >
-              Enquire
-            </a>
-
-            <Link to="/rooms" className="btn-pill text-xs hidden sm:inline-flex">
-              Book a Visit
+              <div className="absolute inset-0 bg-maroon translate-y-[101%] group-hover:translate-y-0 transition-transform duration-500 ease-out rounded-full" />
+              <span className="relative z-10 text-[0.65rem] font-bold tracking-[0.15em] uppercase text-foreground transition-colors duration-500 group-hover:text-white flex items-center gap-2">
+                Book a Visit
+                <span className="inline-block transition-transform duration-500 group-hover:translate-x-1">→</span>
+              </span>
             </Link>
 
-            {/* Hamburger */}
+            {/* Hamburger — refined */}
             <button
               onClick={() => setOpen(true)}
               aria-label="Open menu"
-              className="w-9 h-9 rounded-full border border-hairline flex flex-col items-center justify-center gap-[5px] hover:bg-surface hover:border-maroon transition-all duration-300 group"
+              className="w-10 h-10 rounded-full border border-hairline flex flex-col items-center justify-center gap-[5px] hover:border-foreground/30 hover:bg-foreground/5 transition-all duration-300 group ml-0.5 shadow-sm"
             >
-              <span className="w-4 h-px bg-foreground/70 transition-all duration-300 group-hover:w-5 group-hover:bg-foreground" />
-              <span className="w-3 h-px bg-foreground/70 transition-all duration-300 group-hover:w-5 group-hover:bg-foreground" />
+              <span
+                className="h-[1.5px] bg-foreground/60 transition-all duration-300 group-hover:bg-foreground group-hover:w-[18px]"
+                style={{ width: "16px" }}
+              />
+              <span
+                className="h-[1.5px] bg-foreground/60 transition-all duration-300 group-hover:bg-foreground group-hover:w-[18px]"
+                style={{ width: "11px" }}
+              />
             </button>
           </div>
         </div>
+
+        {/* ── Bottom hairline ── */}
+        <div
+          className="absolute bottom-0 left-0 right-0 h-px transition-opacity duration-700"
+          style={{
+            background: `linear-gradient(90deg, transparent, hsl(var(--hairline)), transparent)`,
+            opacity: scrolled ? 0.8 : 0.15,
+          }}
+        />
       </header>
 
       <FullscreenMenu open={open} onClose={() => setOpen(false)} />

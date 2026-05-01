@@ -3,12 +3,11 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import hero from "@/assets/hero-building.jpg";
 
-const rotators = ["24/7 Security", "Mess like Home", "3 min to Allen", "Study halls open all night"];
+const rotators = ["High-Speed WiFi", "In-house Gym", "Mess Facility", "24×7 Security", "RO Drinking Water", "Power Backup"];
 
 export const Hero = () => {
   const root = useRef<HTMLDivElement>(null);
   const img = useRef<HTMLImageElement>(null);
-  const rot = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -26,13 +25,7 @@ export const Hero = () => {
         scrollTrigger: { trigger: root.current, start: "top top", end: "bottom top", scrub: true },
       });
 
-      const items = rot.current?.querySelectorAll("[data-rot-item]");
-      if (items && items.length) {
-        const rtl = gsap.timeline({ repeat: -1 });
-        items.forEach((_, i) => {
-          rtl.to(items, { yPercent: -100 * (i + 1), duration: 0.7, ease: "expo.inOut" }, `+=1.4`);
-        });
-      }
+      // Static amenities — no auto-slide, user sees all at once
     }, root);
     return () => ctx.revert();
   }, []);
@@ -61,17 +54,14 @@ export const Hero = () => {
         </div>
         <div className="md:col-span-5 relative h-[60svh] md:h-[80svh] overflow-hidden rounded-sm">
           <img ref={img} src={hero} alt="Aryan Heights hostel exterior at golden hour" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1280} />
-          <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(var(--bg) / 0.1), hsl(var(--bg) / 0.7))" }} />
-          <div className="absolute top-6 left-6 eyebrow text-foreground/80">Kota · Rajasthan</div>
+          <div className="absolute top-6 left-6 eyebrow text-foreground/80">Indra Vihar · Kota</div>
           <div className="absolute top-6 right-6 eyebrow text-foreground/80">26.91°N · 75.79°E</div>
           <div data-hero-rotator className="absolute bottom-6 left-6 right-6">
             <div className="eyebrow text-foreground/60 mb-3">What you get</div>
-            <div className="h-9 overflow-hidden">
-              <div ref={rot}>
-                {[...rotators, rotators[0]].map((r, i) => (
-                  <div key={i} data-rot-item className="h-9 flex items-center font-display text-2xl md:text-3xl">{r}</div>
-                ))}
-              </div>
+            <div className="flex flex-wrap gap-2">
+              {rotators.map((r, i) => (
+                <span key={i} className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium tracking-wide bg-background/60 backdrop-blur-md text-foreground/90 border border-foreground/10">{r}</span>
+              ))}
             </div>
           </div>
         </div>

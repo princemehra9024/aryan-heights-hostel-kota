@@ -39,15 +39,15 @@ export const Contact = () => {
           </div>
           <div className="md:col-span-3">
             <div className="eyebrow text-foreground/55 mb-3">Address</div>
-            <p className="font-display text-xl leading-snug">Aryan Heights Boys Hostel<br/>Talwandi, Kota<br/>Rajasthan 324005</p>
+            <p className="font-display text-xl leading-snug">Aryan Heights Boys Hostel<br/>A-723(A), Indra Vihar<br/>Kota, Rajasthan</p>
           </div>
           <div className="md:col-span-3">
             <div className="eyebrow text-foreground/55 mb-3">Reach Out</div>
-            <p className="font-display text-xl">+91 98290 00000<br/>hello@aryanheights.in</p>
-            <p className="eyebrow text-foreground/55 mt-4">Mon — Sun · 9 AM — 7 PM</p>
+            <p className="font-display text-xl">+91 94141 41723<br/>+91 77374 77740</p>
+            <p className="eyebrow text-foreground/55 mt-4">Mon — Sun · 9 AM — 8 PM</p>
           </div>
           <div className="md:col-span-3 flex md:justify-end items-end">
-            <a href="https://wa.me/919829000000" className="btn-arrow">WhatsApp Us <span>→</span></a>
+            <a href="https://wa.me/919414141723" className="btn-arrow">WhatsApp Us <span>→</span></a>
           </div>
         </div>
 

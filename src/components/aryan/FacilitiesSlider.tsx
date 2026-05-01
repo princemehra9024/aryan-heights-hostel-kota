@@ -8,12 +8,12 @@ import mess from "@/assets/mess-hall.jpg";
 import room from "@/assets/room-single.jpg";
 
 const slides = [
-  { t: "Wi-Fi 300 Mbps", c: "Dedicated fibre line, redundant routers, never throttled during mocks.", img: hallway },
-  { t: "RO + UV Water", c: "On every floor, tested monthly, zero plastic bottles.", img: room },
-  { t: "Power Backup", c: "Full-load generator + inverter. Lights stay on, AC stays on.", img: study },
-  { t: "CCTV & Security", c: "32 cameras, biometric entry, two wardens on duty 24/7.", img: rooftop },
-  { t: "Laundry", c: "Pickup Mon & Thu, machine-washed, ironed, returned in 24 hrs.", img: mess },
-  { t: "Housekeeping", c: "Daily room cleaning, weekly deep-clean, fresh linen weekly.", img: gym },
+  { t: "Wi-Fi 300 Mbps", c: "Dedicated fibre line, redundant routers, never throttled during mocks.", img: study },
+  { t: "RO + UV Water", c: "On every floor, tested monthly, zero plastic bottles.", img: mess },
+  { t: "Power Backup", c: "Full-load generator + inverter. Lights stay on, AC stays on.", img: rooftop },
+  { t: "CCTV & Security", c: "32 cameras, biometric entry, two wardens on duty 24/7.", img: hallway },
+  { t: "Laundry", c: "Pickup Mon & Thu, machine-washed, ironed, returned in 24 hrs.", img: gym },
+  { t: "Housekeeping", c: "Daily room cleaning, weekly deep-clean, fresh linen weekly.", img: room },
 ];
 
 export const FacilitiesSlider = () => {

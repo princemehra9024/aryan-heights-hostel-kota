@@ -7,10 +7,10 @@ import study from "@/assets/study-room.jpg";
 import gym from "@/assets/gym.jpg";
 
 const services = [
-  { title: "Rooms", copy: "Single & twin sharing, AC and non-AC, attached bath, daily housekeeping.", img: room, n: "01" },
-  { title: "Mess", copy: "Three home-style meals, real ghee, weekly menu rotation, parent-tasted.", img: mess, n: "02" },
-  { title: "Study Halls", copy: "Silent floors, individual desks, 24/7 access, lit just right.", img: study, n: "03" },
-  { title: "Wellness", copy: "Gym, rooftop, doctor on call, mental wellness check-ins.", img: gym, n: "04" },
+  { title: "Rooms", copy: "AC single & double rooms with balcony option, attached bathrooms, daily housekeeping, laundry & hot water.", img: room, n: "01" },
+  { title: "Mess", copy: "In-house mess facility with home-style nutritious meals. Pure veg, hygienic kitchen, and daily fresh cooking.", img: mess, n: "02" },
+  { title: "Study Hall", copy: "Dedicated silent study environment designed for serious aspirants. Distraction-free floors, ample light, and 24/7 access.", img: study, n: "03" },
+  { title: "Wellness", copy: "In-house gym facility, common area for relaxation, RO drinking water, power backup & 24×7 CCTV security.", img: gym, n: "04" },
 ];
 
 export const Facilities = () => {
@@ -36,7 +36,7 @@ export const Facilities = () => {
               <div className="hairline w-12" />
             </div>
           </div>
-          <p className="md:col-span-3 text-foreground/65 text-sm">Four pillars. No compromises. Every floor designed by parents who once sent their own son to Kota.</p>
+          <p className="md:col-span-3 text-foreground/65 text-sm">Four pillars. No compromises. Every floor designed so the only thing he thinks about is his next exam.</p>
         </div>
         <div className="hidden md:flex gap-4 mb-12 opacity-20">
           <div className="hairline w-40" />
@@ -47,7 +47,7 @@ export const Facilities = () => {
           {services.map((s) => (
             <article key={s.title} data-svc-card className="group relative overflow-hidden surface aspect-[4/5]">
               <img src={s.img} alt={s.title} loading="lazy" className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:scale-110 group-hover:opacity-100 transition-all duration-[1200ms] ease-[var(--ease-out-expo)]" />
-              <div className="absolute inset-0" style={{ background: "linear-gradient(180deg, hsl(var(--bg) / 0.1), hsl(var(--bg) / 0.85))" }} />
+              <div className="absolute inset-x-0 bottom-0 h-[45%]" style={{ background: "linear-gradient(to top, hsl(var(--bg) / 0.7), transparent)" }} />
               <div className="absolute top-5 left-5 eyebrow text-foreground/80">{s.n}</div>
               <div className="absolute top-5 right-5 w-9 h-9 rounded-full border border-foreground/40 flex items-center justify-center text-foreground/80 group-hover:bg-ivory group-hover:text-ink transition-all">→</div>
               <div className="absolute bottom-5 left-5 right-5">

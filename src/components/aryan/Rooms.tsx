@@ -9,9 +9,9 @@ import studyRoomImg from "@/assets/study-room.jpg";
 gsap.registerPlugin(ScrollTrigger);
 
 const tiers = [
-  { id: "01", name: "Twin Sharing", price: "₹9,500", tag: "Shared", img: hallwayImg },
-  { id: "02", name: "Single AC",    price: "₹16,500", tag: "Featured", img: roomSingleImg, featured: true },
-  { id: "03", name: "Premium Suite",price: "₹22,000", tag: "Suite",   img: studyRoomImg },
+  { id: "01", name: "AC Single Room",  price: "On Call", tag: "Balcony",     img: roomSingleImg, featured: false },
+  { id: "02", name: "AC Single Room",  price: "On Call", tag: "Non-Balcony • Most Picked", img: roomSingleImg, featured: true  },
+  { id: "03", name: "AC Double Room",  price: "On Call", tag: "Balcony",     img: studyRoomImg },
 ];
 
 export const Rooms = () => {
@@ -113,7 +113,7 @@ export const Rooms = () => {
               {/* Badge */}
               {t.featured && (
                 <div className="absolute top-5 left-5 z-10">
-                  <span className="eyebrow text-[0.55rem] px-3 py-1.5 bg-maroon text-ivory rounded-full tracking-widest">
+                  <span className="eyebrow text-[0.55rem] px-3 py-1.5 bg-maroon text-white rounded-full tracking-widest">
                     Most Picked
                   </span>
                 </div>
@@ -127,10 +127,11 @@ export const Rooms = () => {
               {/* Content */}
               <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
                 <span className="eyebrow text-[0.58rem] text-white/60 tracking-widest block mb-2">{t.tag}</span>
-                <h3 className="font-display text-3xl text-ivory leading-tight tracking-tight mb-3">{t.name}</h3>
+                <h3 className="font-display text-3xl text-white leading-tight tracking-tight mb-3">{t.name}</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-2xl text-ivory">{t.price}</span>
-                  <span className="text-white/50 text-xs">/ month</span>
+                  <span className="font-display text-xl text-white">{t.price}</span>
+                  {t.price !== "On Call" && <span className="text-white/50 text-xs">/ month</span>}
+                  {t.price === "On Call" && <span className="text-white/50 text-xs">call for pricing</span>}
                 </div>
 
                 {/* Arrow — slides in on hover */}
@@ -147,7 +148,7 @@ export const Rooms = () => {
 
         {/* ── Bottom note ── */}
         <p className="mt-10 text-center eyebrow text-foreground/35 text-[0.62rem] tracking-widest">
-          All rates include meals · electricity · Wi-Fi · housekeeping
+          All rooms include attached bathroom · daily housekeeping · Wi-Fi · hot water · power backup
         </p>
 
       </div>

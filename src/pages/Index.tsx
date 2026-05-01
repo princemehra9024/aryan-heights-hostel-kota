@@ -12,6 +12,7 @@ import { Mess } from "@/components/aryan/Mess";
 import { Gallery } from "@/components/aryan/Gallery";
 import { Wardens } from "@/components/aryan/Wardens";
 import { WhyChooseUs } from "@/components/aryan/WhyChooseUs";
+import { Rules } from "@/components/aryan/Rules";
 import { Location } from "@/components/aryan/Location";
 import { Contact } from "@/components/aryan/Contact";
 import { SEO } from "@/components/aryan/SEO";
@@ -19,7 +20,7 @@ import { Footer } from "@/components/aryan/Footer";
 
 const Index = () => {
   return (
-    <main className="bg-background text-foreground grain relative">
+    <main className="bg-background text-foreground grain relative overflow-x-hidden w-full">
       <SEO 
         title="Premium Boys Hostel in Kota" 
         description="Aryan Heights offers the finest student living experience in Kota. AC rooms, healthy meals, and walking distance to Allen coaching." 
@@ -39,6 +40,7 @@ const Index = () => {
       <Gallery />
       <Wardens />
       <WhyChooseUs />
+      <Rules />
       <Location />
       <Contact />
       <Footer />

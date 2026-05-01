@@ -30,25 +30,25 @@ const Check = () => (
 /* ─── Data ────────────────────────────────────────────────── */
 const rooms = [
   {
-    id: "01", tag: "Shared", name: "Twin Sharing",
-    tagline: "Smart. Social. Affordable.",
-    price: "₹9,500", priceNote: "/ month",
-    capacity: "2 Students", image: hallwayImg, dark: false,
-    amenities: ["Orthopaedic beds","Dedicated study desk","Attached bathroom","Daily housekeeping","Three meals daily","High-speed Wi-Fi"],
+    id: "01", tag: "Balcony", name: "AC Single Room",
+    tagline: "Private. Peaceful. Productive.",
+    price: "On Call", priceNote: "call for pricing",
+    capacity: "1 Student", image: roomSingleImg, dark: false,
+    amenities: ["AC with attached bathroom","Private balcony","Fully furnished","Daily housekeeping","High-speed Wi-Fi","Hot water & RO water"],
   },
   {
-    id: "02", tag: "Private", name: "Single AC",
+    id: "02", tag: "Non-Balcony · Most Picked", name: "AC Single Room",
     tagline: "Focus. Comfort. Excellence.",
-    price: "₹16,500", priceNote: "/ month",
-    capacity: "1 Student", image: roomSingleImg, dark: true, featured: true,
-    amenities: ["1.5-ton split AC","Ergonomic desk + lamp","Bathroom with geyser","Linen change weekly","Three meals daily","Priority Wi-Fi"],
+    price: "On Call", priceNote: "call for pricing",
+    capacity: "1 Student", image: hallwayImg, dark: true, featured: true,
+    amenities: ["AC with attached bathroom","Fully furnished room","Laundry service","Daily cleaning","High-speed Wi-Fi","Power backup"],
   },
   {
-    id: "03", tag: "Suite", name: "Premium Suite",
-    tagline: "Luxury. Privacy. Prestige.",
-    price: "₹22,000", priceNote: "/ month",
-    capacity: "1 Student", image: studyRoomImg, dark: false,
-    amenities: ["Private balcony + AC","Mini fridge + lounge","Premium bath + geyser","Priority laundry","Meals + evening snacks","Dedicated Wi-Fi router"],
+    id: "03", tag: "Balcony", name: "AC Double Room",
+    tagline: "Spacious. Ventilated. Premium.",
+    price: "On Call", priceNote: "call for pricing",
+    capacity: "2 Students", image: studyRoomImg, dark: false,
+    amenities: ["AC with private balcony","Attached bathroom","Fully furnished","Laundry & housekeeping","CCTV security","Hot water & power backup"],
   },
 ];
 
@@ -181,14 +181,14 @@ const RoomsPage = () => {
   }, []);
 
   return (
-    <div ref={pageRef} className="bg-background text-foreground min-h-screen grain">
+    <div ref={pageRef} className="bg-background text-foreground min-h-screen grain overflow-x-hidden w-full">
       <SmoothScroll />
       <Cursor />
       <Nav />
       <SEO 
         title="Rooms & Pricing" 
-        description="Explore our curated room tiers: Twin Sharing, Single AC, and Premium Suites. All-inclusive rates starting from ₹9,500." 
-        keywords="kota hostel prices, single ac room kota, luxury student suites, aryan heights room rates"
+        description="Aryan Heights Boys Hostel offers AC Single Rooms (Balcony & Non-Balcony) and AC Double Rooms in Indra Vihar, Kota. All rooms fully furnished with attached bathrooms. Rent on call: 9414141723." 
+        keywords="AC single room boys hostel Kota, AC double room hostel Kota, furnished room Indra Vihar Kota, aryan heights room pricing"
       />
 
       {/* ═══════════════════════════════════════════════════
@@ -198,7 +198,7 @@ const RoomsPage = () => {
       <section className="relative h-screen min-h-[640px] max-h-[900px] flex overflow-hidden">
 
         {/* Left: dark editorial panel */}
-        <div className="hero-dark-panel relative z-10 flex flex-col justify-between w-full md:w-[42%] lg:w-[36%] bg-[#13141a] text-ivory px-8 md:px-12 lg:px-16 pt-32 pb-10">
+        <div className="hero-dark-panel relative z-10 flex flex-col justify-between w-full md:w-[42%] lg:w-[36%] bg-[#13141a] text-white px-8 md:px-12 lg:px-16 pt-32 pb-10">
 
           {/* Eyebrow — char-cascade on load */}
           <div>
@@ -207,7 +207,7 @@ const RoomsPage = () => {
             </div>
 
             {/* Big title — word clip reveal */}
-            <h1 className="hero-title-word font-display text-5xl md:text-6xl lg:text-7xl leading-[1] tracking-tight mb-1">Rooms</h1>
+            <h1 className="hero-title-word font-display text-5xl md:text-6xl lg:text-7xl leading-[1] tracking-tight mb-1 text-white">Rooms</h1>
             <h1 className="hero-title-word font-display text-5xl md:text-6xl lg:text-7xl leading-[1] tracking-tight text-maroon italic">&amp; Suites</h1>
 
             {/* Subtitle — word-by-word fade */}
@@ -219,15 +219,15 @@ const RoomsPage = () => {
 
             {/* Price start callout */}
             <div className="mt-10 h-fade flex items-baseline gap-2">
-              <span className="font-display text-4xl text-ivory">₹9,500</span>
-              <span className="text-white/40 text-xs tracking-widest">STARTING / MONTH</span>
+              <span className="font-display text-3xl text-white">Rent: On Call</span>
+              <span className="text-white/40 text-xs tracking-widest">9414141723</span>
             </div>
           </div>
 
           {/* Bottom CTA */}
           <div className="h-fade flex flex-col gap-4">
             <a href="#room-01"
-              className="group inline-flex items-center gap-4 bg-maroon text-ivory px-7 py-4 rounded-full text-xs font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-ivory hover:text-[#13141a] self-start">
+              className="group inline-flex items-center gap-4 bg-maroon text-white px-7 py-4 rounded-full text-xs font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-white hover:text-black self-start">
               Explore Rooms <span className="transition-transform group-hover:translate-x-1"><ArrowRight size={16} /></span>
             </a>
             <Link to="/"
@@ -254,10 +254,10 @@ const RoomsPage = () => {
       <div className="stats-bar border-b border-hairline bg-surface">
         <div className="max-w-[1700px] mx-auto px-8 md:px-12 py-8 grid grid-cols-2 md:grid-cols-4 divide-x divide-hairline">
           {[
-            { val: 3,  suffix: "",            label: "Room Tiers" },
-            { val: 14, suffix: "+",           label: "Years Operating" },
-            { val: 500, suffix: "+",          label: "Students Housed" },
-            { val: 0,  suffix: " Hidden Fees",label: "Guaranteed" },
+            { val: 3,  suffix: "",               label: "AC Room Types" },
+            { val: 15, suffix: "+",              label: "Years Operating" },
+            { val: 1200, suffix: "+",            label: "Students Housed" },
+            { val: 0,  suffix: " Hidden Fees",   label: "Guaranteed" },
           ].map((s, i) => (
             <div key={i} className="px-6 md:px-10 first:pl-0 last:pr-0 py-2">
               <div className="font-display text-3xl md:text-4xl tracking-tighter leading-none">
@@ -300,25 +300,25 @@ const RoomsPage = () => {
             {/* ── Room 01: Twin Sharing — Wide horizontal card ── */}
             <article id="room-01" className="bento-card md:col-span-7 group flex flex-col md:flex-row overflow-hidden rounded-[1.5rem] border border-hairline bg-surface" style={{minHeight:'220px'}}>
               <div className="relative overflow-hidden md:w-[52%] h-40 md:h-[260px]">
-                <img src={hallwayImg} alt="Twin Sharing" loading="lazy" decoding="async"
+                <img src={roomSingleImg} alt="Twin Sharing" loading="lazy" decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface/20" />
                 <span className="absolute top-3 left-3 eyebrow text-[0.55rem] px-2.5 py-1 bg-background/80 backdrop-blur-sm text-foreground/80 rounded-full border border-hairline">SHARED / 01</span>
               </div>
               <div className="md:w-[48%] p-5 md:p-6 flex flex-col justify-between">
                 <div>
-                  <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mb-1">Twin Sharing</h3>
-                  <p className="scroll-words-body text-foreground/50 text-xs mb-4">Smart. Social. Affordable.</p>
+                  <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mb-1">AC Single Room</h3>
+                  <p className="scroll-words-body text-foreground/50 text-xs mb-4">Private. Peaceful. Productive.</p>
                   <ul className="space-y-2">
-                    {["Orthopaedic beds", "Study desk per student", "Attached bathroom", "Three meals daily"].map(a => (
+                    {["AC with attached bathroom", "Private balcony", "Fully furnished", "Daily housekeeping & laundry"].map(a => (
                       <li key={a} className="flex items-start gap-2 text-xs text-foreground/70"><Check />{a}</li>
                     ))}
                   </ul>
                 </div>
                 <div className="mt-4 pt-4 border-t border-hairline flex items-center justify-between">
                   <div>
-                    <div className="font-display text-2xl tracking-tighter">₹9,500</div>
-                    <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">per month</div>
+                    <div className="font-display text-2xl tracking-tighter">On Call</div>
+                    <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">9414141723</div>
                   </div>
                   <a href="/#contact"
                     className="group/btn inline-flex items-center gap-2 bg-foreground text-background px-4 py-2.5 rounded-full text-[0.65rem] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-maroon hover:text-ivory">
@@ -330,7 +330,7 @@ const RoomsPage = () => {
 
             {/* ── Room 02: Single AC — Tall dark card ── */}
             <article id="room-02"
-              className="bento-card md:col-span-5 group relative overflow-hidden rounded-[1.5rem] bg-[#13141a] text-ivory flex flex-col"
+              className="bento-card md:col-span-5 group relative overflow-hidden rounded-[1.5rem] bg-[#13141a] text-white flex flex-col"
               style={{ minHeight: "220px", boxShadow: "0 20px 60px -15px rgba(128,0,32,0.25)" }}>
 
               {/* Image fills top */}
@@ -339,7 +339,7 @@ const RoomsPage = () => {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] opacity-80" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#13141a]" />
                 <div className="absolute top-3 left-3">
-                  <span className="eyebrow text-[0.55rem] px-2.5 py-1 bg-maroon text-ivory rounded-full tracking-widest">Most Picked</span>
+                  <span className="eyebrow text-[0.55rem] px-2.5 py-1 bg-maroon text-white rounded-full tracking-widest">Most Picked</span>
                 </div>
                 <div className="absolute top-3 right-3">
                   <span className="eyebrow text-[0.55rem] text-white/50">PRIVATE / 02</span>
@@ -349,10 +349,10 @@ const RoomsPage = () => {
               {/* Content */}
               <div className="p-5 flex flex-col flex-1 justify-between">
                 <div>
-                  <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mb-1">Single AC</h3>
+                   <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mb-1">AC Single Room</h3>
                   <p className="scroll-words-body text-white/50 text-xs mb-3">Focus. Comfort. Excellence.</p>
                   <ul className="space-y-2">
-                    {["1.5-ton split AC", "Ergonomic desk + lamp", "Bathroom with geyser", "Priority Wi-Fi"].map(a => (
+                    {["AC with attached bathroom","Fully furnished room","High-speed Wi-Fi","Power backup & laundry"].map(a => (
                       <li key={a} className="flex items-start gap-2 text-xs text-white/70">
                         <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-maroon flex-shrink-0 mt-[2px]"><polyline points="20 6 9 17 4 12" /></svg>
                         {a}
@@ -362,11 +362,11 @@ const RoomsPage = () => {
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
                   <div>
-                    <div className="font-display text-2xl tracking-tighter">₹16,500</div>
-                    <div className="eyebrow text-white/35 text-[0.55rem] mt-0.5">per month</div>
+                    <div className="font-display text-2xl tracking-tighter">On Call</div>
+                    <div className="eyebrow text-white/35 text-[0.55rem] mt-0.5">9414141723</div>
                   </div>
                   <a href="/#contact"
-                    className="group/btn inline-flex items-center gap-2 bg-ivory text-[#13141a] px-4 py-2.5 rounded-full text-[0.65rem] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-maroon hover:text-ivory">
+                    className="group/btn inline-flex items-center gap-2 bg-white text-black px-4 py-2.5 rounded-full text-[0.65rem] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-maroon hover:text-white">
                     Reserve <span className="transition-transform group-hover/btn:translate-x-1"><ArrowRight size={12} /></span>
                   </a>
                 </div>
@@ -391,8 +391,8 @@ const RoomsPage = () => {
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <span className="scroll-char-reveal eyebrow text-maroon text-[0.58rem] border border-maroon/40 px-2.5 py-1 rounded-full">5-Star Experience</span>
-                    <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mt-3 leading-tight">Premium Suite</h3>
-                    <p className="scroll-words-body text-foreground/50 text-xs mt-1">Luxury. Privacy. Prestige.</p>
+                   <h3 className="scroll-word-reveal font-display text-2xl md:text-3xl tracking-tight mt-3 leading-tight">AC Double Room</h3>
+                    <p className="scroll-words-body text-foreground/50 text-xs mt-1">Spacious. Ventilated. Premium.</p>
                   </div>
                   <div className="w-14 h-14 rounded-full border border-maroon/30 flex flex-col items-center justify-center flex-shrink-0">
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="none" className="text-maroon mb-0.5">
@@ -403,15 +403,15 @@ const RoomsPage = () => {
                 </div>
 
                 <div className="grid grid-cols-2 gap-x-4 gap-y-1.5 mb-4">
-                  {["Private balcony + AC", "Mini fridge + lounge", "Premium bath + geyser", "Priority laundry", "Meals + evening snacks", "Dedicated router"].map(a => (
+                  {["AC with private balcony","Attached bathroom","Fully furnished","Laundry & housekeeping","CCTV security","Hot water & power backup"].map(a => (
                     <div key={a} className="flex items-start gap-2 text-xs text-foreground/70"><Check />{a}</div>
                   ))}
                 </div>
 
                 <div className="pt-4 border-t border-hairline flex items-center justify-between">
                   <div>
-                    <div className="font-display text-2xl tracking-tighter">₹22,000</div>
-                    <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">per month · all inclusive</div>
+                    <div className="font-display text-2xl tracking-tighter">On Call</div>
+                    <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">9414141723 · 7737477740</div>
                   </div>
                   <a href="/#contact"
                     className="group/btn inline-flex items-center gap-2 bg-foreground text-background px-4 py-2.5 rounded-full text-[0.65rem] font-bold tracking-widest uppercase transition-all duration-300 hover:bg-maroon hover:text-ivory">
@@ -478,12 +478,12 @@ const RoomsPage = () => {
           <div className="mt-10 flex flex-col md:flex-row items-center justify-between gap-6">
             {/* Fine print — char cascade */}
             <p className="scroll-char-reveal eyebrow text-foreground/35 text-[0.62rem] tracking-widest text-center md:text-left max-w-lg">
-              All prices include three meals daily, electricity, high-speed Wi-Fi, and daily housekeeping.
-              Rates subject to availability. No deposit surprises.
+              All rooms include attached bathroom, daily housekeeping, high-speed Wi-Fi, hot water, power backup & RO drinking water.
+              Rent on call. Contact: 9414141723 | 7737477740
             </p>
             {/* CTA — word reveal */}
             <a href="/#contact"
-              className="group inline-flex items-center gap-4 bg-maroon text-ivory px-8 py-4 rounded-full text-xs font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-foreground hover:text-background flex-shrink-0">
+              className="group inline-flex items-center gap-4 bg-maroon text-white px-8 py-4 rounded-full text-xs font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-foreground hover:text-background flex-shrink-0">
               <span className="scroll-word-reveal">Book a Visit Today</span>
               <span className="transition-transform group-hover:translate-x-1"><ArrowRight size={16} /></span>
             </a>

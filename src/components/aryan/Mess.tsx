@@ -17,13 +17,18 @@ export const Mess = () => {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
     const ctx = gsap.context(() => {
-      ScrollTrigger.create({
-        trigger: root.current,
-        start: "top top",
-        end: "+=80%",
-        pin: "[data-mess-img]",
-        pinSpacing: false,
+      let mm = gsap.matchMedia();
+
+      mm.add("(min-width: 768px)", () => {
+        ScrollTrigger.create({
+          trigger: root.current,
+          start: "top top",
+          end: "+=80%",
+          pin: "[data-mess-img]",
+          pinSpacing: false,
+        });
       });
+
       gsap.from("[data-menu-row]", {
         x: -40, opacity: 0, stagger: 0.08, duration: 0.9, ease: "expo.out",
         scrollTrigger: { trigger: "[data-menu-row]", start: "top 80%" },
@@ -34,7 +39,7 @@ export const Mess = () => {
   return (
     <section ref={root} id="mess" className="py-28 md:py-40 border-t border-hairline relative">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12">
-        <div data-mess-img className="md:col-span-5 h-[80svh] overflow-hidden">
+        <div data-mess-img className="md:col-span-5 h-[50svh] md:h-[80svh] overflow-hidden">
           <img src={mess} alt="Mess hall" className="w-full h-full object-cover" loading="lazy" />
           <div className="eyebrow text-foreground/55 mt-3">Three meals · Snacks · Pure veg</div>
         </div>
