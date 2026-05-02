@@ -31,7 +31,6 @@ const EyeIcon = () => (
 // Sub-links for Home dropdown
 const homeAnchors = [
   { label: "About", href: "/#about" },
-  { label: "Facilities", href: "/#facilities" },
   { label: "Mess", href: "/#mess" },
   { label: "Gallery", href: "/#gallery" },
   { label: "Wardens", href: "/#wardens" },

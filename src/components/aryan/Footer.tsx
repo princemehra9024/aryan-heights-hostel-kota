@@ -87,7 +87,6 @@ export const Footer = () => {
             <div className="md:col-span-6 flex flex-col gap-2">
               {[
                 { name: "About", path: "/#about" },
-                { name: "Facilities", path: "/#facilities" },
                 { name: "Rooms", path: "/rooms", isRouter: true },
                 { name: "Gallery", path: "/#gallery" },
                 { name: "Contact", path: "/contact", isRouter: true }

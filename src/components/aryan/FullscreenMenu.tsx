@@ -12,7 +12,6 @@ const links = [
 
 const otherLinks = [
   { label: "About",      href: "/#about" },
-  { label: "Facilities", href: "/#facilities" },
   { label: "Mess",       href: "/#mess" },
   { label: "Gallery",    href: "/#gallery" },
   { label: "Wardens",    href: "/#wardens" },

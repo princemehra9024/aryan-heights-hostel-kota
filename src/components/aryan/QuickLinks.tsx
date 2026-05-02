@@ -13,7 +13,6 @@ export const QuickLinks = () => {
     { title: "Rooms", href: "/rooms", isRouter: true, desc: "Explore our premium living spaces" },
     { title: "Contact", href: "/contact", isRouter: true, desc: "Get in touch with us" },
     { title: "Privacy Policy", href: "/policies", isRouter: true, desc: "Read our privacy guidelines" },
-    { title: "Facilities", href: "/#facilities", isRouter: false, desc: "View all amenities" },
     { title: "Gallery", href: "/#gallery", isRouter: false, desc: "See the hostel in pictures" },
   ];
 

@@ -6,9 +6,7 @@ import { Hero } from "@/components/aryan/Hero";
 import { QuickLinks } from "@/components/aryan/QuickLinks";
 import { Marquee } from "@/components/aryan/Marquee";
 import { About } from "@/components/aryan/About";
-import { Facilities } from "@/components/aryan/Facilities";
 import { Rooms } from "@/components/aryan/Rooms";
-import { FacilitiesSlider } from "@/components/aryan/FacilitiesSlider";
 import { Mess } from "@/components/aryan/Mess";
 import { Gallery } from "@/components/aryan/Gallery";
 import { Wardens } from "@/components/aryan/Wardens";
@@ -35,9 +33,7 @@ const Index = () => {
       <QuickLinks />
       <Marquee />
       <About />
-      <Facilities />
       <Rooms />
-      <FacilitiesSlider />
       <Mess />
       <Gallery />
       <Wardens />
