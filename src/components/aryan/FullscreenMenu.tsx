@@ -4,15 +4,19 @@ import { Link } from "react-router-dom";
 
 // Links with full paths so they work from any page (e.g. /rooms → /#about)
 const links = [
+  { label: "Home",       href: "/" },
+  { label: "Rooms",      href: "/rooms" },
+  { label: "Policies",   href: "/policies" },
+  { label: "Contact",    href: "/contact" },
+];
+
+const otherLinks = [
   { label: "About",      href: "/#about" },
   { label: "Facilities", href: "/#facilities" },
-  { label: "Rooms",      href: "/rooms" },
   { label: "Mess",       href: "/#mess" },
   { label: "Gallery",    href: "/#gallery" },
   { label: "Wardens",    href: "/#wardens" },
   { label: "Rules",      href: "/#rules" },
-  { label: "Policies",   href: "/policies" },
-  { label: "Contact",    href: "/contact" },
 ];
 
 export const FullscreenMenu = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
@@ -39,9 +43,9 @@ export const FullscreenMenu = ({ open, onClose }: { open: boolean; onClose: () =
       <div className="flex-1 grid md:grid-cols-12 gap-8 px-5 md:px-8 py-10 overflow-y-auto">
         <nav className="md:col-span-8 flex flex-col justify-center gap-1">
           {links.map(({ label, href }, i) => (
-            <a
+            <Link
               key={href}
-              href={href}
+              to={href}
               onClick={onClose}
               className="block overflow-hidden"
             >
@@ -54,13 +58,19 @@ export const FullscreenMenu = ({ open, onClose }: { open: boolean; onClose: () =
                 </span>
                 {label}
               </span>
-            </a>
+            </Link>
           ))}
         </nav>
         <aside className="md:col-span-4 flex flex-col justify-end gap-8 text-sm">
           <div data-menu-meta>
-            <div className="eyebrow text-foreground/50 mb-2">Address</div>
-            <p className="font-display text-lg">Talwandi, Kota<br/>Rajasthan 324005</p>
+            <div className="eyebrow text-foreground/50 mb-4">Discover</div>
+            <div className="flex flex-col gap-2">
+              {otherLinks.map((link) => (
+                <Link key={link.href} to={link.href} onClick={onClose} className="font-display text-xl hover:text-maroon transition-colors">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
           </div>
           <div data-menu-meta>
             <div className="eyebrow text-foreground/50 mb-2">Reach Out</div>
