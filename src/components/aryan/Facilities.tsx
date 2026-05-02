@@ -25,13 +25,13 @@ export const Facilities = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={root} id="facilities" className="py-28 md:py-40 border-t border-hairline">
+    <section ref={root} id="facilities" className="py-16 md:py-40 border-t border-hairline">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8">
-        <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
+        <div className="grid md:grid-cols-12 gap-6 md:gap-8 items-end mb-12 md:mb-16">
           <div className="md:col-span-2 eyebrow text-foreground/55">(03) — Services</div>
           <div className="md:col-span-7">
-            <h2 className="font-display text-5xl md:text-7xl leading-[1] tracking-tighter">Built for the way<br/>he actually lives.</h2>
-            <div className="flex gap-4 mt-8 opacity-20 md:hidden">
+            <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] tracking-tighter">Built for the way<br/>he actually lives.</h2>
+            <div className="flex gap-4 mt-6 md:mt-8 opacity-20 md:hidden">
               <div className="hairline flex-1" />
               <div className="hairline w-12" />
             </div>

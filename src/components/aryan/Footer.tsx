@@ -1,137 +1,195 @@
 import { Link } from "react-router-dom";
 import dayVideo from "@/assets/day-footer.mp4";
 import nightVideo from "@/assets/nigh-footert.mp4";
-import { Mail, Facebook, Instagram, Navigation, Phone, Globe, CreditCard } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
 
-export const Footer = () => {
-  const { theme } = useTheme();
-  const isDayTime = theme === "light";
+const AnimatedLink = ({ href, text, className, textClass, isRouterLink = false }: { href: string, text: string, className?: string, textClass?: string, isRouterLink?: boolean }) => {
+  const content = (
+    <>
+      <span className={`inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] group-hover:-translate-y-[110%] ${textClass || ""}`}>{text}</span>
+      <span className={`absolute left-0 top-0 md:top-1 inline-block transition-transform duration-700 ease-[cubic-bezier(0.76,0,0.24,1)] translate-y-[110%] group-hover:translate-y-0 text-maroon italic pr-4 ${textClass || ""}`}>{text}</span>
+    </>
+  );
 
-  const textColor = isDayTime ? "text-slate-900" : "text-white";
-  const textMuted = isDayTime ? "text-slate-700" : "text-white/80";
-  const textMutedHover = isDayTime ? "hover:text-slate-900" : "hover:text-white";
-  const borderColor = isDayTime ? "border-slate-300" : "border-white/20";
-  const bgMuted = isDayTime ? "bg-slate-300" : "bg-white/20";
-  const iconBorder = isDayTime ? "border-slate-400 hover:bg-slate-900 hover:text-white text-slate-700" : "border-white/40 hover:bg-white hover:text-[#101413]";
+  if (isRouterLink) {
+    return (
+      <Link to={href} className={`group relative overflow-hidden py-1 block w-fit ${className || ""}`}>
+        {content}
+      </Link>
+    );
+  }
 
   return (
-    <footer className={`relative font-sans min-h-[56.25vw] pt-20 sm:pt-28 overflow-hidden ${textColor} ${isDayTime ? 'bg-slate-50' : 'bg-[#101413]'}`}>
+    <a href={href} className={`group relative overflow-hidden py-1 block w-fit ${className || ""}`}>
+      {content}
+    </a>
+  );
+};
+
+export const Footer = () => {
+  const textColor = "text-[#E8E6E1]"; // Premium ivory/bone text
+  const textMuted = "text-[#E8E6E1]/40";
+  const bgOverlay = "bg-[#0a0c0b]/90"; 
+
+  return (
+    <footer className={`relative font-sans overflow-hidden ${textColor} bg-[#0a0c0b] z-20`}>
+      <style>{`
+        @keyframes marquee {
+          0% { transform: translateX(0%); }
+          100% { transform: translateX(-50%); }
+        }
+        .animate-marquee-infinite {
+          animation: marquee 20s linear infinite;
+          will-change: transform;
+        }
+        .brand-fill {
+          clip-path: inset(100% 0 0 0);
+          transition: clip-path 0.8s cubic-bezier(0.76, 0, 0.24, 1);
+        }
+        .group:hover .brand-fill {
+          clip-path: inset(0 0 0 0);
+        }
+      `}</style>
+
       {/* Background Video Layer */}
       <video 
         autoPlay 
         loop 
         muted 
         playsInline
-        key={isDayTime ? 'day' : 'night'}
-        className="absolute top-0 left-0 w-full h-full object-cover object-top pointer-events-none"
-        src={isDayTime ? dayVideo : nightVideo}
+        className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none opacity-30 mix-blend-overlay"
+        src={nightVideo}
       />
+      <div className={`absolute inset-0 ${bgOverlay} backdrop-blur-xl`}></div>
 
-      <div className="relative z-10 max-w-[1400px] mx-auto px-6 md:px-12 pb-8">
+      <div className="relative z-10 w-full flex flex-col justify-between min-h-screen pt-12">
         
-        {/* Main Content Grid */}
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-12 lg:gap-8 mb-16">
-          
-          {/* Left Side: 3 Columns of Links */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 md:gap-16 w-full lg:w-1/2">
-            
-            {/* Col 1 */}
-            <div>
-              <h4 className="font-bold text-lg mb-2">Links</h4>
-              <div className={`w-full h-px ${bgMuted} mb-4`} />
-              <ul className={`flex flex-col gap-2 text-sm font-medium ${textMuted}`}>
-                <li><a href="/#about" className={`${textMutedHover} transition-colors`}>About us</a></li>
-                <li><a href="/#facilities" className={`${textMutedHover} transition-colors`}>Facilities</a></li>
-                <li><Link to="/rooms" className={`${textMutedHover} transition-colors`}>Rooms & Pricing</Link></li>
-                <li><a href="/#gallery" className={`${textMutedHover} transition-colors`}>Gallery</a></li>
-              </ul>
-            </div>
-
-            {/* Col 2 */}
-            <div>
-              <h4 className="font-bold text-lg mb-2">Links</h4>
-              <div className={`w-full h-px ${bgMuted} mb-4`} />
-              <ul className={`flex flex-col gap-2 text-sm font-medium ${textMuted}`}>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>Student Guide</a></li>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>Our Blog</a></li>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>Parents Portal</a></li>
-              </ul>
-            </div>
-
-            {/* Col 3 */}
-            <div>
-              <h4 className="font-bold text-lg mb-2">Links</h4>
-              <div className={`w-full h-px ${bgMuted} mb-4`} />
-              <ul className={`flex flex-col gap-2 text-sm font-medium ${textMuted}`}>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>House Rules</a></li>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>Privacy Policy</a></li>
-                <li><a href="#" className={`${textMutedHover} transition-colors`}>Terms & Conditions</a></li>
-              </ul>
-            </div>
-
-          </div>
-
-          {/* Social Icons (Middle-Right area on desktop) */}
-          <div className="flex gap-4 lg:self-end lg:mb-2">
-            <a href="#" className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${iconBorder}`}>
-              <Mail size={16} />
-            </a>
-            <a href="#" className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${iconBorder}`}>
-              <Facebook size={16} />
-            </a>
-            <a href="#" className={`w-10 h-10 rounded-full border flex items-center justify-center transition-all ${iconBorder}`}>
-              <Instagram size={16} />
-            </a>
-          </div>
-
-          {/* Right Side: Contact Info */}
-          <div className="text-left lg:text-right w-full lg:w-auto">
-            <h3 className="font-bold text-xl mb-3">Aryan Heights Boys Hostel</h3>
-            <ul className={`flex flex-col gap-1.5 text-sm font-medium ${textMuted}`}>
-              <li className="flex items-center lg:justify-end gap-2">
-                A-723(A), Indra Vihar <Navigation size={12} className="hidden lg:block"/>
-              </li>
-              <li className="flex items-center lg:justify-end gap-2">
-                Kota, Rajasthan <Navigation size={12} className="hidden lg:block"/>
-              </li>
-              <li className="flex items-center lg:justify-end gap-2">
-                +91 94141 41723 <Phone size={12} className="hidden lg:block"/>
-              </li>
-              <li className="flex items-center lg:justify-end gap-2">
-                +91 77374 77740 <Phone size={12} className="hidden lg:block"/>
-              </li>
-            </ul>
+        {/* Top Marquee */}
+        <div className="w-full overflow-hidden flex whitespace-nowrap border-y border-white/5 py-6 md:py-10 mb-16 md:mb-24">
+          <div className="animate-marquee-infinite flex items-center">
+            {[...Array(6)].map((_, i) => (
+              <span key={i} className="font-display text-4xl md:text-7xl tracking-tighter uppercase shrink-0 flex items-center">
+                <span className="mx-8 md:mx-16 text-maroon italic">✦</span>
+                YOUR FUTURE STARTS HERE
+                <span className="mx-8 md:mx-16 text-maroon italic">✦</span>
+                KOTA'S FINEST LIVING
+              </span>
+            ))}
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className={`border-t ${borderColor} pt-6 flex flex-col md:flex-row justify-between items-center gap-6`}>
+        <div className="max-w-[1700px] w-full mx-auto px-6 md:px-12 flex-1 flex flex-col justify-center">
           
-          <div className="flex flex-col sm:flex-row items-center gap-6">
-            <div className="font-bold text-2xl tracking-tight flex items-center gap-1">
-              AryanHeights <span className="text-[10px] align-top">©</span>
-            </div>
+          {/* Main Content Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-16 lg:gap-8 mb-24 md:mb-32">
             
-            <div className={`flex gap-4 text-xs font-medium ${textMuted}`}>
-              <a href="#" className={`${textMutedHover} transition-colors`}>House Rules</a>
-              <a href="#" className={`${textMutedHover} transition-colors`}>Privacy Policy</a>
-              <a href="#" className={`${textMutedHover} transition-colors`}>Terms & Conditions</a>
+            {/* Left: Navigation Links with Premium Hover */}
+            <div className="md:col-span-6 flex flex-col gap-2">
+              {[
+                { name: "About", path: "/#about" },
+                { name: "Facilities", path: "/#facilities" },
+                { name: "Rooms", path: "/rooms", isRouter: true },
+                { name: "Gallery", path: "/#gallery" },
+                { name: "Contact", path: "/contact", isRouter: true }
+              ].map((link) => (
+                <AnimatedLink 
+                  key={link.name} 
+                  href={link.path} 
+                  text={link.name} 
+                  isRouterLink={link.isRouter}
+                  className={`font-display text-[14vw] sm:text-6xl md:text-[7rem] leading-[0.85] tracking-tighter uppercase ${textMuted} hover:text-white transition-colors`}
+                  textClass="w-full"
+                />
+              ))}
+            </div>
+
+            {/* Right: Contact & Enquiries */}
+            <div className="md:col-span-6 flex flex-col sm:flex-row gap-12 md:gap-24 md:justify-end md:mt-4">
+              <div>
+                <h4 className={`font-bold text-[0.65rem] tracking-[0.2em] uppercase mb-6 ${textMuted}`}>Business Enquiries</h4>
+                <AnimatedLink 
+                  href="mailto:info@aryanheights.com" 
+                  text="info@aryanheights.com" 
+                  className={`font-display text-2xl md:text-3xl text-white/80 hover:text-white transition-colors mb-2`}
+                />
+                <AnimatedLink 
+                  href="tel:+919414141723" 
+                  text="+91 94141 41723" 
+                  className={`font-display text-2xl md:text-3xl text-white/80 hover:text-white transition-colors`}
+                />
+                <div className="mt-8 mb-4">
+                  <a href="https://wa.me/919414141723" className="group/wa inline-flex items-center gap-3 bg-white text-black px-6 py-3.5 rounded-full text-[0.65rem] font-bold tracking-[0.18em] uppercase transition-all duration-300 hover:bg-[#25D366] hover:text-white">
+                    <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor">
+                      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.888-.788-1.489-1.761-1.662-2.062-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp Us
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover/wa:translate-x-1">
+                      <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                    </svg>
+                  </a>
+                </div>
+                <div className="mt-12">
+                  <h4 className={`font-bold text-[0.65rem] tracking-[0.2em] uppercase mb-6 ${textMuted}`}>Socials</h4>
+                  <div className="flex flex-col gap-2">
+                    {["Instagram", "Facebook", "Twitter", "LinkedIn"].map(social => (
+                      <AnimatedLink 
+                        key={social} 
+                        href="#" 
+                        text={social} 
+                        className={`font-display text-xl uppercase tracking-widest text-white/80 hover:text-white transition-colors`}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <h4 className={`font-bold text-[0.65rem] tracking-[0.2em] uppercase mb-6 ${textMuted}`}>Location</h4>
+                <p className="font-display text-2xl md:text-3xl leading-tight">
+                  A-723(A), Indra Vihar<br />
+                  Kota, Rajasthan<br />
+                  324005
+                </p>
+                <div className="mt-8">
+                  <AnimatedLink 
+                    href="https://maps.google.com" 
+                    text="View on Map" 
+                    className={`font-bold text-[0.65rem] tracking-[0.2em] uppercase text-maroon hover:text-white transition-colors`}
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Bottom Section */}
+        <div className="w-full flex flex-col items-center">
+          
+          <div className="w-full px-6 md:px-12 flex flex-col md:flex-row justify-between items-center gap-6 text-[0.65rem] uppercase font-bold tracking-widest text-[#E8E6E1]/30 mb-8">
+            <div className="flex items-center gap-3">
+              <span>© 2026</span>
+              <span>All rights reserved</span>
+            </div>
+            <div className="flex flex-wrap items-center justify-center gap-3">
+              <AnimatedLink href="/rooms" text="Rooms" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/contact" text="Contact" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/policies" text="Policies" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/#about" text="About" className="hover:text-white transition-colors" />
             </div>
           </div>
 
-          <div className="flex gap-2 items-center opacity-80">
-             {/* Simulating Payment Logos */}
-             <div className="bg-red-500/90 w-8 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white">M/C</div>
-             <div className="bg-blue-600/90 w-8 h-5 rounded flex items-center justify-center text-[8px] font-bold text-white italic">VISA</div>
-             <div className={`bg-sky-500/90 w-8 h-5 rounded flex items-center justify-center text-white`}><CreditCard size={12}/></div>
-          </div>
-
-          <div className={`text-xs ${isDayTime ? 'text-slate-500' : 'text-white/60'} text-center md:text-right`}>
-            Coded and designed by AryanHeights. All rights reserved.
+          {/* Gigantic Brand Name with Outline Hover */}
+          <div className="w-full overflow-hidden leading-none flex justify-center items-end px-4 pb-4">
+            <h1 className="font-display text-[11vw] lg:text-[11.5vw] leading-[0.75] tracking-tighter text-[#E8E6E1] whitespace-nowrap text-center opacity-90 transition-all duration-500 hover:text-transparent hover:[-webkit-text-stroke:2px_#E8E6E1] cursor-crosshair">
+              ARYAN HEIGHTS
+            </h1>
           </div>
 
         </div>
+
       </div>
     </footer>
   );

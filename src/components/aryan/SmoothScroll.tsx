@@ -7,12 +7,15 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const SmoothScroll = () => {
   useEffect(() => {
+    // Disable smooth scroll on mobile — native touch momentum is better
+    const isMobile = window.matchMedia("(max-width: 767px)").matches || "ontouchstart" in window;
     const lenis = new Lenis({
       duration: 1.6,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
+      smoothWheel: !isMobile,
+      smoothTouch: false,   // always let touch be native
       wheelMultiplier: 1.1,
-      touchMultiplier: 1.5,
+      touchMultiplier: 2,
     });
     lenis.on("scroll", ScrollTrigger.update);
     const raf = (time: number) => { lenis.raf(time * 1000); };

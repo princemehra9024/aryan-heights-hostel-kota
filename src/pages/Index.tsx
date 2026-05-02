@@ -20,7 +20,7 @@ import { Footer } from "@/components/aryan/Footer";
 
 const Index = () => {
   return (
-    <main className="bg-background text-foreground grain relative overflow-x-hidden w-full">
+    <main className="bg-background text-foreground grain relative overflow-x-clip w-full">
       <SEO 
         title="Premium Boys Hostel in Kota" 
         description="Aryan Heights offers the finest student living experience in Kota. AC rooms, healthy meals, and walking distance to Allen coaching." 

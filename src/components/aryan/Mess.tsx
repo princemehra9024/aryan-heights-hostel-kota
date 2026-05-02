@@ -37,22 +37,22 @@ export const Mess = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={root} id="mess" className="py-28 md:py-40 border-t border-hairline relative">
-      <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12">
-        <div data-mess-img className="md:col-span-5 h-[50svh] md:h-[80svh] overflow-hidden">
+    <section ref={root} id="mess" className="py-16 md:py-40 border-t border-hairline relative">
+      <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 md:gap-12">
+        <div data-mess-img className="md:col-span-5 h-[40svh] md:h-[80svh] overflow-hidden rounded-xl md:rounded-none">
           <img src={mess} alt="Mess hall" className="w-full h-full object-cover" loading="lazy" />
-          <div className="eyebrow text-foreground/55 mt-3">Three meals · Snacks · Pure veg</div>
+          <div className="eyebrow text-foreground/55 mt-3 hidden md:block">Three meals · Snacks · Pure veg</div>
         </div>
         <div className="md:col-span-7">
-          <div className="eyebrow text-foreground/55 mb-6">(06) — Mess</div>
-          <h2 className="font-display text-5xl md:text-7xl leading-[1] tracking-tighter mb-12">
+          <div className="eyebrow text-foreground/55 mb-4 md:mb-6">(06) — Mess</div>
+          <h2 className="font-display text-4xl sm:text-5xl md:text-7xl leading-[1] tracking-tighter mb-8 md:mb-12">
             Cooked the way<br /><span className="text-foreground/55">your mother would.</span>
           </h2>
           <div className="border-t border-hairline">
             {menu.map((m) => (
-              <div data-menu-row key={m.day} className="grid grid-cols-12 gap-4 py-5 border-b border-hairline items-baseline">
-                <div className="col-span-2 font-display text-2xl text-maroon">{m.day}</div>
-                <div className="col-span-10 md:col-span-10 grid md:grid-cols-3 gap-3 text-sm text-foreground/80">
+              <div data-menu-row key={m.day} className="grid grid-cols-12 gap-4 py-4 md:py-5 border-b border-hairline items-start md:items-baseline">
+                <div className="col-span-3 md:col-span-2 font-display text-2xl text-maroon mt-1 md:mt-0">{m.day}</div>
+                <div className="col-span-9 md:col-span-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-3 text-sm text-foreground/80">
                   <div><span className="eyebrow text-foreground/45 block mb-1">Breakfast</span>{m.b}</div>
                   <div><span className="eyebrow text-foreground/45 block mb-1">Lunch</span>{m.l}</div>
                   <div><span className="eyebrow text-foreground/45 block mb-1">Dinner</span>{m.d}</div>

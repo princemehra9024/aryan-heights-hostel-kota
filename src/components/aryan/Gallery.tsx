@@ -22,7 +22,12 @@ const imgs = [
 export const Gallery = () => {
   const root = useRef<HTMLElement>(null);
   const track = useRef<HTMLDivElement>(null);
+
   useEffect(() => {
+    // Only run horizontal scroll animation on non-touch / desktop (≥ 768px)
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
+    if (isMobile) return;
+
     const ctx = gsap.context(() => {
       const total = track.current!.scrollWidth - window.innerWidth + 100;
       gsap.to(track.current, {
@@ -38,29 +43,62 @@ export const Gallery = () => {
         },
       });
     }, root);
+
     return () => ctx.revert();
   }, []);
+
   return (
     <section ref={root} id="gallery" className="relative overflow-hidden">
+      {/* Header */}
       <div className="pt-24 pb-10 px-5 md:px-8 max-w-[1700px] mx-auto grid md:grid-cols-12 gap-8 items-end border-t border-hairline">
         <div className="md:col-span-2 eyebrow text-foreground/55 pt-10">(06) — Gallery</div>
         <h2 className="md:col-span-7 font-display text-5xl md:text-7xl leading-[1] tracking-tighter pt-10">
           Step inside, <span className="text-foreground/55">slowly.</span>
         </h2>
-        <p className="md:col-span-3 eyebrow text-foreground/45 pt-10">Drag · Scroll · 07 frames</p>
+        <p className="md:col-span-3 eyebrow text-foreground/45 pt-10 hidden md:block">Drag · Scroll · 07 frames</p>
+        <p className="md:hidden eyebrow text-foreground/45">07 frames</p>
       </div>
-      <div className="h-[78svh] flex items-center">
+
+      {/* ── DESKTOP: horizontal scroll track ── */}
+      <div className="hidden md:flex h-[78svh] items-center">
         <div ref={track} className="flex gap-6 pl-5 md:pl-8 will-change-transform" data-cursor>
           {imgs.map((im, i) => (
-            <figure key={i} className="relative shrink-0 surface" style={{ width: i % 2 ? "44vw" : "32vw", height: i % 2 ? "60svh" : "70svh" }}>
+            <figure
+              key={i}
+              className="relative shrink-0 surface"
+              style={{ width: i % 2 ? "44vw" : "32vw", height: i % 2 ? "60svh" : "70svh" }}
+            >
               <img src={im.src} alt={im.label} className="w-full h-full object-cover" loading="lazy" />
               <figcaption className="eyebrow text-foreground/60 mt-3 flex justify-between absolute -bottom-7 left-0 right-0">
-                <span>0{i + 1}</span><span>{im.label}</span>
+                <span>0{i + 1}</span>
+                <span>{im.label}</span>
               </figcaption>
             </figure>
           ))}
           <div className="shrink-0 w-[20vw]" />
         </div>
+      </div>
+
+      {/* ── MOBILE: simple 2-column grid ── */}
+      <div className="md:hidden px-5 pb-16 grid grid-cols-2 gap-4">
+        {imgs.map((im, i) => (
+          <figure
+            key={i}
+            className={`relative surface overflow-hidden rounded-xl ${i === 0 ? "col-span-2" : ""}`}
+            style={{ aspectRatio: i === 0 ? "16/9" : "4/5" }}
+          >
+            <img
+              src={im.src}
+              alt={im.label}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+            <figcaption className="eyebrow text-foreground/60 absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent text-white/75 flex justify-between text-[0.6rem]">
+              <span>0{i + 1}</span>
+              <span>{im.label}</span>
+            </figcaption>
+          </figure>
+        ))}
       </div>
     </section>
   );

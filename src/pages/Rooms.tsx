@@ -315,7 +315,7 @@ const RoomsPage = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-4 pt-4 border-t border-hairline flex items-center justify-between">
+                <div className="mt-4 pt-4 border-t border-hairline flex flex-wrap gap-4 items-center justify-between">
                   <div>
                     <div className="font-display text-2xl tracking-tighter">On Call</div>
                     <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">9414141723</div>
@@ -360,7 +360,7 @@ const RoomsPage = () => {
                     ))}
                   </ul>
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between">
+                <div className="mt-4 pt-4 border-t border-white/10 flex flex-wrap gap-4 items-center justify-between">
                   <div>
                     <div className="font-display text-2xl tracking-tighter">On Call</div>
                     <div className="eyebrow text-white/35 text-[0.55rem] mt-0.5">9414141723</div>
@@ -408,7 +408,7 @@ const RoomsPage = () => {
                   ))}
                 </div>
 
-                <div className="pt-4 border-t border-hairline flex items-center justify-between">
+                <div className="pt-4 border-t border-hairline flex flex-wrap gap-4 items-center justify-between">
                   <div>
                     <div className="font-display text-2xl tracking-tighter">On Call</div>
                     <div className="eyebrow text-foreground/40 text-[0.55rem] mt-0.5">9414141723 · 7737477740</div>

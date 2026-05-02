@@ -1,13 +1,18 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { Link } from "react-router-dom";
 
+// Links with full paths so they work from any page (e.g. /rooms → /#about)
 const links = [
-  ["About", "#about"],
-  ["Rooms", "#rooms"],
-  ["Facilities", "#facilities"],
-  ["Mess", "#mess"],
-  ["Gallery", "#gallery"],
-  ["Visit", "#contact"],
+  { label: "About",      href: "/#about" },
+  { label: "Facilities", href: "/#facilities" },
+  { label: "Rooms",      href: "/rooms" },
+  { label: "Mess",       href: "/#mess" },
+  { label: "Gallery",    href: "/#gallery" },
+  { label: "Wardens",    href: "/#wardens" },
+  { label: "Rules",      href: "/#rules" },
+  { label: "Policies",   href: "/policies" },
+  { label: "Contact",    href: "/contact" },
 ];
 
 export const FullscreenMenu = ({ open, onClose }: { open: boolean; onClose: () => void }) => {
@@ -24,18 +29,30 @@ export const FullscreenMenu = ({ open, onClose }: { open: boolean; onClose: () =
       gsap.to(root.current, { clipPath: "inset(0 0 100% 0)", duration: 0.7, ease: "expo.inOut", onComplete: () => gsap.set(root.current, { display: "none" }) });
     }
   }, [open]);
+
   return (
     <div ref={root} style={{ display: "none" }} className="fixed inset-0 z-[90] bg-background flex-col">
       <div className="flex items-center justify-between px-5 md:px-8 py-5 border-b border-hairline">
         <span className="font-display text-base">Aryan Heights — Menu</span>
         <button onClick={onClose} aria-label="Close menu" className="w-10 h-10 rounded-full border border-hairline flex items-center justify-center text-lg hover:bg-ivory hover:text-ink transition-colors rotate-45">+</button>
       </div>
-      <div className="flex-1 grid md:grid-cols-12 gap-8 px-5 md:px-8 py-10 overflow-hidden">
-        <nav className="md:col-span-8 flex flex-col justify-center gap-2">
-          {links.map(([l, h], i) => (
-            <a key={h} href={h} onClick={onClose} className="block overflow-hidden">
-              <span data-menu-link className="font-display text-[12vw] md:text-[8.5vw] leading-[0.95] tracking-tighter hover:text-maroon transition-colors block">
-                <span className="text-foreground/40 text-[0.25em] align-top mr-4">0{i + 1}</span>{l}
+      <div className="flex-1 grid md:grid-cols-12 gap-8 px-5 md:px-8 py-10 overflow-y-auto">
+        <nav className="md:col-span-8 flex flex-col justify-center gap-1">
+          {links.map(({ label, href }, i) => (
+            <a
+              key={href}
+              href={href}
+              onClick={onClose}
+              className="block overflow-hidden"
+            >
+              <span
+                data-menu-link
+                className="font-display text-[10vw] md:text-[7vw] leading-[0.95] tracking-tighter hover:text-maroon transition-colors block"
+              >
+                <span className="text-foreground/40 text-[0.25em] align-top mr-4">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                {label}
               </span>
             </a>
           ))}

@@ -44,12 +44,12 @@ export const Rooms = () => {
     <section
       ref={root}
       id="rooms"
-      className="py-24 md:py-36 border-t border-hairline bg-background"
+      className="py-16 md:py-36 border-t border-hairline bg-background"
     >
       <div className="max-w-[1700px] mx-auto px-5 md:px-12">
 
         {/* ── Header ── */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16 md:mb-24">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-10 mb-12 md:mb-24">
           <div>
             <div className="overflow-hidden mb-2">
               <span className="rh-line eyebrow text-foreground/50 text-[0.65rem] tracking-widest block">
@@ -57,24 +57,24 @@ export const Rooms = () => {
               </span>
             </div>
             <div className="overflow-hidden">
-              <h2 className="rh-line font-display text-6xl md:text-8xl leading-[0.92] tracking-tighter">
+              <h2 className="rh-line font-display text-[12vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter">
                 Pick the room.
               </h2>
             </div>
             <div className="overflow-hidden">
-              <h2 className="rh-line font-display text-6xl md:text-8xl leading-[0.92] tracking-tighter text-maroon italic">
+              <h2 className="rh-line font-display text-[12vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter text-maroon italic">
                 We handle the rest.
               </h2>
             </div>
           </div>
 
           <div className="max-w-xs md:mb-3">
-            <p className="text-foreground/60 text-base leading-relaxed mb-7">
+            <p className="text-foreground/60 text-sm md:text-base leading-relaxed mb-5 md:mb-7">
               Three curated tiers. All-inclusive rates. Zero deposit surprises.
             </p>
             <Link
               to="/rooms"
-              className="group inline-flex items-center gap-3 btn-pill text-sm"
+              className="group inline-flex items-center gap-3 btn-pill text-xs md:text-sm"
             >
               View all rooms
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-300 group-hover:translate-x-1">
@@ -90,13 +90,13 @@ export const Rooms = () => {
             <Link
               key={t.id}
               to="/rooms"
-              className={`rh-card group relative rounded-[1.75rem] overflow-hidden cursor-pointer block
+              className={`rh-card group relative rounded-[1.5rem] md:rounded-[1.75rem] overflow-hidden cursor-pointer block
                 ${t.featured
                   ? "ring-1 ring-maroon/50 shadow-[0_20px_60px_-10px_rgba(128,0,32,0.2)]"
                   : "border border-hairline"
                 }
               `}
-              style={{ minHeight: "420px" }}
+              style={{ minHeight: "400px" }}
             >
               {/* Image */}
               <img
@@ -108,11 +108,11 @@ export const Rooms = () => {
               />
 
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/5" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
 
               {/* Badge */}
               {t.featured && (
-                <div className="absolute top-5 left-5 z-10">
+                <div className="absolute top-4 left-4 md:top-5 md:left-5 z-10">
                   <span className="eyebrow text-[0.55rem] px-3 py-1.5 bg-maroon text-white rounded-full tracking-widest">
                     Most Picked
                   </span>
@@ -120,22 +120,22 @@ export const Rooms = () => {
               )}
 
               {/* Tier number */}
-              <div className="absolute top-5 right-5 z-10">
-                <span className="eyebrow text-[0.55rem] text-white/60">/{t.id}</span>
+              <div className="absolute top-4 right-4 md:top-5 md:right-5 z-10">
+                <span className="eyebrow text-[0.55rem] text-white/80 md:text-white/60">/{t.id}</span>
               </div>
 
               {/* Content */}
-              <div className="absolute bottom-0 left-0 right-0 p-7 z-10">
-                <span className="eyebrow text-[0.58rem] text-white/60 tracking-widest block mb-2">{t.tag}</span>
-                <h3 className="font-display text-3xl text-white leading-tight tracking-tight mb-3">{t.name}</h3>
+              <div className="absolute bottom-0 left-0 right-0 p-5 md:p-7 z-10">
+                <span className="eyebrow text-[0.58rem] text-white/80 md:text-white/60 tracking-widest block mb-2">{t.tag}</span>
+                <h3 className="font-display text-2xl md:text-3xl text-white leading-tight tracking-tight mb-2 md:mb-3">{t.name}</h3>
                 <div className="flex items-baseline gap-2">
-                  <span className="font-display text-xl text-white">{t.price}</span>
-                  {t.price !== "On Call" && <span className="text-white/50 text-xs">/ month</span>}
-                  {t.price === "On Call" && <span className="text-white/50 text-xs">call for pricing</span>}
+                  <span className="font-display text-lg md:text-xl text-white">{t.price}</span>
+                  {t.price !== "On Call" && <span className="text-white/70 md:text-white/50 text-[0.65rem] md:text-xs">/ month</span>}
+                  {t.price === "On Call" && <span className="text-white/70 md:text-white/50 text-[0.65rem] md:text-xs">call for pricing</span>}
                 </div>
 
                 {/* Arrow — slides in on hover */}
-                <div className="mt-5 flex items-center gap-2 text-white/0 group-hover:text-white/90 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
+                <div className="mt-4 md:mt-5 flex items-center gap-2 text-white/0 group-hover:text-white/90 transition-all duration-400 translate-y-2 group-hover:translate-y-0">
                   <span className="eyebrow text-[0.6rem] tracking-widest">View Details</span>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>

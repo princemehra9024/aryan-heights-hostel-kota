@@ -35,7 +35,7 @@ export const About = () => {
             <div className="hairline w-24" />
             <div className="hairline w-12" />
           </div>
-          <div className="grid md:grid-cols-12 gap-8 mt-14">
+          <div className="grid md:grid-cols-12 gap-8 mt-8 md:mt-14">
             <p className="md:col-span-7 text-lg text-foreground/75 leading-relaxed">
               Aryan Heights Boys Hostel is a premium, fully furnished student accommodation located in the prime area of Indra Vihar, Kota. Designed for serious aspirants, the hostel offers a शांत, distraction-free environment with modern amenities, ensuring comfort, safety, and productivity for students preparing for competitive exams.
             </p>
