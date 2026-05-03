@@ -99,7 +99,7 @@ export const Loader = () => {
       obj,
       {
         v: 100,
-        duration: 3.2,
+        duration: 1.8, // Reduced from 3.2s
         ease: "power2.inOut",
         onUpdate: () => {
           if (counterRef.current) {
@@ -113,7 +113,7 @@ export const Loader = () => {
     );
 
     /* 5. Progress bar fills in sync with counter */
-    tl.to(progressRef.current, { scaleX: 1, duration: 3.2, ease: "power2.inOut" }, "<");
+    tl.to(progressRef.current, { scaleX: 1, duration: 1.8, ease: "power2.inOut" }, "<");
 
     return () => { tl.kill(); };
   }, []);

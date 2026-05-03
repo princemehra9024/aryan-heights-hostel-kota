@@ -3,7 +3,6 @@ import { Cursor } from "@/components/aryan/Cursor";
 import { Loader } from "@/components/aryan/Loader";
 import { Nav } from "@/components/aryan/Nav";
 import { Hero } from "@/components/aryan/Hero";
-import { QuickLinks } from "@/components/aryan/QuickLinks";
 import { Marquee } from "@/components/aryan/Marquee";
 import { About } from "@/components/aryan/About";
 import { Rooms } from "@/components/aryan/Rooms";
@@ -30,7 +29,6 @@ const Index = () => {
       <Cursor />
       <Nav />
       <Hero />
-      <QuickLinks />
       <Marquee />
       <About />
       <Rooms />

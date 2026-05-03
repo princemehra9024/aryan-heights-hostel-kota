@@ -73,7 +73,7 @@ export const Nav = () => {
         opacity: 1,
         duration: 1.2,
         ease: "expo.out",
-        delay: isHome ? 4.8 : 0.3,
+        delay: isHome ? 2.8 : 0.3, // Reduced from 4.8s
       });
     }
   }, [location.pathname]);

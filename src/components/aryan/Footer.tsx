@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import dayVideo from "@/assets/day-footer.mp4";
 import nightVideo from "@/assets/nigh-footert.mp4";
 import { useTheme } from "@/context/ThemeContext";
 
