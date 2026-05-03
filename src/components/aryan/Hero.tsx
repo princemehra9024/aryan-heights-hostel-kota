@@ -1,7 +1,6 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import hero from "@/assets/hero-building.jpg";
 
 const rotators = ["High-Speed WiFi", "In-house Gym", "Mess Facility", "24×7 Security", "RO Drinking Water", "Power Backup"];
 
@@ -55,7 +54,7 @@ export const Hero = () => {
         <div className="md:col-span-5 relative h-[55svh] md:h-[80svh] overflow-hidden rounded-xl md:rounded-sm">
           <img 
             ref={img} 
-            src={hero} 
+            src="/hero-building.jpg"
             alt="Aryan Heights hostel exterior at golden hour" 
             className="absolute inset-0 w-full h-full object-cover" 
             loading="eager"

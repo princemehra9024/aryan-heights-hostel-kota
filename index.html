@@ -10,7 +10,11 @@
     <link rel="icon" type="image/jpeg" href="/logo.jpeg" />
     <link rel="canonical" href="https://aryanheights.in" />
 
-    <!-- Font Optimization -->
+    <!-- Critical Resource Hints -->
+    <!-- Preload hero image so browser fetches it BEFORE React loads (fixes LCP) -->
+    <link rel="preload" as="image" href="/hero-building.jpg" fetchpriority="high" />
+
+    <!-- Font Optimization: display=swap shows text immediately with fallback font (fixes FCP) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Inter+Tight:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
