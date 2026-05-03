@@ -56,6 +56,7 @@ export const Footer = () => {
         loop 
         muted 
         playsInline
+        preload="none"
         className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none opacity-30 mix-blend-overlay"
         src={nightVideo}
       />

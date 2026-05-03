@@ -53,7 +53,15 @@ export const Hero = () => {
           </div>
         </div>
         <div className="md:col-span-5 relative h-[55svh] md:h-[80svh] overflow-hidden rounded-xl md:rounded-sm">
-          <img ref={img} src={hero} alt="Aryan Heights hostel exterior at golden hour" className="absolute inset-0 w-full h-full object-cover" width={1920} height={1280} />
+          <img 
+            ref={img} 
+            src={hero} 
+            alt="Aryan Heights hostel exterior at golden hour" 
+            className="absolute inset-0 w-full h-full object-cover" 
+            loading="eager"
+            // @ts-ignore
+            fetchpriority="high"
+          />
           <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
           <div className="absolute top-5 left-5 eyebrow text-white/90 drop-shadow-md z-10">Indra Vihar · Kota</div>
           <div className="absolute top-5 right-5 eyebrow text-white/90 drop-shadow-md z-10">26.91°N · 75.79°E</div>
