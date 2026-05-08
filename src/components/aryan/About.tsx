@@ -80,7 +80,7 @@ export const About = () => {
   return (
     <section ref={root} id="about" className="py-28 md:py-40 relative overflow-hidden">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 relative z-10">
-        <div className="md:col-span-2 eyebrow text-foreground/55">(02) — About</div>
+        <div className="md:col-span-2 eyebrow text-foreground/55">(01) — About</div>
         <div className="md:col-span-9">
           <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.02] tracking-tighter">
             <span className="block overflow-hidden"><span data-a-line className="block">A home that quietly</span></span>

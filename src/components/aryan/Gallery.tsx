@@ -53,7 +53,7 @@ export const Gallery = () => {
     <section ref={root} id="gallery" className="relative overflow-hidden">
       {/* Header */}
       <div className="pt-24 pb-10 px-5 md:px-8 max-w-[1700px] mx-auto grid md:grid-cols-12 gap-8 items-end border-t border-hairline">
-        <div className="md:col-span-2 eyebrow text-foreground/55 pt-10">(06) — Gallery</div>
+        <div className="md:col-span-2 eyebrow text-foreground/55 pt-10">(05) — Gallery</div>
         <h2 className="md:col-span-7 font-display text-5xl md:text-7xl leading-[1] tracking-tighter pt-10">
           Step inside, <span className="text-foreground/55">slowly.</span>
         </h2>

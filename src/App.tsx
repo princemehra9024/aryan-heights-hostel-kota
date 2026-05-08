@@ -11,6 +11,7 @@ const Index = lazy(() => import("./pages/Index.tsx"));
 const RoomsPage = lazy(() => import("./pages/Rooms.tsx"));
 const ContactPage = lazy(() => import("./pages/Contact.tsx"));
 const PoliciesPage = lazy(() => import("./pages/Policies.tsx"));
+const PartnerPage = lazy(() => import("./pages/Partner.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 
@@ -29,6 +30,7 @@ const App = () => (
               <Route path="/rooms" element={<RoomsPage />} />
               <Route path="/contact" element={<ContactPage />} />
               <Route path="/policies" element={<PoliciesPage />} />
+              <Route path="/partner" element={<PartnerPage />} />
 
               {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
               <Route path="*" element={<NotFound />} />

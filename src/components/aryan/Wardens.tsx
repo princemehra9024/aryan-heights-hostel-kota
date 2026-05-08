@@ -39,7 +39,7 @@ export const Wardens = () => {
         <div className="md:col-span-7 flex flex-col gap-10">
           <div className="flex flex-col gap-8">
             <div>
-              <div className="eyebrow text-foreground/55 mb-4">(07) — Team</div>
+              <div className="eyebrow text-foreground/55 mb-4">(06) — Team</div>
               <h2 className="font-display text-5xl md:text-7xl leading-[1] tracking-tighter">
                 <span className="block overflow-hidden"><span data-w-line className="block">People who'll know</span></span>
                 <span className="block overflow-hidden"><span data-w-line className="block text-foreground/55">your son by name.</span></span>

@@ -85,11 +85,12 @@ export const Footer = () => {
             
             {/* Left: Navigation Links with Premium Hover */}
             <div className="md:col-span-6 flex flex-col justify-between">
-              <div className="flex flex-col gap-2">
+              <div className="flex flex-col gap-4 md:gap-2">
                 {[
                   { name: "About", path: "/#about" },
                   { name: "Rooms", path: "/rooms", isRouter: true },
                   { name: "Gallery", path: "/#gallery" },
+                  { name: "Portfolio", path: "/#properties" },
                   { name: "Contact", path: "/contact", isRouter: true }
                 ].map((link) => (
                   <AnimatedLink 
@@ -176,6 +177,8 @@ export const Footer = () => {
             </div>
             <div className="flex flex-wrap items-center justify-center gap-3">
               <AnimatedLink href="/rooms" text="Rooms" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/#properties" text="Portfolio" className="hover:text-white transition-colors" />
               <span>•</span>
               <AnimatedLink href="/contact" text="Contact" isRouterLink={true} className="hover:text-white transition-colors" />
               <span>•</span>

@@ -208,7 +208,7 @@ export const Facilities = () => {
         {/* Header - Compact height */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6 md:mb-8 shrink-0">
           <div>
-            <div className="eyebrow text-foreground/55 mb-2 md:mb-3">(05) — FACILITIES</div>
+            <div className="eyebrow text-foreground/55 mb-2 md:mb-3">(04) — FACILITIES</div>
             <h2 className="font-display text-5xl md:text-6xl lg:text-7xl leading-[0.9] tracking-tighter">
               Unmatched <span className="text-maroon italic">Ecosystem.</span>
             </h2>

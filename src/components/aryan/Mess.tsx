@@ -80,7 +80,7 @@ export const Mess = () => {
 
         {/* Menu Content Section */}
         <div className="md:col-span-7">
-          <div className="eyebrow text-foreground/55 mb-6">(04) — Mess & Nutrition</div>
+          <div className="eyebrow text-foreground/55 mb-6">(03) — Mess & Nutrition</div>
           <h2 className="font-display text-5xl md:text-8xl leading-[0.95] tracking-tighter mb-16 md:mb-24">
             Balanced<br /><span className="text-foreground/40 italic">Nourishment.</span>
           </h2>

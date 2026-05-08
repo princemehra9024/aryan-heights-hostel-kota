@@ -34,7 +34,7 @@ export const Rules = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16">
           <div>
             <span className="eyebrow text-foreground/50 text-[0.65rem] tracking-widest block mb-4">
-              (09) — CODE OF CONDUCT
+              (08) — CODE OF CONDUCT
             </span>
             <h2 className="font-display text-4xl md:text-6xl tracking-tighter">
               Rules &amp; <span className="text-maroon italic">Regulations</span>

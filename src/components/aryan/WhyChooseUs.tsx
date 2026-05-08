@@ -35,7 +35,7 @@ export const WhyChooseUs = () => {
     <section ref={root} className="py-28 md:py-40 border-t border-hairline">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8">
         <div className="grid md:grid-cols-12 gap-8 items-end mb-16">
-          <div className="md:col-span-2 eyebrow text-foreground/55">(08) — Why us</div>
+          <div className="md:col-span-2 eyebrow text-foreground/55">(07) — Why us</div>
           <h2 className="md:col-span-10 font-display text-5xl md:text-7xl leading-[1] tracking-tighter">
             Why families choose Aryan Heights — <span className="text-foreground/55">again, and again.</span>
           </h2>

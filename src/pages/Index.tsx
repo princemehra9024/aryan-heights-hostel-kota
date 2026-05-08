@@ -10,6 +10,7 @@ import { Hero }         from "@/components/aryan/Hero";
 import { Marquee }      from "@/components/aryan/Marquee";
 import { About }        from "@/components/aryan/About";
 import { SEO }          from "@/components/aryan/SEO";
+import { PartnerBanner } from "@/components/aryan/PartnerBanner";
 
 // ─── Code-split + lazy loaded (below the fold) ────────────────────
 const Rooms       = lazy(() => import("@/components/aryan/Rooms").then(m => ({ default: m.Rooms })));
@@ -20,6 +21,7 @@ const Wardens     = lazy(() => import("@/components/aryan/Wardens").then(m => ({
 const WhyChooseUs = lazy(() => import("@/components/aryan/WhyChooseUs").then(m => ({ default: m.WhyChooseUs })));
 const Rules       = lazy(() => import("@/components/aryan/Rules").then(m => ({ default: m.Rules })));
 const Location    = lazy(() => import("@/components/aryan/Location").then(m => ({ default: m.Location })));
+const Properties  = lazy(() => import("@/components/aryan/Properties").then(m => ({ default: m.Properties })));
 const Contact     = lazy(() => import("@/components/aryan/Contact").then(m => ({ default: m.Contact })));
 const Footer      = lazy(() => import("@/components/aryan/Footer").then(m => ({ default: m.Footer })));
 
@@ -60,6 +62,7 @@ const Index = () => {
       <Cursor />
       <Nav />
       <Hero />
+      <PartnerBanner />
       <Marquee />
       <About />
 
@@ -70,6 +73,7 @@ const Index = () => {
       <LazySection minH="40vh"><Wardens /></LazySection>
       <LazySection minH="40vh"><WhyChooseUs /></LazySection>
       <LazySection minH="30vh"><Rules /></LazySection>
+      <LazySection minH="60vh"><Properties /></LazySection>
       <LazySection minH="30vh"><Location /></LazySection>
       <LazySection minH="30vh"><Contact /></LazySection>
       <LazySection minH="80vh"><Footer /></LazySection>

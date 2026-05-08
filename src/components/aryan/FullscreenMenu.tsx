@@ -14,6 +14,7 @@ const otherLinks = [
   { label: "About",      href: "/#about" },
   { label: "Mess",       href: "/#mess" },
   { label: "Gallery",    href: "/#gallery" },
+  { label: "Portfolio",  href: "/#properties" },
   { label: "Wardens",    href: "/#wardens" },
   { label: "Rules",      href: "/#rules" },
 ];
