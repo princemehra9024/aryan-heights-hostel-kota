@@ -53,7 +53,7 @@ export const Rooms = () => {
           <div>
             <div className="overflow-hidden mb-2">
               <span className="rh-line eyebrow text-foreground/50 text-[0.65rem] tracking-widest block">
-                (04) — ROOMS &amp; PRICING
+                (03) — ROOMS &amp; PRICING
               </span>
             </div>
             <div className="overflow-hidden">

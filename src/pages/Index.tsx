@@ -15,6 +15,7 @@ import { SEO }          from "@/components/aryan/SEO";
 const Rooms       = lazy(() => import("@/components/aryan/Rooms").then(m => ({ default: m.Rooms })));
 const Mess        = lazy(() => import("@/components/aryan/Mess").then(m => ({ default: m.Mess })));
 const Gallery     = lazy(() => import("@/components/aryan/Gallery").then(m => ({ default: m.Gallery })));
+const Facilities  = lazy(() => import("@/components/aryan/Facilities").then(m => ({ default: m.Facilities })));
 const Wardens     = lazy(() => import("@/components/aryan/Wardens").then(m => ({ default: m.Wardens })));
 const WhyChooseUs = lazy(() => import("@/components/aryan/WhyChooseUs").then(m => ({ default: m.WhyChooseUs })));
 const Rules       = lazy(() => import("@/components/aryan/Rules").then(m => ({ default: m.Rules })));
@@ -62,9 +63,9 @@ const Index = () => {
       <Marquee />
       <About />
 
-      {/* ── Lazy render: below-the-fold sections ── */}
       <LazySection minH="60vh"><Rooms /></LazySection>
       <LazySection minH="50vh"><Mess /></LazySection>
+      <LazySection minH="60vh"><Facilities /></LazySection>
       <LazySection minH="60vh"><Gallery /></LazySection>
       <LazySection minH="40vh"><Wardens /></LazySection>
       <LazySection minH="40vh"><WhyChooseUs /></LazySection>

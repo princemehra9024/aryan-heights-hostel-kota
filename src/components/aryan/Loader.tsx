@@ -31,11 +31,11 @@ export const Loader = () => {
               .split("")
               .map(
                 (char) =>
-                  `<span class="loader-char inline-block" style="transform:translateY(110%);opacity:0">${char}</span>`
+                  `<span class="loader-char inline-block" style="transform:translateY(120%) rotateZ(15deg) scale(0.8); filter:blur(8px); opacity:0; transform-origin:bottom left;">${char}</span>`
               )
               .join("")}</span>`
         )
-        .join(`<span class="inline-block w-[0.3em]"></span>`);
+        .join(`<span class="inline-block w-[0.2em] md:w-[0.4em]"></span>`);
     }
 
     /* ── Main entrance timeline ── */
@@ -68,7 +68,7 @@ export const Loader = () => {
 
     /* Initial GSAP states */
     gsap.set(barRefs.current,    { scaleY: 1, transformOrigin: "top" });
-    gsap.set(logoRef.current,    { opacity: 0, scale: 0.75, y: 30 });
+    gsap.set(logoRef.current,    { opacity: 0, scale: 0.4, y: 50, rotationY: 90, rotationZ: -10 });
     gsap.set(counterRef.current, { opacity: 0, y: 12 });
     gsap.set(progressRef.current, { scaleX: 0, transformOrigin: "left" });
 
@@ -77,16 +77,38 @@ export const Loader = () => {
       opacity: 1,
       scale: 1,
       y: 0,
-      duration: 1.4,
-      ease: "expo.out",
+      rotationY: 0,
+      rotationZ: 0,
+      duration: 1.8,
+      ease: "back.out(1.2)",
     });
 
-    /* 2. Title letters stagger in */
+    /* 1.5 Continuous logo float */
+    gsap.to(logoRef.current, {
+      y: -10,
+      rotationZ: 2,
+      duration: 3,
+      repeat: -1,
+      yoyo: true,
+      ease: "sine.inOut",
+      delay: 1.8,
+    });
+
+    /* 2. Title letters stagger in - much more premium feel */
     if (title) {
       tl.to(
         title.querySelectorAll(".loader-char"),
-        { y: "0%", opacity: 1, duration: 1.1, stagger: 0.028, ease: "expo.out" },
-        "-=1"
+        { 
+          y: "0%", 
+          rotationZ: 0, 
+          scale: 1, 
+          filter: "blur(0px)", 
+          opacity: 1, 
+          duration: 1.4, 
+          stagger: 0.04, 
+          ease: "expo.out" 
+        },
+        "-=1.4"
       );
     }
 
@@ -165,28 +187,33 @@ export const Loader = () => {
         <div className="flex flex-col items-center gap-10 md:gap-14 max-w-5xl px-8 w-full">
 
           {/* Logo */}
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center perspective-[1000px]">
             <div
-              className="absolute w-32 h-32 rounded-full blur-3xl opacity-20"
-              style={{ background: "hsl(0 50% 30%)" }}
+              className="absolute w-56 h-56 md:w-80 md:h-80 rounded-full blur-[80px] opacity-40 mix-blend-screen"
+              style={{ background: "hsl(0 60% 40%)" }}
+            />
+            <div
+              className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full blur-[50px] opacity-60 mix-blend-screen"
+              style={{ background: "hsl(0 80% 60%)" }}
             />
             <img
               ref={logoRef}
               src={logo}
               alt="Aryan Heights"
-              className="relative w-16 h-16 md:w-24 md:h-24 object-contain"
-              style={{ filter: "brightness(0) invert(1)", opacity: 0 }}
+              className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain drop-shadow-2xl"
+              style={{ filter: "brightness(0) invert(1)", opacity: 0, transformStyle: "preserve-3d" }}
             />
           </div>
 
           {/* Brand Name */}
           <h1
             ref={titleRef}
-            className="font-display uppercase leading-none text-white/90 text-center w-full flex flex-wrap justify-center"
+            className="font-display uppercase text-white/90 text-center w-full flex flex-wrap justify-center drop-shadow-lg"
             style={{
-              fontSize: "clamp(2rem, 9vw, 9vw)",
-              letterSpacing: "0.12em",
-              gap: "0 0.05em",
+              fontSize: "clamp(2rem, 7vw, 6.5rem)",
+              letterSpacing: "0.15em",
+              lineHeight: "1.1",
+              gap: "0.1em",
             }}
           >
             Aryan Heights
@@ -196,17 +223,21 @@ export const Loader = () => {
           <div className="flex flex-col items-center gap-5 w-full max-w-xs">
             <div
               ref={counterRef}
-              className="font-display text-3xl md:text-5xl tabular-nums"
-              style={{ color: "hsl(0 50% 38% / 0.9)", letterSpacing: "0.1em" }}
+              className="font-display text-4xl md:text-6xl tabular-nums drop-shadow-md"
+              style={{ color: "hsl(0 60% 45%)", letterSpacing: "0.1em" }}
             >
               000
             </div>
             {/* Progress bar */}
-            <div className="w-full h-px" style={{ background: "rgba(255,255,255,0.08)" }}>
+            <div className="w-full h-[2px] rounded-full overflow-hidden relative shadow-[0_0_15px_rgba(255,0,0,0.1)]" style={{ background: "rgba(255,255,255,0.05)" }}>
               <div
                 ref={progressRef}
-                className="h-full"
-                style={{ background: "hsl(0 50% 35%)", transformOrigin: "left" }}
+                className="absolute inset-y-0 left-0 w-full"
+                style={{ 
+                  background: "linear-gradient(90deg, hsl(0 60% 30%), hsl(0 80% 50%))", 
+                  transformOrigin: "left",
+                  boxShadow: "0 0 10px hsl(0 80% 50% / 0.5)"
+                }}
               />
             </div>
           </div>

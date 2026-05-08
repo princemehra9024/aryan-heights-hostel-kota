@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 export const Location = () => {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -17,7 +19,7 @@ export const Location = () => {
     <section ref={root} className="py-28 md:py-40 border-t border-hairline">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-4">
-          <div className="eyebrow text-foreground/55 mb-4">(09) — Location</div>
+          <div className="eyebrow text-foreground/55 mb-4">(10) — Location</div>
           <h2 data-loc className="font-display text-5xl md:text-6xl leading-[1.02] tracking-tighter">Prime location in<br/>Indra Vihar.</h2>
           <p data-loc className="text-foreground/70 mt-6 max-w-md">Strategically situated in Indra Vihar, Kota — major coaching institutes are just a walk away, with markets, hospitals and bus connectivity all nearby.</p>
           <ul data-loc className="mt-8 space-y-3 text-sm">

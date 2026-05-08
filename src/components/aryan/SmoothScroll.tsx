@@ -31,7 +31,7 @@ export const SmoothScroll = () => {
         const element = document.getElementById(id || "");
         if (element) {
           e.preventDefault();
-          // @ts-ignore
+          // @ts-expect-error
           lenis.scrollTo(element, { offset: 0, duration: 2 });
         }
       }

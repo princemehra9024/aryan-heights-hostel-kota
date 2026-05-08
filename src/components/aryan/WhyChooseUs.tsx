@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const stats = [
   ["15+", "Years of Service"],
   ["1200+", "Aspirants Housed"],

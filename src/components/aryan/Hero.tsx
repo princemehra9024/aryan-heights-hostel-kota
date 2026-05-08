@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+gsap.registerPlugin(ScrollTrigger);
+
 const rotators = ["High-Speed WiFi", "In-house Gym", "Mess Facility", "24×7 Security", "RO Drinking Water", "Power Backup"];
 
 export const Hero = () => {
