@@ -51,7 +51,8 @@ export const Nav = () => {
   const { theme, toggle } = useTheme();
   const location = useLocation();
   const isContactPage = location.pathname === "/contact";
-  const forceDarkStyle = theme === "dark" || isContactPage;
+  const isRoomsPage = location.pathname === "/rooms";
+  const forceDarkStyle = theme === "dark" || isContactPage || isRoomsPage;
   const navIsDark = scrolled ? theme === "dark" : forceDarkStyle;
   const headerRef = useRef<HTMLElement>(null);
   const indicatorRef = useRef<HTMLSpanElement>(null);
