@@ -14,15 +14,20 @@ export const PartnerBanner = () => {
           </span>
         </div>
         
-        <Link 
-          to="/partner" 
-          className="font-display text-sm md:text-lg tracking-wide text-foreground group-hover:text-white transition-colors duration-500 flex items-center gap-3"
-        >
-          Looking to lease your property? Partner with Kota's most trusted operator.
-          <span className="inline-block group-hover:translate-x-1 transition-transform duration-500">
-            &rarr;
+        <div className="flex flex-col md:flex-row md:items-center gap-4">
+          <span className="font-display text-sm md:text-lg tracking-wide text-foreground group-hover:text-white transition-colors duration-500">
+            Looking to lease your property? Partner with Kota's most trusted operator.
           </span>
-        </Link>
+          <Link 
+            to="/partner" 
+            className="bg-maroon/90 text-white px-5 py-2 md:px-6 md:py-2.5 rounded-full font-display text-sm md:text-base tracking-wider flex items-center gap-2 hover:bg-maroon transition-all shadow-lg hover:shadow-maroon/20 hover:-translate-y-0.5"
+          >
+            Lease Now
+            <span className="inline-block group-hover:translate-x-1 transition-transform duration-500">
+              &rarr;
+            </span>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -182,8 +182,6 @@ export const Footer = () => {
               <span>•</span>
               <AnimatedLink href="/contact" text="Contact" isRouterLink={true} className="hover:text-white transition-colors" />
               <span>•</span>
-              <AnimatedLink href="/policies" text="Policies" isRouterLink={true} className="hover:text-white transition-colors" />
-              <span>•</span>
               <AnimatedLink href="/#about" text="About" className="hover:text-white transition-colors" />
             </div>
           </div>

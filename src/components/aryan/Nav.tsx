@@ -41,7 +41,6 @@ const homeAnchors = [
 const mainLinks = [
   { label: "Home", href: "/", isDropdown: true },
   { label: "Rooms", href: "/rooms" },
-  { label: "Policies", href: "/policies" },
   { label: "Contact", href: "/contact" }
 ];
 

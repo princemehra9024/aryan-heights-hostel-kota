@@ -6,11 +6,11 @@ import { MapPin, ArrowRight } from "lucide-react";
 gsap.registerPlugin(ScrollTrigger);
 
 const properties = [
-  { name: "Prestige Tower", address: "G88, Indravihar" },
-  { name: "Matrix Tower", address: "53, Mahaveer Nagar Special" },
-  { name: "Impacta Tower", address: "85, Mahaveer Nagar" },
-  { name: "Royal Tower", address: "151, Rajeev Gandhi Nagar" },
-  { name: "Vinayak Tower", address: "111, Mahaveer Nagar 1st, Kota" },
+  { name: "Aryan Heights - Prestige Tower", address: "688, Indravihar" },
+  { name: "Majestic Tower", address: "53, Rajiv Gandhi Nagar Special" },
+  { name: "Imperial Tower", address: "85, Mahaveer Nagar" },
+  { name: "Royal Tower", address: "191, Rajeev Gandhi Nagar" },
+  { name: "Vintage Tower", address: "111, Mahaveer Nagar 1st, Kota" },
 ];
 
 export const Properties = () => {
@@ -67,8 +67,11 @@ export const Properties = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 md:mb-24">
           <div>
             <div className="eyebrow text-foreground/55 mb-2 md:mb-4">(09) — OUR PORTFOLIO</div>
-            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter">
-              Our <span className="text-maroon italic">Properties.</span>
+            <h2 className="font-display text-5xl md:text-7xl lg:text-8xl leading-[0.9] tracking-tighter flex items-end flex-wrap gap-x-3">
+              <span>Our</span>
+              <span className="text-maroon italic flex items-baseline">
+                Properties<span className="inline-block w-3 h-3 md:w-4 md:h-4 lg:w-5 lg:h-5 rounded-full bg-[#E5C158] ml-1 md:ml-2"></span>
+              </span>
             </h2>
           </div>
           <div className="max-w-lg hidden md:block pb-2">
@@ -95,7 +98,7 @@ export const Properties = () => {
                     <span className="font-mono text-foreground/30 text-xl md:text-3xl transition-colors duration-500 group-hover:text-white/60">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase tracking-tighter transition-all duration-500 group-hover:text-white group-hover:italic md:group-hover:translate-x-4">
+                    <h3 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase tracking-tighter transition-all duration-500 group-hover:text-[#E5C158] group-hover:italic md:group-hover:translate-x-4">
                       {prop.name}
                     </h3>
                  </div>
@@ -106,7 +109,7 @@ export const Properties = () => {
                     {/* Always visible address */}
                     <div className="flex items-center gap-3 md:gap-4 transition-all duration-500 xl:group-hover:-translate-x-4">
                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-hairline bg-background flex items-center justify-center shrink-0 transition-colors duration-500 group-hover:border-transparent group-hover:bg-white/10">
-                         <MapPin className="w-4 h-4 md:w-5 md:h-5 text-maroon transition-colors duration-500 group-hover:text-white" strokeWidth={1.5} />
+                         <MapPin className="w-4 h-4 md:w-5 md:h-5 text-maroon transition-colors duration-500 group-hover:text-[#E5C158]" strokeWidth={1.5} />
                        </div>
                        <p className="font-tight text-sm md:text-2xl uppercase tracking-tight text-foreground/80 transition-colors duration-500 group-hover:text-white max-w-[180px] md:max-w-[350px]">
                          {prop.address}
@@ -115,7 +118,7 @@ export const Properties = () => {
 
                     {/* Animated Arrow Icon */}
                     <div className="w-12 h-12 md:w-16 md:h-16 rounded-full border border-hairline flex items-center justify-center transition-all duration-500 group-hover:border-white/30 group-hover:bg-white shrink-0 ml-auto xl:ml-0">
-                      <ArrowRight className="w-5 h-5 md:w-8 md:h-8 text-foreground/40 transition-colors duration-500 group-hover:text-maroon group-hover:translate-x-1" strokeWidth={1.5} />
+                      <ArrowRight className="w-5 h-5 md:w-8 md:h-8 text-foreground/40 transition-colors duration-500 group-hover:text-[#E5C158] group-hover:translate-x-1" strokeWidth={1.5} />
                     </div>
 
                  </div>
