@@ -5,58 +5,7 @@
 
 @layer base {
   :root {
-    --background: 226 18% 8%;
-    --foreground: 40 10% 92%;
-
-    --card: 224 16% 11%;
-    --card-foreground: 40 10% 92%;
-
-    --popover: 226 18% 8%;
-    --popover-foreground: 40 10% 92%;
-
-    --primary: 40 10% 92%;
-    --primary-foreground: 226 18% 8%;
-    --primary-glow: 0 60% 38%;
-
-    --secondary: 224 12% 16%;
-    --secondary-foreground: 40 10% 92%;
-
-    --muted: 224 10% 18%;
-    --muted-foreground: 220 6% 60%;
-
-    --accent: 0 55% 32%;
-    --accent-foreground: 40 10% 92%;
-
-    --destructive: 0 75% 45%;
-    --destructive-foreground: 40 10% 92%;
-
-    --border: 224 10% 20%;
-    --input: 224 10% 20%;
-    --ring: 0 55% 32%;
-
-    --radius: 0.25rem;
-
-    /* Brand */
-    --bg: 226 18% 8%;
-    --surface: 224 16% 11%;
-    --surface-2: 224 14% 14%;
-    --fg: 40 10% 92%;
-    --fg-muted: 220 6% 60%;
-    --hairline: 220 8% 22%;
-    --maroon: 0 50% 30%;
-    --maroon-deep: 0 55% 18%;
-    --ivory: 40 10% 92%;
-    --ink: 226 18% 8%;
-
-    --gradient-overlay: linear-gradient(180deg, hsl(var(--bg) / 0) 0%, hsl(var(--bg) / 0.55) 65%, hsl(var(--bg)) 100%);
-    --gradient-maroon: linear-gradient(135deg, hsl(0 60% 22%), hsl(0 50% 32%));
-
-    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
-    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
-  }
-
-  /* ─── Light Theme ─────────────────────────────────────────── */
-  [data-theme="light"] {
+    /* Light Theme (Default) */
     --background: 36 30% 97%;
     --foreground: 220 20% 12%;
 
@@ -86,6 +35,8 @@
     --input: 36 10% 82%;
     --ring: 0 55% 38%;
 
+    --radius: 0.25rem;
+
     /* Brand */
     --bg: 36 30% 97%;
     --surface: 0 0% 100%;
@@ -100,6 +51,56 @@
 
     --gradient-overlay: linear-gradient(180deg, hsl(var(--bg) / 0) 0%, hsl(var(--bg) / 0.55) 65%, hsl(var(--bg)) 100%);
     --gradient-maroon: linear-gradient(135deg, hsl(0 60% 30%), hsl(0 55% 42%));
+
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+    --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  }
+
+  /* ─── Dark Theme ─────────────────────────────────────────── */
+  [data-theme="dark"] {
+    --background: 226 18% 8%;
+    --foreground: 40 10% 92%;
+
+    --card: 224 16% 11%;
+    --card-foreground: 40 10% 92%;
+
+    --popover: 226 18% 8%;
+    --popover-foreground: 40 10% 92%;
+
+    --primary: 40 10% 92%;
+    --primary-foreground: 226 18% 8%;
+    --primary-glow: 0 60% 38%;
+
+    --secondary: 224 12% 16%;
+    --secondary-foreground: 40 10% 92%;
+
+    --muted: 224 10% 18%;
+    --muted-foreground: 220 6% 60%;
+
+    --accent: 0 55% 32%;
+    --accent-foreground: 40 10% 92%;
+
+    --destructive: 0 75% 45%;
+    --destructive-foreground: 40 10% 92%;
+
+    --border: 224 10% 20%;
+    --input: 224 10% 20%;
+    --ring: 0 55% 32%;
+
+    /* Brand */
+    --bg: 226 18% 8%;
+    --surface: 224 16% 11%;
+    --surface-2: 224 14% 14%;
+    --fg: 40 10% 92%;
+    --fg-muted: 220 6% 60%;
+    --hairline: 220 8% 22%;
+    --maroon: 0 50% 30%;
+    --maroon-deep: 0 55% 18%;
+    --ivory: 40 10% 92%;
+    --ink: 226 18% 8%;
+
+    --gradient-overlay: linear-gradient(180deg, hsl(var(--bg) / 0) 0%, hsl(var(--bg) / 0.55) 65%, hsl(var(--bg)) 100%);
+    --gradient-maroon: linear-gradient(135deg, hsl(0 60% 22%), hsl(0 50% 32%));
   }
 
   * {
