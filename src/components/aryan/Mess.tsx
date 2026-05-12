@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLightbox } from "@/context/LightboxContext";
 import mess from "@/assets/mess-hall.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -41,6 +42,7 @@ const mealSections = [
 
 export const Mess = () => {
   const root = useRef<HTMLElement>(null);
+  const { openLightbox } = useLightbox();
   
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -69,9 +71,16 @@ export const Mess = () => {
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 md:gap-20">
         
         {/* Sticky Image Section */}
-        <div data-mess-img className="md:col-span-5 h-[50vh] md:h-[85vh] overflow-hidden rounded-3xl surface sticky top-8">
-          <img src={mess} alt="Mess hall" className="w-full h-full object-cover transition-all duration-1000" loading="lazy" />
+        <div data-mess-img className="md:col-span-5 h-[50vh] md:h-[85vh] overflow-hidden rounded-3xl surface sticky top-8 cursor-pointer group"
+             onClick={() => openLightbox([{ src: mess, alt: "Aryan Heights Mess Hall" }])}>
+          <img src={mess} alt="Mess hall" className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          {/* Zoom icon on hover */}
+          <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+            </div>
+          </div>
           <div className="absolute bottom-8 left-8 right-8">
             <div className="eyebrow text-white/80 mb-2 underline decoration-maroon underline-offset-4">Quality Standard</div>
             <p className="text-white text-lg font-light leading-relaxed">Nutritious, hygienic, and home-style meals prepared with premium ingredients daily.</p>

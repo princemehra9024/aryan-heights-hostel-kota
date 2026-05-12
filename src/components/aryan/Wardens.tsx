@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLightbox } from "@/context/LightboxContext";
 import ownerImg from "@/assets/owner.jpg";
 import founderImg from "@/assets/founder.jpg";
 
@@ -10,6 +11,11 @@ export const Wardens = () => {
   const root = useRef<HTMLElement>(null);
   const [activeImg, setActiveImg] = useState(0);
   const images = [founderImg, ownerImg];
+  const { openLightbox } = useLightbox();
+  const wardenImgs = [
+    { src: founderImg, alt: "Sh. Mukesh Bhatnagar – Founder, Aryan Heights" },
+    { src: ownerImg,   alt: "Aryan Bhatnagar – Owner, Aryan Heights" },
+  ];
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -53,17 +59,26 @@ export const Wardens = () => {
         
         {/* Left: Image (Stretched to cover space) */}
         <div className="md:col-span-5 lg:col-span-4 fade-up">
-          <div className="relative h-full min-h-[400px] md:min-h-[500px] lg:min-h-[550px] w-full overflow-hidden rounded-sm group shadow-2xl bg-surface">
+          <div
+            className="relative h-full min-h-[400px] md:min-h-[500px] lg:min-h-[550px] w-full overflow-hidden rounded-sm group shadow-2xl bg-surface cursor-pointer"
+            onClick={() => openLightbox(wardenImgs, activeImg)}
+          >
             <div className="absolute inset-0 bg-maroon/20 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
             {images.map((src, i) => (
-              <img 
+              <img
                 key={i}
-                src={src} 
-                alt="Leadership" 
+                src={src}
+                alt={wardenImgs[i].alt}
                 loading="lazy"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === activeImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === activeImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
               />
             ))}
+            {/* Zoom icon */}
+            <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+              <div className="w-14 h-14 rounded-full bg-white/90 flex items-center justify-center shadow-lg">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111" strokeWidth="2"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              </div>
+            </div>
             
             {/* Spinning Badge Overlay */}
             <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-20 w-24 h-24 md:w-28 md:h-28 rounded-full border border-white/20 backdrop-blur-md bg-black/30 flex items-center justify-center animate-[spin_15s_linear_infinite]">

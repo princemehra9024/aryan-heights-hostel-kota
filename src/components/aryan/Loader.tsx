@@ -189,18 +189,18 @@ export const Loader = () => {
           {/* Logo */}
           <div className="relative flex items-center justify-center perspective-[1000px]">
             <div
-              className="absolute w-56 h-56 md:w-80 md:h-80 rounded-full blur-[80px] opacity-40 mix-blend-screen"
+              className="absolute w-72 h-72 md:w-[28rem] md:h-[28rem] rounded-full blur-[100px] opacity-50 mix-blend-screen"
               style={{ background: "hsl(0 60% 40%)" }}
             />
             <div
-              className="absolute w-32 h-32 md:w-48 md:h-48 rounded-full blur-[50px] opacity-60 mix-blend-screen"
+              className="absolute w-48 h-48 md:w-72 md:h-72 rounded-full blur-[70px] opacity-70 mix-blend-screen"
               style={{ background: "hsl(0 80% 60%)" }}
             />
             <img
               ref={logoRef}
               src={logo}
               alt="Aryan Heights"
-              className="relative w-40 h-40 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain drop-shadow-2xl"
+              className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl"
               style={{ filter: "brightness(0) invert(1)", opacity: 0, transformStyle: "preserve-3d" }}
             />
           </div>

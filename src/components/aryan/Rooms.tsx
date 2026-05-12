@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { useLightbox } from "@/context/LightboxContext";
 import roomSingleImg from "@/assets/room-single.jpg";
 import roomDoubleImg from "@/assets/room-double.jpg";
 import hallwayImg from "@/assets/hallway.jpg";
@@ -17,6 +18,8 @@ const tiers = [
 
 export const Rooms = () => {
   const root = useRef<HTMLElement>(null);
+  const { openLightbox } = useLightbox();
+  const roomImgs = tiers.map((t) => ({ src: t.img, alt: t.name }));
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -99,7 +102,7 @@ export const Rooms = () => {
               `}
               style={{ minHeight: "400px" }}
             >
-              {/* Image */}
+              {/* Image — sits directly in the relative card */}
               <img
                 src={t.img}
                 alt={t.name}
@@ -107,6 +110,15 @@ export const Rooms = () => {
                 decoding="async"
                 className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
               />
+              {/* Zoom to lightbox */}
+              <button
+                type="button"
+                aria-label="View full image"
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); openLightbox(roomImgs, tiers.indexOf(t)); }}
+                className="absolute top-3 right-3 w-9 h-9 rounded-full bg-black/50 hover:bg-white/90 border border-white/20 flex items-center justify-center text-white hover:text-black transition-all duration-200 z-20 opacity-0 group-hover:opacity-100"
+              >
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+              </button>
 
               {/* Gradient overlay */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
