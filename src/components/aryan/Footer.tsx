@@ -188,7 +188,7 @@ export const Footer = () => {
 
           {/* Gigantic Brand Name with Outline Hover */}
           <div className="w-full overflow-hidden leading-none flex justify-center items-end px-4 pb-4">
-            <h1 className="font-display text-[11vw] lg:text-[11.5vw] leading-[0.75] tracking-tighter text-[#E8E6E1] whitespace-nowrap text-center opacity-90 transition-all duration-500 hover:text-transparent hover:[-webkit-text-stroke:2px_#E8E6E1] cursor-crosshair">
+            <h1 className="font-display text-[11vw] lg:text-[11.5vw] leading-[0.85] tracking-tighter text-[#E8E6E1] whitespace-nowrap text-center opacity-90 transition-all duration-500 hover:text-transparent hover:[-webkit-text-stroke:2px_#E8E6E1] cursor-crosshair pb-2">
               ARYAN HEIGHTS
             </h1>
           </div>

@@ -66,17 +66,17 @@ const Index = () => {
       <Marquee />
       <About />
 
-      <LazySection minH="60vh"><Rooms /></LazySection>
-      <LazySection minH="50vh"><Mess /></LazySection>
-      <LazySection minH="60vh"><Facilities /></LazySection>
-      <LazySection minH="60vh"><Gallery /></LazySection>
-      <LazySection minH="40vh"><Wardens /></LazySection>
-      <LazySection minH="40vh"><WhyChooseUs /></LazySection>
-      <LazySection minH="30vh"><Rules /></LazySection>
-      <LazySection minH="60vh"><Properties /></LazySection>
-      <LazySection minH="30vh"><Location /></LazySection>
-      <LazySection minH="30vh"><Contact /></LazySection>
-      <LazySection minH="80vh"><Footer /></LazySection>
+      <LazySection minH="40vh"><Rooms /></LazySection>
+      <LazySection minH="40vh"><Mess /></LazySection>
+      <LazySection minH="40vh"><Facilities /></LazySection>
+      <LazySection minH="40vh"><Gallery /></LazySection>
+      <LazySection minH="30vh"><Wardens /></LazySection>
+      <LazySection minH="30vh"><WhyChooseUs /></LazySection>
+      <LazySection minH="20vh"><Rules /></LazySection>
+      <LazySection minH="40vh"><Properties /></LazySection>
+      <LazySection minH="20vh"><Location /></LazySection>
+      <LazySection minH="20vh"><Contact /></LazySection>
+      <LazySection minH="60vh"><Footer /></LazySection>
     </main>
   );
 };

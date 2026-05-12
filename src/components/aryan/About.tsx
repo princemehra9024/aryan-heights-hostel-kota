@@ -1,9 +1,8 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import w1 from "@/assets/warden-1.jpg";
-import w2 from "@/assets/warden-2.jpg";
-import w3 from "@/assets/warden-3.jpg";
+import ownerImg from "@/assets/owner.jpg";
+import founderImg from "@/assets/founder.jpg";
 import logo from "@/assets/logo.png";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -78,7 +77,7 @@ export const About = () => {
   }, []);
 
   return (
-    <section ref={root} id="about" className="py-28 md:py-40 relative overflow-hidden">
+    <section ref={root} id="about" className="py-16 md:py-24 relative overflow-hidden">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 relative z-10">
         <div className="md:col-span-2 eyebrow text-foreground/55">(01) — About</div>
         <div className="md:col-span-9">
@@ -100,7 +99,7 @@ export const About = () => {
             </p>
             <div className="md:col-span-5 flex flex-col md:items-end gap-6">
               <div className="flex -space-x-4">
-                {[w1, w2, w3].map((src, i) => (
+                {[founderImg, ownerImg].map((src, i) => (
                   <div key={i} className="floating-bubble relative group cursor-pointer">
                     <img data-a-thumb src={src} alt="warden" loading="lazy" className="w-16 h-16 md:w-20 md:h-20 rounded-full object-cover border-4 border-background transition-transform duration-500 group-hover:scale-110 relative z-10" />
                     <div className="absolute inset-0 rounded-full border-4 border-accent opacity-0 group-hover:opacity-100 scale-110 transition-all duration-500 z-0"></div>

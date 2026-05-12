@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import roomSingleImg from "@/assets/room-single.jpg";
+import roomDoubleImg from "@/assets/room-double.jpg";
 import hallwayImg from "@/assets/hallway.jpg";
 import studyRoomImg from "@/assets/study-room.jpg";
 
@@ -11,7 +12,7 @@ gsap.registerPlugin(ScrollTrigger);
 const tiers = [
   { id: "01", name: "AC Single Room",  price: "On Call", tag: "Balcony",     img: roomSingleImg, featured: false },
   { id: "02", name: "AC Single Room",  price: "On Call", tag: "Non-Balcony • Most Picked", img: roomSingleImg, featured: true  },
-  { id: "03", name: "AC Double Room",  price: "On Call", tag: "Balcony",     img: studyRoomImg },
+  { id: "03", name: "AC Double Room",  price: "On Call", tag: "Balcony",     img: roomDoubleImg },
 ];
 
 export const Rooms = () => {
@@ -44,7 +45,7 @@ export const Rooms = () => {
     <section
       ref={root}
       id="rooms"
-      className="py-16 md:py-36 border-t border-hairline bg-background"
+      className="py-16 md:py-24 border-t border-hairline bg-background"
     >
       <div className="max-w-[1700px] mx-auto px-5 md:px-12">
 

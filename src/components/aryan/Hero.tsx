@@ -32,7 +32,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={root} id="top" className="relative min-h-[90svh] md:min-h-[100svh] pb-24 md:pb-0 overflow-hidden pt-28 md:pt-32">
+    <section ref={root} id="top" className="relative min-h-[90svh] md:min-h-[100svh] pb-12 md:pb-0 overflow-hidden pt-20 md:pt-24">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
         <div className="md:col-span-7 z-10">
           <div data-hero-tag className="eyebrow text-foreground/60 mb-6 md:mb-8 flex items-center gap-3">
@@ -57,7 +57,7 @@ export const Hero = () => {
           <img 
             ref={img} 
             src="/hero-building.jpg"
-            alt="Aryan Heights hostel exterior at golden hour" 
+            alt="Aryan Heights hostel exterior at night" 
             className="absolute inset-0 w-full h-full object-cover" 
             loading="eager"
             // @ts-ignore

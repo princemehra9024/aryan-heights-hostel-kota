@@ -9,9 +9,9 @@ import { SEO } from "@/components/aryan/SEO";
 import { Footer } from "@/components/aryan/Footer";
 import { Coffee, ShieldCheck, Wifi, Sparkles } from "lucide-react";
 import roomSingleImg from "@/assets/room-single.jpg";
+import roomDoubleImg from "@/assets/room-double.jpg";
 import studyRoomImg from "@/assets/study-room.jpg";
 import hallwayImg from "@/assets/hallway.jpg";
-import rooftopImg from "@/assets/rooftop.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -47,7 +47,7 @@ const rooms = [
     id: "03", tag: "Balcony", name: "AC Double Room",
     tagline: "Spacious. Ventilated. Premium.",
     price: "On Call", priceNote: "call for pricing",
-    capacity: "2 Students", image: studyRoomImg, dark: false,
+    capacity: "2 Students", image: roomDoubleImg, dark: false,
     amenities: ["AC with private balcony","Attached bathroom","Fully furnished","Laundry & housekeeping","CCTV security","Hot water & power backup"],
   },
 ];
@@ -239,7 +239,7 @@ const RoomsPage = () => {
 
         {/* Right: full-bleed hero image */}
         <div className="absolute inset-0 md:left-[42%] lg:left-[36%]">
-          <img src={rooftopImg} alt="Aryan Heights"
+          <img src={roomDoubleImg} alt="Aryan Heights"
             className="hero-img w-full h-full object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#13141a] via-transparent to-transparent md:from-[#13141a]/60 md:via-transparent" />
           <div className="absolute bottom-8 right-8">
@@ -380,7 +380,7 @@ const RoomsPage = () => {
 
               {/* Large image — fixed height on all breakpoints */}
               <div className="relative overflow-hidden lg:w-[48%] h-48 lg:h-[260px]">
-                <img src={studyRoomImg} alt="Premium Suite" loading="lazy" decoding="async"
+                <img src={roomDoubleImg} alt="Premium Suite" loading="lazy" decoding="async"
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface/10" />
                 <span className="absolute top-3 left-3 eyebrow text-[0.55rem] px-2.5 py-1 bg-background/80 backdrop-blur-sm text-foreground/80 rounded-full border border-hairline">SUITE / 03</span>

@@ -29,7 +29,7 @@ export const Rules = () => {
   ];
 
   return (
-    <section ref={root} id="rules" className="py-24 md:py-32 bg-surface border-t border-hairline">
+    <section ref={root} id="rules" className="py-16 md:py-24 bg-surface border-t border-hairline">
       <div className="max-w-[1700px] mx-auto px-5 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-10 mb-16">
           <div>

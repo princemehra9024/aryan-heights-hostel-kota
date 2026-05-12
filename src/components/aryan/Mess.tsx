@@ -65,12 +65,12 @@ export const Mess = () => {
   }, []);
 
   return (
-    <section ref={root} id="mess" className="py-24 md:py-40 border-t border-hairline relative bg-background">
+    <section ref={root} id="mess" className="py-16 md:py-24 border-t border-hairline relative bg-background">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-12 md:gap-20">
         
         {/* Sticky Image Section */}
         <div data-mess-img className="md:col-span-5 h-[50vh] md:h-[85vh] overflow-hidden rounded-3xl surface sticky top-8">
-          <img src={mess} alt="Mess hall" className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-1000" loading="lazy" />
+          <img src={mess} alt="Mess hall" className="w-full h-full object-cover transition-all duration-1000" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
           <div className="absolute bottom-8 left-8 right-8">
             <div className="eyebrow text-white/80 mb-2 underline decoration-maroon underline-offset-4">Quality Standard</div>

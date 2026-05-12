@@ -52,7 +52,7 @@ export const Properties = () => {
     <section 
       ref={sectionRef} 
       id="properties" 
-      className="w-full bg-surface relative border-t border-hairline flex flex-col pt-20 pb-20 md:pt-36 md:pb-36 overflow-hidden"
+      className="w-full bg-surface relative border-t border-hairline flex flex-col pt-16 pb-16 md:pt-24 md:pb-24 overflow-hidden"
     >
       {/* Background Watermark */}
       <div className="absolute top-1/3 left-0 w-full overflow-hidden pointer-events-none flex justify-center opacity-[0.02] z-0">

@@ -6,6 +6,7 @@ import { Footer } from "@/components/aryan/Footer";
 import { SEO } from "@/components/aryan/SEO";
 import { Cursor } from "@/components/aryan/Cursor";
 import { SmoothScroll } from "@/components/aryan/SmoothScroll";
+import heroImg from "@/assets/hero-building.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -136,7 +137,7 @@ export default function ContactPage() {
           <div className="absolute inset-0 overflow-hidden scale-110 origin-center">
             <img
               ref={bgRef}
-              src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1920&q=80&auto=format&fit=crop"
+              src={heroImg}
               alt=""
               className="w-full h-full object-cover object-center will-change-transform"
             />

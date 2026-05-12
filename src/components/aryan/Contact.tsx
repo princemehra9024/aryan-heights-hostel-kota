@@ -16,7 +16,7 @@ export const Contact = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={root} id="contact" className="pt-28 md:pt-40 pb-20 md:pb-32 border-t border-hairline">
+    <section ref={root} id="contact" className="pt-16 md:pt-24 pb-16 md:pb-24 border-t border-hairline">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8">
         <div className="eyebrow text-foreground/55 mb-10">(11) — Visit Us</div>
         <h2 className="font-display text-[10vw] md:text-[7vw] leading-[0.95] tracking-tighter mb-8">

@@ -1,12 +1,22 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import w1 from "@/assets/warden-1.jpg";
+import ownerImg from "@/assets/owner.jpg";
+import founderImg from "@/assets/founder.jpg";
 
 gsap.registerPlugin(ScrollTrigger);
 
 export const Wardens = () => {
   const root = useRef<HTMLElement>(null);
+  const [activeImg, setActiveImg] = useState(0);
+  const images = [founderImg, ownerImg];
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveImg((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -32,7 +42,7 @@ export const Wardens = () => {
   }, []);
 
   return (
-    <section ref={root} id="wardens" className="relative min-h-[100dvh] w-full flex items-center justify-center border-t border-hairline py-24 md:py-0 bg-background overflow-hidden">
+    <section ref={root} id="wardens" className="relative min-h-[85dvh] w-full flex items-center justify-center border-t border-hairline py-16 md:py-0 bg-background overflow-hidden">
       
       {/* Background Watermark */}
       <div className="absolute inset-0 w-full h-full pointer-events-none opacity-[0.02] flex items-center justify-center overflow-hidden z-0">
@@ -45,12 +55,15 @@ export const Wardens = () => {
         <div className="md:col-span-5 lg:col-span-4 fade-up">
           <div className="relative h-full min-h-[400px] md:min-h-[500px] lg:min-h-[550px] w-full overflow-hidden rounded-sm group shadow-2xl bg-surface">
             <div className="absolute inset-0 bg-maroon/20 z-10 mix-blend-overlay opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-            <img 
-              src={w1} 
-              alt="Mr. Rajendra Sharma" 
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-105" 
-            />
+            {images.map((src, i) => (
+              <img 
+                key={i}
+                src={src} 
+                alt="Leadership" 
+                loading="lazy"
+                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === activeImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`} 
+              />
+            ))}
             
             {/* Spinning Badge Overlay */}
             <div className="absolute bottom-4 right-4 md:bottom-6 md:right-6 z-20 w-24 h-24 md:w-28 md:h-28 rounded-full border border-white/20 backdrop-blur-md bg-black/30 flex items-center justify-center animate-[spin_15s_linear_infinite]">
@@ -84,13 +97,24 @@ export const Wardens = () => {
             </div>
           </div>
 
-          <div className="fade-up group py-5 flex flex-col sm:flex-row sm:items-center justify-between border-t border-b border-hairline relative transition-colors hover:bg-surface/30 px-4 -mx-4 rounded-lg cursor-default">
+          <div className="fade-up group py-5 flex flex-col sm:flex-row sm:items-center justify-between border-t border-hairline relative transition-colors hover:bg-surface/30 px-4 -mx-4 rounded-lg cursor-default">
             <div className="flex items-center gap-6 mb-4 sm:mb-0">
               <span className="eyebrow text-[0.6rem] opacity-40">01</span>
               <span className="font-display text-3xl md:text-5xl tracking-tighter transition-transform duration-500 group-hover:translate-x-2">Mr. Rajendra Sharma</span>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-1">
-              <span className="eyebrow text-maroon">Owner & Founder</span>
+              <span className="eyebrow text-maroon">Founder</span>
+              <div className="h-px bg-maroon w-0 group-hover:w-16 transition-all duration-500 mt-1" />
+            </div>
+          </div>
+
+          <div className="fade-up group py-5 flex flex-col sm:flex-row sm:items-center justify-between border-b border-hairline relative transition-colors hover:bg-surface/30 px-4 -mx-4 rounded-lg cursor-default">
+            <div className="flex items-center gap-6 mb-4 sm:mb-0">
+              <span className="eyebrow text-[0.6rem] opacity-40">02</span>
+              <span className="font-display text-3xl md:text-5xl tracking-tighter transition-transform duration-500 group-hover:translate-x-2">Owner</span>
+            </div>
+            <div className="flex flex-col items-start sm:items-end gap-1">
+              <span className="eyebrow text-maroon">Management</span>
               <div className="h-px bg-maroon w-0 group-hover:w-16 transition-all duration-500 mt-1" />
             </div>
           </div>

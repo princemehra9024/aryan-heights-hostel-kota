@@ -50,8 +50,8 @@ export const Nav = () => {
   const [hoveredLink, setHoveredLink] = useState<string | null>(null);
   const { theme, toggle } = useTheme();
   const location = useLocation();
-  const isContactPage = location.pathname === "/contact";
-  const isRoomsPage = location.pathname === "/rooms";
+  const isContactPage = location.pathname.startsWith("/contact");
+  const isRoomsPage = location.pathname.startsWith("/rooms");
   const forceDarkStyle = theme === "dark" || isContactPage || isRoomsPage;
   const navIsDark = scrolled ? theme === "dark" : forceDarkStyle;
   const headerRef = useRef<HTMLElement>(null);
@@ -163,7 +163,7 @@ export const Nav = () => {
                 className={`eyebrow font-medium uppercase tracking-[0.25em] transition-all duration-500 ${
                   scrolled ? "text-[0.55rem] md:text-[0.6rem] mt-1" : "text-[0.65rem] md:text-[0.75rem] mt-1.5"
                 }`}
-                style={{ color: scrolled ? "hsl(var(--maroon))" : "hsl(var(--maroon))" }}
+                style={{ color: scrolled ? "hsl(var(--maroon))" : navIsDark ? "rgba(255,255,255,0.5)" : "hsl(var(--maroon))" }}
               >
                 Boys Hostel · Kota
               </span>
