@@ -119,7 +119,7 @@ export const About = () => {
                       src={person.src}
                       alt={person.name}
                       loading="lazy"
-                      className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border-2 border-accent/30 shrink-0 transition-transform duration-500 group-hover:scale-110"
+                      className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover brightness-[1.2] contrast-[1.1] saturate-[1.05] border-2 border-accent/30 shrink-0 transition-transform duration-500 group-hover:scale-110"
                     />
                     <div>
                       <div className="font-display text-base md:text-lg leading-tight">{person.name}</div>

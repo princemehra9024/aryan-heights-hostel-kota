@@ -138,7 +138,7 @@ export const Nav = () => {
                 src={logo}
                 alt="Aryan Heights"
                 className={`object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-md ${
-                  scrolled ? "w-10 h-10 md:w-12 md:h-12" : "w-14 h-14 md:w-[72px] md:h-[72px]"
+                  scrolled ? "w-14 h-14 md:w-16 md:h-16" : "w-20 h-20 md:w-[96px] md:h-[96px]"
                 }`}
                 style={{
                   /* Always theme-aware */

@@ -108,7 +108,7 @@ export const Rooms = () => {
                 alt={t.name}
                 loading="lazy"
                 decoding="async"
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                className="absolute inset-0 w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-700 ease-out group-hover:scale-105"
               />
               {/* Zoom to lightbox */}
               <button
@@ -121,7 +121,7 @@ export const Rooms = () => {
               </button>
 
               {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
               {/* Badge */}
               {t.featured && (

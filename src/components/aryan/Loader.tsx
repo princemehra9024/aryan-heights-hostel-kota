@@ -200,7 +200,7 @@ export const Loader = () => {
               ref={logoRef}
               src={logo}
               alt="Aryan Heights"
-              className="relative w-56 h-56 md:w-72 md:h-72 lg:w-80 lg:h-80 xl:w-96 xl:h-96 object-contain drop-shadow-2xl"
+              className="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 xl:w-[28rem] xl:h-[28rem] object-contain drop-shadow-2xl"
               style={{ filter: "brightness(0) invert(1)", opacity: 0, transformStyle: "preserve-3d" }}
             />
           </div>

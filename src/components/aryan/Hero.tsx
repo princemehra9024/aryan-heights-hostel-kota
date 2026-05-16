@@ -58,12 +58,12 @@ export const Hero = () => {
             ref={img} 
             src="/hero-building.jpg"
             alt="Aryan Heights hostel exterior at night" 
-            className="absolute inset-0 w-full h-full object-cover" 
+            className="absolute inset-0 w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1]" 
             loading="eager"
             // @ts-ignore
             fetchpriority="high"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60 pointer-events-none" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
           <div className="absolute top-5 left-5 eyebrow text-white/90 drop-shadow-md z-10">Indra Vihar · Kota</div>
           <div className="absolute top-5 right-5 eyebrow text-white/90 drop-shadow-md z-10">26.91°N · 75.79°E</div>
           <div data-hero-rotator className="absolute bottom-5 left-5 right-5 z-10">

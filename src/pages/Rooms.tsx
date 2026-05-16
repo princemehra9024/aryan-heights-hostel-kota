@@ -240,7 +240,7 @@ const RoomsPage = () => {
         {/* Right: full-bleed hero image */}
         <div className="absolute inset-0 md:left-[42%] lg:left-[36%]">
           <img src={roomDoubleImg} alt="Aryan Heights"
-            className="hero-img w-full h-full object-cover" />
+            className="hero-img w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1]" />
           <div className="absolute inset-0 bg-gradient-to-r from-[#13141a] via-transparent to-transparent md:from-[#13141a]/60 md:via-transparent" />
           <div className="absolute bottom-8 right-8">
             <span className="eyebrow text-[0.6rem] px-4 py-2 bg-white/10 backdrop-blur-md text-white rounded-full border border-white/20">Aryan Heights · Kota</span>
@@ -301,7 +301,7 @@ const RoomsPage = () => {
             <article id="room-01" className="bento-card md:col-span-7 group flex flex-col md:flex-row overflow-hidden rounded-[1.5rem] border border-hairline bg-surface" style={{minHeight:'220px'}}>
               <div className="relative overflow-hidden md:w-[52%] h-40 md:h-[260px]">
                 <img src={roomSingleImg} alt="Twin Sharing" loading="lazy" decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
+                  className="w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-700 ease-out group-hover:scale-[1.05]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface/20" />
                 <span className="absolute top-3 left-3 eyebrow text-[0.55rem] px-2.5 py-1 bg-background/80 backdrop-blur-sm text-foreground/80 rounded-full border border-hairline">SHARED / 01</span>
               </div>
@@ -335,8 +335,8 @@ const RoomsPage = () => {
 
               {/* Image fills top */}
               <div className="relative h-36 overflow-hidden flex-shrink-0">
-                <img src={roomSingleImg} alt="Single AC" loading="lazy" decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.05] opacity-80" />
+                <img src={hallwayImg} alt="Single AC" loading="lazy" decoding="async"
+                  className="w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-700 ease-out group-hover:scale-[1.05] opacity-90" />
                 <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#13141a]" />
                 <div className="absolute top-3 left-3">
                   <span className="eyebrow text-[0.55rem] px-2.5 py-1 bg-maroon text-white rounded-full tracking-widest">Most Picked</span>
@@ -381,7 +381,7 @@ const RoomsPage = () => {
               {/* Large image — fixed height on all breakpoints */}
               <div className="relative overflow-hidden lg:w-[48%] h-48 lg:h-[260px]">
                 <img src={roomDoubleImg} alt="Premium Suite" loading="lazy" decoding="async"
-                  className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
+                  className="w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-700 ease-out group-hover:scale-[1.04]" />
                 <div className="absolute inset-0 bg-gradient-to-r from-transparent to-surface/10" />
                 <span className="absolute top-3 left-3 eyebrow text-[0.55rem] px-2.5 py-1 bg-background/80 backdrop-blur-sm text-foreground/80 rounded-full border border-hairline">SUITE / 03</span>
               </div>

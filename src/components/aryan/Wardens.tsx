@@ -70,7 +70,7 @@ export const Wardens = () => {
                 src={src}
                 alt={wardenImgs[i].alt}
                 loading="lazy"
-                className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${i === activeImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+                className={`absolute inset-0 w-full h-full object-cover brightness-[1.2] contrast-[1.1] saturate-[1.05] transition-opacity duration-1000 ease-in-out ${i === activeImg ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
               />
             ))}
             {/* Zoom icon */}

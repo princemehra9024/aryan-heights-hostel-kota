@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import nightVideo from "@/assets/nigh-footert.mp4";
+
 import { useTheme } from "@/context/ThemeContext";
 
 const AnimatedLink = ({ href, text, className, textClass, isRouterLink = false }: { href: string, text: string, className?: string, textClass?: string, isRouterLink?: boolean }) => {
@@ -50,16 +50,8 @@ export const Footer = () => {
         }
       `}</style>
 
-      {/* Background Video Layer */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        playsInline
-        preload="none"
-        className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none opacity-30 mix-blend-overlay"
-        src={nightVideo}
-      />
+      {/* Background Layer instead of Video */}
+      <div className="absolute top-0 left-0 w-full h-full object-cover pointer-events-none opacity-30 mix-blend-overlay bg-[#13141a]" />
       <div className={`absolute inset-0 ${bgOverlay} backdrop-blur-xl`}></div>
 
       <div className="relative z-10 w-full flex flex-col justify-between min-h-screen pt-12">

@@ -85,7 +85,7 @@ export const Gallery = () => {
                 <img
                   src={im.src}
                   alt={im.label}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-[1.03]"
+                  className="w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-700 group-hover:scale-[1.03]"
                   loading="lazy"
                 />
                 {/* Hover overlay */}
@@ -118,7 +118,7 @@ export const Gallery = () => {
               <img
                 src={im.src}
                 alt={im.label}
-                className="w-full h-full object-cover transition-transform duration-500 group-active:scale-95"
+                className="w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1] transition-transform duration-500 group-active:scale-95"
                 loading="lazy"
               />
               {/* Tap indicator */}
@@ -129,7 +129,7 @@ export const Gallery = () => {
                   </svg>
                 </div>
               </div>
-              <figcaption className="eyebrow text-foreground/60 absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/60 to-transparent text-white/75 flex justify-between text-[0.6rem]">
+              <figcaption className="eyebrow text-white/90 absolute bottom-0 left-0 right-0 p-3 bg-gradient-to-t from-black/50 to-transparent flex justify-between text-[0.6rem]">
                 <span>0{i + 1}</span>
                 <span>{im.label}</span>
               </figcaption>
