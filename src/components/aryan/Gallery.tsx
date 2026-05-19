@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useLightbox } from "@/context/LightboxContext";
 
 gsap.registerPlugin(ScrollTrigger);
-import g1 from "@/assets/hero-building.jpg";
+import g1 from "@/assets/hero-building.png";
 import g2 from "@/assets/room-single.jpg";
 import g3 from "@/assets/study-room.jpg";
 import g4 from "@/assets/gym.jpg";

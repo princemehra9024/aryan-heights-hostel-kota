@@ -6,7 +6,7 @@ import { Footer } from "@/components/aryan/Footer";
 import { SEO } from "@/components/aryan/SEO";
 import { Cursor } from "@/components/aryan/Cursor";
 import { SmoothScroll } from "@/components/aryan/SmoothScroll";
-import heroImg from "@/assets/hero-building.jpg";
+import heroImg from "@/assets/hero-building.png";
 
 gsap.registerPlugin(ScrollTrigger);
 

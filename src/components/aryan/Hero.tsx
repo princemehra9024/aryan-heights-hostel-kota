@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import heroImg from "../../assets/hero-building.png";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -56,9 +57,9 @@ export const Hero = () => {
         <div className="md:col-span-5 relative h-[55svh] md:h-[80svh] overflow-hidden rounded-xl md:rounded-sm">
           <img 
             ref={img} 
-            src="/hero-building.jpg"
+            src={heroImg}
             alt="Aryan Heights hostel exterior at night" 
-            className="absolute inset-0 w-full h-full object-cover brightness-[1.25] contrast-[1.15] saturate-[1.1]" 
+            className="absolute inset-0 w-full h-full object-cover" 
             loading="eager"
             // @ts-ignore
             fetchpriority="high"
