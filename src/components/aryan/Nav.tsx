@@ -125,27 +125,36 @@ export const Nav = () => {
         {/* ── Inner Container ── */}
         <div
           className={`relative z-10 max-w-[1700px] mx-auto px-5 md:px-10 flex items-center justify-between transition-all duration-700 ${
-            scrolled ? "h-[80px] md:h-[90px]" : "h-[96px] md:h-[110px]"
+            scrolled ? "h-[80px] md:h-[90px]" : "h-[110px] md:h-[110px]"
           }`}
         >
-          {/* ════ LEFT: Logo ════ */}
-          <Link to="/" className="flex items-center gap-4 md:gap-5 group relative" data-cursor>
+          {/* Mobile Placeholder to push actions to the right */}
+          <div className="md:hidden flex-1" />
+
+          {/* ════ LEFT/CENTER: Logo ════ */}
+          <Link 
+            to="/" 
+            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:relative md:left-auto md:top-auto md:translate-x-0 md:translate-y-0 flex items-center gap-4 md:gap-5 group z-50 transition-all duration-700`}
+            data-cursor
+          >
             {/* Subtle glow behind logo on hover */}
             <div className="absolute -inset-4 rounded-full bg-maroon/0 group-hover:bg-maroon/5 transition-all duration-500" />
             
-            <div className="relative flex items-center justify-center py-1">
+            <div className="relative flex items-center justify-center">
               <img
                 src={logo}
                 alt="Aryan Heights"
                 className={`object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-md ${
-                  scrolled ? "w-14 h-14 md:w-16 md:h-16" : "w-20 h-20 md:w-[96px] md:h-[96px]"
-                }`}
-                style={{
-                  /* Always theme-aware */
-                  filter: navIsDark
-                    ? (scrolled ? "brightness(0) invert(1)" : "brightness(0) invert(1) drop-shadow(0 0 12px rgba(255,255,255,0.15))")
-                    : "none",
-                }}
+                  scrolled ? "w-24 h-24 md:w-[84px] md:h-[84px]" : "w-[170px] h-[170px] md:w-[220px] md:h-[220px]"
+                } md:hidden`}
+              />
+              {/* Desktop logo (smaller, positioned left) */}
+              <img
+                src={logo}
+                alt="Aryan Heights"
+                className={`object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-md ${
+                  scrolled ? "w-14 h-14 md:w-16 md:h-16" : "w-14 h-14 md:w-16 md:h-16"
+                } hidden md:block`}
               />
             </div>
 
@@ -171,7 +180,7 @@ export const Nav = () => {
           </Link>
 
           {/* ════ CENTER: Nav Links ════ */}
-          <nav className="hidden lg:flex items-center relative">
+          <nav className="hidden lg:flex items-center absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             {/* Pill — dark glass before scroll, theme-aware after */}
             <div
               className="flex items-center gap-1 rounded-full px-1.5 py-1 shadow-sm backdrop-blur-md transition-all duration-500"

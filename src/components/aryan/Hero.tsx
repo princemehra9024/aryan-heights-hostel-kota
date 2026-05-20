@@ -33,22 +33,22 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section ref={root} id="top" className="relative min-h-[90svh] md:min-h-[100svh] pb-12 md:pb-0 overflow-hidden pt-20 md:pt-24">
+    <section ref={root} id="top" className="relative min-h-[90svh] md:min-h-[100svh] pb-12 md:pb-0 overflow-hidden pt-44 md:pt-40">
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 md:gap-10 items-center">
-        <div className="md:col-span-7 z-10">
-          <div data-hero-tag className="eyebrow text-foreground/60 mb-6 md:mb-8 flex items-center gap-3">
-            <span className="w-10 h-px bg-maroon" /> Premium Boys Hostel · Since 2010
+        <div className="md:col-span-7 z-10 flex flex-col items-center text-center md:items-start md:text-left mt-8 md:mt-0">
+          <div data-hero-tag className="eyebrow text-foreground/60 mb-6 md:mb-8 flex items-center justify-center md:justify-start gap-3 w-full">
+            <span className="hidden md:block w-10 h-px bg-maroon" /> Premium Boys Hostel · Since 2010
           </div>
           <h1 className="font-display text-[12.5vw] leading-[0.95] md:text-[8.5vw] md:leading-[0.92] tracking-tight">
             <span data-hero-line className="block overflow-hidden"><span className="block">A premium</span></span>
             <span data-hero-line className="block overflow-hidden"><span className="block">boys' hostel,</span></span>
             <span data-hero-line className="block overflow-hidden"><span className="block">in <span className="text-maroon">Kota.</span></span></span>
           </h1>
-          <div className="hairline mt-8 md:mt-12" />
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6 md:mt-8">
+          <div className="hairline mt-8 md:mt-12 w-full max-w-[80%] md:max-w-none mx-auto md:mx-0" />
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mt-6 md:mt-8 w-full place-items-center md:place-items-start">
             {[["15+","Years of Trust"],["1200+","Aspirants Housed"],["24/7","Security & Care"],["3min","To Allen Campus"]].map(([n,l]) => (
-              <div data-hero-meta key={l}>
-                <div className="font-display text-2xl md:text-4xl">{n}</div>
+              <div data-hero-meta key={l} className="flex flex-col items-center md:items-start">
+                <div className="font-display text-3xl md:text-4xl">{n}</div>
                 <div className="eyebrow text-foreground/55 mt-1 md:mt-2 text-[0.65rem] md:text-xs">{l}</div>
               </div>
             ))}

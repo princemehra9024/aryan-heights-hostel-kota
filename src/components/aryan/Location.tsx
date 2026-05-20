@@ -20,8 +20,8 @@ export const Location = () => {
       <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-4">
           <div className="eyebrow text-foreground/55 mb-4">(10) — Location</div>
-          <h2 data-loc className="font-display text-5xl md:text-6xl leading-[0.95] tracking-tighter">Prime location in<br/>Indra Vihar.</h2>
-          <p data-loc className="text-foreground/70 mt-6 max-w-md">Strategically situated in Indra Vihar, Kota — major coaching institutes are just a walk away, with markets, hospitals and bus connectivity all nearby.</p>
+          <h2 data-loc className="font-display text-5xl md:text-6xl leading-[0.95] tracking-tighter">Prime location in<br/>Landmark City.</h2>
+          <p data-loc className="text-foreground/70 mt-6 max-w-md">Strategically situated in Landmark City, Kota — major coaching institutes are just a walk away, with markets, hospitals and bus connectivity all nearby.</p>
           <ul data-loc className="mt-8 space-y-3 text-sm">
             {[["Major Coaching Institutes","Walking Distance"],["Market & Daily Needs","Walking Distance"],["Bus Stand","Nearby"],["Hospitals & Medical Stores","Nearby"]].map(([n,t]) => (
               <li key={n} className="flex justify-between border-b border-hairline pb-3"><span>{n}</span><span className="text-foreground/55">{t}</span></li>
@@ -31,7 +31,7 @@ export const Location = () => {
         <div data-loc className="md:col-span-8 aspect-[16/10] overflow-hidden surface relative">
           <iframe
             title="Aryan Heights location"
-            src="https://maps.google.com/maps?q=Aryan%20Heights%20Hostel%20Indra%20Vihar%20Kota&t=&z=16&ie=UTF8&iwloc=&output=embed"
+            src="https://maps.google.com/maps?q=Shree%20Shyama%20Kunj%20Hostel%20Kota&t=&z=18&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"

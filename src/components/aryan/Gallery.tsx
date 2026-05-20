@@ -13,12 +13,12 @@ import g6 from "@/assets/waiting-room.jpg";
 import g7 from "@/assets/mess-hall.jpg";
 
 const imgs = [
-  { src: g1, label: "Facade · 2024" },
-  { src: g3, label: "Study Area" },
-  { src: g2, label: "Single Room" },
-  { src: g5, label: "Silent Environment" },
   { src: g4, label: "Gymnasium" },
+  { src: g1, label: "Facade · 2024" },
+  { src: g2, label: "Single Room" },
   { src: g7, label: "Mess Hall" },
+  { src: g5, label: "Silent Environment" },
+  { src: g3, label: "Study Area" },
   { src: g6, label: "Waiting Lounge" },
 ];
 
