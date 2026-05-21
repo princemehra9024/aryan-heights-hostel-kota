@@ -134,45 +134,47 @@ export const Nav = () => {
           {/* ════ LEFT/CENTER: Logo ════ */}
           <Link 
             to="/" 
-            className={`absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 md:relative md:left-auto md:top-auto md:translate-x-0 md:translate-y-0 flex items-center gap-4 md:gap-5 group z-50 transition-all duration-700`}
+            className={`absolute left-1/2 -translate-x-1/2 ${
+              scrolled ? "top-1/2 -translate-y-1/2" : "top-5 md:top-2"
+            } md:relative md:left-auto md:top-auto md:translate-x-0 md:translate-y-0 flex items-center gap-4 md:gap-5 group z-50 transition-all duration-700`}
             data-cursor
           >
             {/* Subtle glow behind logo on hover */}
             <div className="absolute -inset-4 rounded-full bg-maroon/0 group-hover:bg-maroon/5 transition-all duration-500" />
             
-            <div className="relative flex items-center justify-center">
+            <div className="relative flex items-center justify-center md:mt-3">
               <img
                 src={logo}
                 alt="Aryan Heights"
                 className={`object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-md ${
-                  scrolled ? "w-24 h-24 md:w-[84px] md:h-[84px]" : "w-[170px] h-[170px] md:w-[220px] md:h-[220px]"
-                } md:hidden`}
-              />
-              {/* Desktop logo (smaller, positioned left) */}
-              <img
-                src={logo}
-                alt="Aryan Heights"
-                className={`object-contain transition-all duration-500 group-hover:scale-105 drop-shadow-md ${
-                  scrolled ? "w-14 h-14 md:w-16 md:h-16" : "w-14 h-14 md:w-16 md:h-16"
-                } hidden md:block`}
+                  scrolled 
+                    ? "w-[70px] h-auto md:w-[75px]" 
+                    : "w-[130px] h-auto md:w-[115px]"
+                }`}
               />
             </div>
 
             {/* Typography */}
-            <div className="hidden sm:flex flex-col leading-none relative">
+            <div className="hidden sm:flex flex-col leading-none relative justify-center md:mt-2">
               <span
-                className={`font-display font-bold tracking-[0.03em] transition-all duration-500 ${
-                  scrolled ? "text-[1.1rem] md:text-[1.25rem]" : "text-[1.4rem] md:text-[1.7rem]"
+                className={`font-display font-bold uppercase tracking-[0.06em] transition-all duration-500 ${
+                  scrolled ? "text-[1.2rem] md:text-[1.35rem]" : "text-[1.5rem] md:text-[1.8rem]"
                 }`}
-                style={{ color: scrolled ? "hsl(var(--foreground))" : navIsDark ? "rgba(255,255,255,0.95)" : "hsl(var(--foreground))" }}
+                style={{ 
+                  color: scrolled ? "hsl(var(--foreground))" : navIsDark ? "rgba(255,255,255,1)" : "hsl(var(--foreground))",
+                  textShadow: navIsDark && !scrolled ? "0 2px 12px rgba(0,0,0,0.4)" : "none"
+                }}
               >
                 Aryan Heights
               </span>
               <span
-                className={`eyebrow font-medium uppercase tracking-[0.25em] transition-all duration-500 ${
-                  scrolled ? "text-[0.55rem] md:text-[0.6rem] mt-1" : "text-[0.65rem] md:text-[0.75rem] mt-1.5"
+                className={`eyebrow font-bold uppercase tracking-[0.3em] transition-all duration-500 ${
+                  scrolled ? "text-[0.6rem] md:text-[0.65rem] mt-1" : "text-[0.7rem] md:text-[0.8rem] mt-1.5"
                 }`}
-                style={{ color: scrolled ? "hsl(var(--maroon))" : navIsDark ? "rgba(255,255,255,0.5)" : "hsl(var(--maroon))" }}
+                style={{ 
+                  color: scrolled ? "hsl(var(--maroon))" : navIsDark ? "rgba(255,255,255,0.85)" : "hsl(var(--maroon))",
+                  textShadow: navIsDark && !scrolled ? "0 2px 10px rgba(0,0,0,0.4)" : "none"
+                }}
               >
                 Boys Hostel · Kota
               </span>

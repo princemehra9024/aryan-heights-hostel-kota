@@ -73,7 +73,7 @@ export const Mess = () => {
         {/* Sticky Image Section */}
         <div data-mess-img className="md:col-span-5 h-[50vh] md:h-[85vh] overflow-hidden rounded-3xl surface sticky top-8 cursor-pointer group"
              onClick={() => openLightbox([{ src: mess, alt: "Aryan Heights Mess Hall" }])}>
-          <img src={mess} alt="Mess hall" className="w-full h-full object-cover brightness-[1.75] contrast-[1.15] saturate-[1.1] transition-all duration-700 group-hover:scale-105" loading="lazy" />
+          <img src={mess} alt="Mess hall" className="w-full h-full object-cover brightness-[2.2] contrast-[1.15] saturate-[1.1] transition-all duration-700 group-hover:scale-105" loading="lazy" />
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
           {/* Zoom icon on hover */}
           <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">

@@ -67,8 +67,8 @@ const Index = () => {
       <About />
 
       <LazySection minH="40vh"><Rooms /></LazySection>
-      <LazySection minH="40vh"><Mess /></LazySection>
       <LazySection minH="40vh"><Facilities /></LazySection>
+      <LazySection minH="40vh"><Mess /></LazySection>
       <LazySection minH="40vh"><Gallery /></LazySection>
       <LazySection minH="30vh"><Wardens /></LazySection>
       <LazySection minH="30vh"><WhyChooseUs /></LazySection>
