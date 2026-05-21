@@ -4,6 +4,15 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
+// Tower locations for Aryan Heights
+const towers = [
+  { name: "Prestige Tower", address: "A-688(E), Indra Vihar, Kota" },
+  { name: "Majestic Tower", address: "53, Rajeev Gandhi Nagar Special, Kota" },
+  { name: "Imperial Tower", address: "85, Mahaveer Nagar 1st, Kota" },
+  { name: "Royal Tower", address: "191, Rajeev Gandhi Nagar Special, Kota" },
+  { name: "Vintage Tower", address: "111, Mahaveer Nagar 1st, Kota" },
+];
+
 export const Location = () => {
   const root = useRef<HTMLElement>(null);
   useEffect(() => {
@@ -26,6 +35,17 @@ export const Location = () => {
             {[["Major Coaching Institutes","Walking Distance"],["Market & Daily Needs","Walking Distance"],["Bus Stand","Nearby"],["Hospitals & Medical Stores","Nearby"]].map(([n,t]) => (
               <li key={n} className="flex justify-between border-b border-hairline pb-3"><span>{n}</span><span className="text-foreground/55">{t}</span></li>
             ))}
+            {/* Tower Locations */}
+            <div className="mt-6">
+              <h3 className="font-display text-xl mb-3">Our Towers</h3>
+              <ul className="space-y-2 text-sm">
+                {towers.map((tower) => (
+                  <li key={tower.name} className="border-b border-hairline pb-2">
+                    <span className="font-medium">{tower.name}:</span> <span className="text-foreground/70">{tower.address}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </ul>
         </div>
         <div data-loc className="md:col-span-8 aspect-[16/10] overflow-hidden surface relative">
