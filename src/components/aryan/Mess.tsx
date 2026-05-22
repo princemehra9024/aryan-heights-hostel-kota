@@ -67,8 +67,8 @@ export const Mess = () => {
   }, []);
 
   return (
-    <section ref={root} id="mess" className="py-16 md:py-24 border-t border-hairline relative bg-background overflow-x-hidden">
-      <div className="max-w-[1700px] mx-auto px-4 md:px-8 grid md:grid-cols-12 gap-8 md:gap-20">
+    <section ref={root} id="mess" className="py-16 md:py-24 border-t border-hairline relative bg-background overflow-hidden">
+      <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 md:gap-20 min-w-0 w-full">
         
         {/* Sticky Image Section */}
         <div data-mess-img className="md:col-span-5 h-[50vh] md:h-[85vh] overflow-hidden rounded-3xl surface sticky top-8 cursor-pointer group"
@@ -88,33 +88,33 @@ export const Mess = () => {
         </div>
 
         {/* Menu Content Section */}
-        <div className="md:col-span-7">
+        <div className="md:col-span-7 min-w-0">
           <div className="eyebrow text-foreground/55 mb-6">(03) — Mess & Nutrition</div>
-          <h2 className="font-display text-4xl sm:text-5xl md:text-8xl leading-[0.95] tracking-tighter mb-10 md:mb-24">
+          <h2 className="font-display text-5xl md:text-8xl leading-[0.95] tracking-tighter mb-16 md:mb-24">
             Balanced<br /><span className="text-foreground/40 italic">Nourishment.</span>
           </h2>
 
           <div className="space-y-12">
             {mealSections.map((meal) => (
               <div data-meal-card key={meal.title} className="group border-t border-hairline pt-10 pb-6">
-                <div className="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-12 mb-6">
-                  <h3 className="font-display text-3xl md:text-5xl text-maroon group-hover:translate-x-2 transition-transform duration-500">{meal.title}</h3>
-                  <div className="text-base md:text-2xl font-light text-foreground/80 break-words">{meal.main}</div>
+                <div className="flex flex-col md:flex-row md:items-baseline gap-4 md:gap-12 mb-8">
+                  <h3 className="font-display text-4xl md:text-5xl text-maroon group-hover:translate-x-2 transition-transform duration-500">{meal.title}</h3>
+                  <div className="text-xl md:text-2xl font-light text-foreground/80">{meal.main}</div>
                 </div>
 
                 {meal.rotation && (
-                  <div className="bg-surface/30 p-4 md:p-6 rounded-2xl border border-hairline/50 overflow-hidden">
+                  <div className="bg-surface/30 p-5 rounded-2xl border border-hairline/50">
                     <span className="eyebrow text-foreground/40 text-[0.6rem] block mb-3 uppercase tracking-[0.2em]">{meal.rotationTitle}</span>
-                    <p className="text-xs md:text-sm leading-relaxed text-foreground/60 break-words overflow-wrap-anywhere">{meal.rotation}</p>
+                    <p className="text-sm leading-relaxed text-foreground/60 break-words">{meal.rotation}</p>
                   </div>
                 )}
 
                 {meal.subSections && (
-                  <div className="grid grid-cols-1 gap-4 md:gap-6">
+                  <div className="grid grid-cols-1 gap-4">
                     {meal.subSections.map((sub) => (
-                      <div key={sub.name} className="flex flex-col gap-1.5 md:flex-row md:gap-8 border-b border-hairline/30 pb-4 last:border-0">
-                        <div className="eyebrow text-foreground/40 text-[0.6rem] md:min-w-[80px] pt-0.5 uppercase tracking-widest shrink-0">{sub.name} Options</div>
-                        <p className="text-xs md:text-sm text-foreground/70 leading-relaxed italic break-words w-full overflow-hidden">{sub.items}</p>
+                      <div key={sub.name} className="flex flex-col gap-2 border-b border-hairline/30 pb-4 last:border-0">
+                        <div className="eyebrow text-foreground/40 text-[0.6rem] uppercase tracking-widest">{sub.name} Options</div>
+                        <p className="text-sm text-foreground/70 leading-relaxed italic break-words w-full">{sub.items}</p>
                       </div>
                     ))}
                   </div>

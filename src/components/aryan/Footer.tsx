@@ -90,7 +90,7 @@ export const Footer = () => {
                     href={link.path} 
                     text={link.name} 
                     isRouterLink={link.isRouter}
-                    className={`font-display text-[11vw] sm:text-5xl md:text-[7rem] leading-[0.85] tracking-tighter uppercase ${textMuted} hover:text-white transition-colors`}
+                    className={`font-display text-[14vw] sm:text-6xl md:text-[7rem] leading-[0.85] tracking-tighter uppercase ${textMuted} hover:text-white transition-colors`}
                     textClass="w-full"
                   />
                 ))}
@@ -179,8 +179,8 @@ export const Footer = () => {
           </div>
 
           {/* Gigantic Brand Name with Outline Hover */}
-          <div className="w-full overflow-hidden leading-none flex justify-center items-end px-2 md:px-4 pb-4">
-            <h1 className="font-display text-[10vw] lg:text-[11.5vw] leading-[0.85] tracking-tighter text-[#E8E6E1] whitespace-nowrap text-center opacity-90 transition-all duration-500 hover:text-transparent hover:[-webkit-text-stroke:2px_#E8E6E1] cursor-crosshair pb-2">
+          <div className="w-full overflow-hidden leading-none flex justify-center items-end px-4 pb-4">
+            <h1 className="font-display text-[11vw] lg:text-[11.5vw] leading-[0.85] tracking-tighter text-[#E8E6E1] whitespace-nowrap text-center opacity-90 transition-all duration-500 hover:text-transparent hover:[-webkit-text-stroke:2px_#E8E6E1] cursor-crosshair pb-2">
               ARYAN HEIGHTS
             </h1>
           </div>

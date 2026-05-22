@@ -224,7 +224,7 @@ export const Facilities = () => {
         <div 
           ref={cardsContainerRef}
           onMouseMove={handleMouseMove}
-          className="flex-1 grid grid-cols-2 md:grid-cols-7 auto-rows-[minmax(110px,auto)] md:auto-rows-auto md:grid-rows-4 gap-3 md:gap-4 grid-flow-dense min-h-0"
+          className="flex-1 grid grid-cols-2 md:grid-cols-7 auto-rows-[minmax(100px,auto)] md:auto-rows-auto md:grid-rows-4 gap-2.5 md:gap-4 grid-flow-dense min-h-0"
         >
           {facilities.map((f, i) => {
             const isRowLayout = f.layout === "row";

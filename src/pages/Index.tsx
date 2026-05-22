@@ -51,9 +51,10 @@ const Index = () => {
   return (
     <main className="bg-background text-foreground grain relative overflow-x-clip w-full">
       <SEO
-        title="Premium Boys Hostel in Kota"
-        description="Aryan Heights offers the finest student living experience in Kota. AC rooms, healthy meals, and walking distance to Allen coaching."
-        keywords="best hostel kota, boys hostel landmark city, aryan heights kota, resonance kota hostel"
+        title="Best Hostel in Kota for Boys | AC Rooms Near Allen & Resonance | JEE NEET 2025"
+        description="Aryan Heights — Kota's best boys hostel. AC rooms with attached bathroom, 4 daily meals, gym, 24×7 CCTV & 300 Mbps Wi-Fi. Walking distance from Allen, Resonance & Vibrant. Trusted since 2010. Call: +91-94141-41723."
+        keywords="best hostel in kota, hostel in kota, best boys hostel kota, hostel near allen kota, boys hostel kota, student hostel kota, aryan heights hostel, ac hostel kota, best hostel kota for jee, best hostel kota for neet, hostel near resonance kota, hostel indra vihar kota"
+        canonical="https://aryanheights.in/"
       />
 
       {/* ── Always render: critical path ── */}

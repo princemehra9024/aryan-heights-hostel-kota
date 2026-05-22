@@ -25,8 +25,8 @@ export const Location = () => {
     return () => ctx.revert();
   }, []);
   return (
-    <section ref={root} className="py-16 md:py-24 border-t border-hairline overflow-hidden">
-      <div className="max-w-[1700px] mx-auto px-4 md:px-8 grid md:grid-cols-12 gap-10">
+    <section ref={root} className="py-16 md:py-24 border-t border-hairline">
+      <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-10">
         <div className="md:col-span-4">
           <div className="eyebrow text-foreground/55 mb-4">(10) — Location</div>
           <h2 data-loc className="font-display text-5xl md:text-6xl leading-[0.95] tracking-tighter">Prime location in<br/>Landmark City.</h2>

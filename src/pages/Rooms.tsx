@@ -186,9 +186,10 @@ const RoomsPage = () => {
       <Cursor />
       <Nav />
       <SEO 
-        title="Rooms & Pricing" 
-        description="Aryan Heights Boys Hostel offers AC Single Rooms (Balcony & Non-Balcony) and AC Double Rooms in Indra Vihar, Kota. All rooms fully furnished with attached bathrooms. Rent on call: 9414141723." 
-        keywords="AC single room boys hostel Kota, AC double room hostel Kota, furnished room Indra Vihar Kota, aryan heights room pricing"
+        title="AC Rooms in Kota | Hostel Rooms Near Allen & Resonance — Aryan Heights" 
+        description="AC Single & Double rooms at Aryan Heights — best hostel in Kota. Private balcony options, attached bathroom, fully furnished. Walking distance from Allen, Resonance & Vibrant. Call: +91-94141-41723." 
+        keywords="ac rooms kota hostel, hostel rooms near allen kota, boys hostel rooms kota, single room hostel kota, double room hostel kota, ac hostel rooms kota rajasthan"
+        canonical="https://aryanheights.in/rooms"
       />
 
       {/* ═══════════════════════════════════════════════════

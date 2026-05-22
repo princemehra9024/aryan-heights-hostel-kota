@@ -125,7 +125,7 @@ export default function ContactPage() {
     <div ref={root} className="min-h-screen bg-bg text-foreground selection:bg-maroon selection:text-white flex flex-col overflow-x-hidden">
       <SmoothScroll />
       <Cursor />
-      <SEO title="Contact Us | Aryan Heights" description="Get in touch with Aryan Heights Premium Boys Hostel in Kota." />
+      <SEO title="Contact Aryan Heights | Best Boys Hostel in Kota — Inquire Now" description="Contact Aryan Heights — best hostel in Kota. AC rooms near Allen, Resonance & Vibrant for JEE/NEET students. Call +91-94141-41723 or WhatsApp to book your room today." canonical="https://aryanheights.in/contact" />
       <Nav />
 
       <main className="flex-1 flex flex-col">

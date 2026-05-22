@@ -80,10 +80,10 @@ export const About = () => {
 
   return (
     <section ref={root} id="about" className="py-16 md:py-24 relative overflow-hidden">
-      <div className="max-w-[1700px] mx-auto px-4 md:px-8 grid md:grid-cols-12 gap-8 relative z-10">
+      <div className="max-w-[1700px] mx-auto px-5 md:px-8 grid md:grid-cols-12 gap-8 relative z-10">
         <div className="md:col-span-2 eyebrow text-foreground/55">(01) — About</div>
         <div className="md:col-span-9">
-          <h2 className="font-display text-[7vw] md:text-[4.2vw] leading-[1.02] tracking-tighter">
+          <h2 className="font-display text-[8vw] md:text-[4.2vw] leading-[1.02] tracking-tighter">
             <span className="block overflow-hidden"><span data-a-line className="block">A home that quietly</span></span>
             <span className="block overflow-hidden"><span data-a-line className="block text-accent">backs his ambition —</span></span>
             <span className="block overflow-hidden"><span data-a-line className="block text-foreground/55">since 2010.</span></span>
@@ -142,8 +142,8 @@ export const About = () => {
       </div>
       
       {/* Decorative Background Elements */}
-      <div className="absolute top-1/4 -right-[10%] w-[40vw] h-[40vw] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-0 -left-[10%] w-[30vw] h-[30vw] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 -right-[5%] w-[40vw] h-[40vw] max-w-[400px] max-h-[400px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-0 -left-[5%] w-[30vw] h-[30vw] max-w-[300px] max-h-[300px] bg-foreground/5 rounded-full blur-[100px] pointer-events-none" />
     </section>
   );
 };
