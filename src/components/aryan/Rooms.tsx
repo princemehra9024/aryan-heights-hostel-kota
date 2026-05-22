@@ -50,7 +50,7 @@ export const Rooms = () => {
       id="rooms"
       className="py-16 md:py-24 border-t border-hairline bg-background"
     >
-      <div className="max-w-[1700px] mx-auto px-5 md:px-12">
+      <div className="max-w-[1700px] mx-auto px-4 md:px-12">
 
         {/* ── Header ── */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 md:gap-10 mb-12 md:mb-24">
@@ -61,12 +61,12 @@ export const Rooms = () => {
               </span>
             </div>
             <div className="overflow-hidden">
-              <h2 className="rh-line font-display text-[12vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter">
+              <h2 className="rh-line font-display text-[10vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter">
                 Pick the room.
               </h2>
             </div>
             <div className="overflow-hidden">
-              <h2 className="rh-line font-display text-[12vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter text-maroon italic">
+              <h2 className="rh-line font-display text-[10vw] sm:text-6xl md:text-8xl leading-[0.95] md:leading-[0.92] tracking-tighter text-maroon italic">
                 We handle the rest.
               </h2>
             </div>
