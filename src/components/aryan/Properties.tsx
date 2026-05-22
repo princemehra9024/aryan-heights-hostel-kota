@@ -9,7 +9,7 @@ const properties = [
   { name: "Aryan Heights - Prestige Tower", address: "688, Indravihar" },
   { name: "Majestic Tower", address: "53, Rajiv Gandhi Nagar Special" },
   { name: "Imperial Tower", address: "85, Mahaveer Nagar" },
-  { name: "Royal Tower", address: "191, Rajeev Gandhi Nagar" },
+  { name: "Royal Tower", address: "191, Rajiv Gandhi Nagar" },
   { name: "Vintage Tower", address: "111, Mahaveer Nagar 1st, Kota" },
 ];
 
@@ -98,7 +98,7 @@ export const Properties = () => {
                     <span className="font-mono text-foreground/30 text-xl md:text-3xl transition-colors duration-500 group-hover:text-white/60">
                       {String(idx + 1).padStart(2, '0')}
                     </span>
-                    <h3 className="font-display text-4xl md:text-6xl lg:text-7xl uppercase tracking-tighter transition-all duration-500 group-hover:text-[#E5C158] group-hover:italic md:group-hover:translate-x-4">
+                    <h3 className="font-display text-4xl md:text-6xl lg:text-7xl capitalize tracking-tighter transition-all duration-500 group-hover:text-[#E5C158] group-hover:italic md:group-hover:translate-x-4">
                       {prop.name}
                     </h3>
                  </div>
@@ -111,7 +111,7 @@ export const Properties = () => {
                        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border border-hairline bg-background flex items-center justify-center shrink-0 transition-colors duration-500 group-hover:border-transparent group-hover:bg-white/10">
                          <MapPin className="w-4 h-4 md:w-5 md:h-5 text-maroon transition-colors duration-500 group-hover:text-[#E5C158]" strokeWidth={1.5} />
                        </div>
-                       <p className="font-tight text-sm md:text-2xl uppercase tracking-tight text-foreground/80 transition-colors duration-500 group-hover:text-white max-w-[180px] md:max-w-[350px]">
+                       <p className="font-tight text-sm md:text-2xl capitalize tracking-tight text-foreground/80 transition-colors duration-500 group-hover:text-white max-w-[180px] md:max-w-[350px]">
                          {prop.address}
                        </p>
                     </div>

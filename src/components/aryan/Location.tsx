@@ -7,9 +7,9 @@ gsap.registerPlugin(ScrollTrigger);
 // Tower locations for Aryan Heights
 const towers = [
   { name: "Prestige Tower", address: "A-688(E), Indra Vihar, Kota" },
-  { name: "Majestic Tower", address: "53, Rajeev Gandhi Nagar Special, Kota" },
+  { name: "Majestic Tower", address: "53, Rajiv Gandhi Nagar Special, Kota" },
   { name: "Imperial Tower", address: "85, Mahaveer Nagar 1st, Kota" },
-  { name: "Royal Tower", address: "191, Rajeev Gandhi Nagar Special, Kota" },
+  { name: "Royal Tower", address: "191, Rajiv Gandhi Nagar Special, Kota" },
   { name: "Vintage Tower", address: "111, Mahaveer Nagar 1st, Kota" },
 ];
 
