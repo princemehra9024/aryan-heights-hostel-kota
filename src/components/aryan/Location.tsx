@@ -49,13 +49,123 @@ export const Location = () => {
           </ul>
         </div>
         <div data-loc className="md:col-span-8 aspect-[16/10] overflow-hidden surface relative">
+          {/* Map iframe — plain pin at exact coordinates, no business name from Google */}
           <iframe
-            title="Aryan Heights location"
-            src="https://maps.google.com/maps?q=Shree%20Shyama%20Kunj%20Hostel%20Kota&t=&z=18&ie=UTF8&iwloc=&output=embed"
+            title="Aryan Heights Boys Hostel location"
+            src="https://maps.google.com/maps?q=25.1413612,75.8468229&t=&z=18&ie=UTF8&iwloc=&output=embed"
             className="w-full h-full"
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
+            allowFullScreen
           />
+
+          {/* Custom hostel name label — top-left overlay on the map */}
+          <div
+            style={{
+              position: "absolute",
+              top: "16px",
+              left: "16px",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              background: "rgba(255,255,255,0.97)",
+              borderRadius: "14px",
+              padding: "10px 16px",
+              boxShadow: "0 4px 24px rgba(0,0,0,0.18)",
+              zIndex: 10,
+              maxWidth: "calc(100% - 32px)",
+            }}
+          >
+            {/* Red map pin icon */}
+            <div style={{
+              width: "36px", height: "36px", borderRadius: "50%",
+              background: "linear-gradient(135deg,#e53935,#b71c1c)",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              flexShrink: 0, boxShadow: "0 2px 8px rgba(229,57,53,0.4)",
+            }}>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="#fff" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+              </svg>
+            </div>
+            <div>
+              <div style={{ fontWeight: 700, fontSize: "14px", color: "#1a1a1a", lineHeight: 1.2 }}>
+                Aryan Heights Boys Hostel
+              </div>
+              <div style={{ fontSize: "12px", color: "#666", marginTop: "2px" }}>
+                A-723(B), Indra Vihar, Talwandi, Kota
+              </div>
+            </div>
+          </div>
+
+          {/* Map action buttons — bottom-right */}
+          <div
+            style={{
+              position: "absolute",
+              bottom: "16px",
+              right: "16px",
+              display: "flex",
+              flexDirection: "column",
+              gap: "8px",
+              zIndex: 10,
+            }}
+          >
+            {/* Get Directions button */}
+            <a
+              href="https://www.google.com/maps/dir/?api=1&destination=25.1413612,75.8468229&destination_place_id=Aryan+Heights+Boys+Hostel+Kota"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#1a73e8",
+                color: "#fff",
+                fontWeight: 700,
+                fontSize: "13px",
+                padding: "10px 16px",
+                borderRadius: "9999px",
+                boxShadow: "0 2px 12px rgba(26,115,232,0.45)",
+                textDecoration: "none",
+                transition: "box-shadow 0.2s, background 0.2s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={e => { e.currentTarget.style.background = "#1558b0"; e.currentTarget.style.boxShadow = "0 4px 20px rgba(26,115,232,0.6)"; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#1a73e8"; e.currentTarget.style.boxShadow = "0 2px 12px rgba(26,115,232,0.45)"; }}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polygon points="3 11 22 2 13 21 11 13 3 11"/>
+              </svg>
+              Directions to Aryan Heights
+            </a>
+            {/* Open in Maps button */}
+            <a
+              href="https://maps.app.goo.gl/EPmqmY8gDatV8oqU9"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#fff",
+                color: "#1a73e8",
+                fontWeight: 600,
+                fontSize: "13px",
+                padding: "10px 16px",
+                borderRadius: "9999px",
+                boxShadow: "0 2px 12px rgba(0,0,0,0.18)",
+                textDecoration: "none",
+                transition: "box-shadow 0.2s",
+                whiteSpace: "nowrap",
+              }}
+              onMouseEnter={e => (e.currentTarget.style.boxShadow = "0 4px 20px rgba(0,0,0,0.28)")}
+              onMouseLeave={e => (e.currentTarget.style.boxShadow = "0 2px 12px rgba(0,0,0,0.18)")}
+            >
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#1a73e8" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5S13.38 11.5 12 11.5z"/>
+              </svg>
+              Aryan Heights on Maps
+            </a>
+          </div>
         </div>
       </div>
     </section>
