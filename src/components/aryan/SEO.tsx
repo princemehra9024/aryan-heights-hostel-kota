@@ -41,8 +41,13 @@ export const SEO = ({ title, description, keywords, canonical, ogImage }: SEOPro
 
     /* ── Canonical ── */
     if (canonical) {
-      const link = document.querySelector('link[rel="canonical"]');
-      if (link) link.setAttribute("href", canonical);
+      let link = document.querySelector('link[rel="canonical"]');
+      if (!link) {
+        link = document.createElement('link');
+        link.setAttribute('rel', 'canonical');
+        document.head.appendChild(link);
+      }
+      link.setAttribute("href", canonical);
     }
 
     return () => {

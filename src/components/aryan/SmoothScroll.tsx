@@ -31,7 +31,7 @@ export const SmoothScroll = () => {
         const element = document.getElementById(id || "");
         if (element) {
           e.preventDefault();
-          // @ts-expect-error
+          // @ts-expect-error Lenis types might be incomplete
           lenis.scrollTo(element, { offset: 0, duration: 2 });
         }
       }

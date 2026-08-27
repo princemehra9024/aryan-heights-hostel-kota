@@ -170,11 +170,15 @@ export const Footer = () => {
             <div className="flex flex-wrap items-center justify-center gap-3">
               <AnimatedLink href="/rooms" text="Rooms" isRouterLink={true} className="hover:text-white transition-colors" />
               <span>•</span>
-              <AnimatedLink href="/#properties" text="Portfolio" className="hover:text-white transition-colors" />
+              <AnimatedLink href="/blog" text="Blog" isRouterLink={true} className="hover:text-white transition-colors" />
               <span>•</span>
               <AnimatedLink href="/contact" text="Contact" isRouterLink={true} className="hover:text-white transition-colors" />
               <span>•</span>
-              <AnimatedLink href="/#about" text="About" className="hover:text-white transition-colors" />
+              <AnimatedLink href="/privacy-policy" text="Privacy Policy" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/terms-of-service" text="Terms" isRouterLink={true} className="hover:text-white transition-colors" />
+              <span>•</span>
+              <AnimatedLink href="/disclaimer" text="Disclaimer" isRouterLink={true} className="hover:text-white transition-colors" />
             </div>
           </div>
 

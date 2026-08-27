@@ -38,7 +38,7 @@ export const About = () => {
 
     // Mouse move effect for boxes
     const cards = cardsRef.current;
-    const handleMouseMove = (e: any, card: any) => {
+    const handleMouseMove = (e: MouseEvent, card: HTMLDivElement) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
@@ -51,7 +51,7 @@ export const About = () => {
       });
     };
     
-    const handleMouseLeave = (card: any) => {
+    const handleMouseLeave = (card: HTMLDivElement) => {
       gsap.to(card.querySelector('.glow-effect'), {
         opacity: 0,
         duration: 0.6,
@@ -62,7 +62,7 @@ export const About = () => {
     const cleanupFns: (() => void)[] = [];
     cards.forEach(card => {
       if (!card) return;
-      const onMove = (e: any) => handleMouseMove(e, card);
+      const onMove = (e: MouseEvent) => handleMouseMove(e, card);
       const onLeave = () => handleMouseLeave(card);
       card.addEventListener("mousemove", onMove);
       card.addEventListener("mouseleave", onLeave);

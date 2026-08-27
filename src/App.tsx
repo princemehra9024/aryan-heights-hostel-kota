@@ -12,6 +12,11 @@ const Index = lazy(() => import("./pages/Index.tsx"));
 const RoomsPage = lazy(() => import("./pages/Rooms.tsx"));
 const ContactPage = lazy(() => import("./pages/Contact.tsx"));
 const PartnerPage = lazy(() => import("./pages/Partner.tsx"));
+const BlogPage = lazy(() => import("./pages/Blog.tsx"));
+const BlogPostPage = lazy(() => import("./pages/BlogPost.tsx"));
+const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicy.tsx"));
+const TermsOfServicePage = lazy(() => import("./pages/TermsOfService.tsx"));
+const DisclaimerPage = lazy(() => import("./pages/Disclaimer.tsx"));
 const NotFound = lazy(() => import("./pages/NotFound.tsx"));
 
 
@@ -31,6 +36,15 @@ const App = () => (
                 <Route path="/rooms" element={<RoomsPage />} />
                 <Route path="/contact" element={<ContactPage />} />
                 <Route path="/partner" element={<PartnerPage />} />
+                
+                {/* Blog Routes */}
+                <Route path="/blog" element={<BlogPage />} />
+                <Route path="/blog/:id" element={<BlogPostPage />} />
+                
+                {/* Policy Routes */}
+                <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+                <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+                <Route path="/disclaimer" element={<DisclaimerPage />} />
 
                 {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
                 <Route path="*" element={<NotFound />} />

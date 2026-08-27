@@ -61,7 +61,7 @@ export const Hero = () => {
             alt="Aryan Heights hostel exterior at night" 
             className="absolute inset-0 w-full h-full object-cover" 
             loading="eager"
-            // @ts-ignore
+            // @ts-expect-error React types missing fetchpriority
             fetchpriority="high"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/50 pointer-events-none" />
