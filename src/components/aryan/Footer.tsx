@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 
 import { useTheme } from "@/context/ThemeContext";
+import { ExecutivePlansCard } from "./ExecutivePlansCard";
 
 const AnimatedLink = ({ href, text, className, textClass, isRouterLink = false }: { href: string, text: string, className?: string, textClass?: string, isRouterLink?: boolean }) => {
   const content = (
@@ -136,6 +137,9 @@ export const Footer = () => {
                         className={`font-display text-xl uppercase tracking-widest text-white/80 hover:text-white transition-colors`}
                       />
                     ))}
+                  </div>
+                  <div className="mt-12 z-20 hover:z-30 transform origin-left scale-[0.7] sm:scale-75 lg:scale-90 xl:scale-100">
+                    <ExecutivePlansCard />
                   </div>
                 </div>
               </div>
