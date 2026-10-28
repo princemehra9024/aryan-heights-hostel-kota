@@ -10,11 +10,11 @@ gsap.registerPlugin(ScrollTrigger);
 export const Wardens = () => {
   const root = useRef<HTMLElement>(null);
   const [activeImg, setActiveImg] = useState(0);
-  const images = [founderImg, ownerImg];
+  const images = [ownerImg, founderImg];
   const { openLightbox } = useLightbox();
   const wardenImgs = [
-    { src: founderImg, alt: "Sh. Mukesh Bhatnagar – Founder, Aryan Heights" },
     { src: ownerImg,   alt: "Aryan Bhatnagar – Owner, Aryan Heights" },
+    { src: founderImg, alt: "Sh. Mukesh Bhatnagar – Founder, Aryan Heights" },
   ];
 
   useEffect(() => {
@@ -115,7 +115,7 @@ export const Wardens = () => {
           <div className="fade-up group py-5 flex flex-col sm:flex-row sm:items-center justify-between border-t border-hairline relative transition-colors hover:bg-surface/30 px-4 -mx-4 rounded-lg cursor-default">
             <div className="flex items-center gap-6 mb-4 sm:mb-0">
               <span className="eyebrow text-[0.6rem] opacity-40">01</span>
-              <span className="font-display text-3xl md:text-5xl tracking-tighter transition-transform duration-500 group-hover:translate-x-2">Mr. Rajendra Sharma</span>
+              <span className="font-display text-3xl md:text-5xl tracking-tighter transition-transform duration-500 group-hover:translate-x-2">Aryan Bhatnagar</span>
             </div>
             <div className="flex flex-col items-start sm:items-end gap-1">
               <span className="eyebrow text-maroon">Founder</span>
